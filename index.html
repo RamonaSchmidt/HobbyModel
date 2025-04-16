@@ -270,60 +270,32 @@
       /* AOS Animation */
     
 @media (max-width: 768px) {
-  .language-switch {
+  .top-bar {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
     position: absolute;
-    bottom: 24px !important;
-    right: 24px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+  }
+
+  .top-bar a {
+    margin-left: 12px;
+    font-size: 14px;
+  }
+
+  .language-switch {
     color: gold !important;
     font-weight: bold;
     font-size: 14px;
     text-decoration: none;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1001;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    position: relative;
-    min-height: 100vh;
-  }
-
-  .language-switch {
-    position: absolute;
-    bottom: 32px !important;
-    right: 24px;
-    color: gold !important;
-    font-weight: bold;
-    font-size: 14px;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1001;
-  }
-}
-
-.language-switch {
-  position: absolute;
-  bottom: 32px;
-  right: 24px;
-  color: gold;
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-}
-@media (min-width: 769px) {
-  .language-switch {
-    position: fixed;
-    top: 20px;
-    right: 40px;
   }
 }
 </style>
