@@ -268,7 +268,45 @@
       @media (max-width: 480px) { .logo { width: 90px; } .gallery img { height: 200px; } }
 
       /* AOS Animation */
-    </style>
+    
+/* MOBILE OPTIMIERUNG */
+@media (max-width: 768px) {
+  .top-bar {
+    position: absolute !important;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+
+  header {
+    background-size: cover !important;
+    background-attachment: scroll !important;
+    background-position: center !important;
+    min-height: 100vh !important;
+  }
+
+  .hero-text {
+    padding-top: 120px;
+    text-align: center;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .gallery .image-wrapper {
+    max-width: 100%;
+  }
+
+  #back-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </head>
 <body class="loaded">
