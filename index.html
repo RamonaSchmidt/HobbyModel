@@ -475,9 +475,7 @@ header {
   Danke für deine Nachricht! 💌
 </div>
 </div>
-  <div id="form-success" style="display:none; color: gold; font-weight:bold; text-align:center; margin-top:1rem;">
-    Danke für deine Nachricht! 💌
-  </div>
+  
 </section>
 
 
@@ -646,16 +644,10 @@ window.addEventListener("scroll", function() {
 </div>
 
 
-<script>
-  const formsparkSubmit = Formspark.setup("TomBxw4JF");
-  document.getElementById("contact-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    await formsparkSubmit(data);
-    document.getElementById("form-success").style.display = "block";
-    e.target.reset();
-  });
-</script>
+
+
+
+
 
 
 <script>
