@@ -363,6 +363,7 @@ header {
 </style>
 
     <script src="https://cdn.formspark.io/formspark.js"></script>
+<script src="https://cdn.formspark.io/formspark.js"></script>
 </head>
 <body class="loaded">
 <!-- Passwortschutz-Overlay -->
@@ -450,27 +451,30 @@ header {
   <h2 class="lang-de" style="text-align: center; font-size: 3rem; margin-bottom: 30px;">Kontakt</h2>
   <h2 class="lang-en" style="text-align: center; font-size: 3rem; margin-bottom: 30px;">Contact</h2>
   <div class="contact" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(6px); max-width: 700px; margin: 0 auto;">
-    <form id="contact-form" class="kontakt-formular">
-      <label for="name">Name*</label>
-      <input type="text" id="name" name="name" required>
+<form id="contact-form" class="kontakt-formular">
+  <label for="name">Name*</label>
+  <input type="text" id="name" name="name" required>
 
-      <label for="email">E‑Mail*</label>
-      <input type="email" id="email" name="email" required>
+  <label for="email">E-Mail*</label>
+  <input type="email" id="email" name="email" required>
 
-      <label for="betreff">Betreff*</label>
-      <input type="text" id="betreff" name="betreff" required>
+  <label for="betreff">Betreff*</label>
+  <input type="text" id="betreff" name="betreff" required>
 
-      <label for="nachricht">Nachricht*</label>
-      <textarea id="nachricht" name="message" rows="5" required></textarea>
+  <label for="nachricht">Nachricht*</label>
+  <textarea id="nachricht" name="message" rows="5" required></textarea>
 
-      <label>
-        <input type="checkbox" name="datenschutz" required>
-        Ich stimme der <a href="#" onclick="document.getElementById('datenschutz-popup').style.display='block';return false;">Datenschutzerklärung</a> zu.
-      </label>
+  <label>
+    <input type="checkbox" name="datenschutz" required>
+    Ich stimme der <a href="#" onclick="document.getElementById('datenschutz-popup').style.display='block';return false;">Datenschutzerklärung</a> zu.
+  </label>
 
-      <button type="submit">Absenden</button>
-    </form>
-  </div>
+  <button type="submit">Absenden</button>
+</form>
+<div id="form-success" style="display:none; color: gold; font-weight:bold; text-align:center; margin-top:1rem;">
+  Danke für deine Nachricht! 💌
+</div>
+</div>
   <div id="form-success" style="display:none; color: gold; font-weight:bold; text-align:center; margin-top:1rem;">
     Danke für deine Nachricht! 💌
   </div>
@@ -648,6 +652,17 @@ window.addEventListener("scroll", function() {
     e.preventDefault();
     const data = new FormData(e.target);
     await formsparkSubmit(data);
+    document.getElementById("form-success").style.display = "block";
+    e.target.reset();
+  });
+</script>
+
+
+<script>
+  const formsparkSubmit = Formspark.setup("TomBxw4JF");
+  document.getElementById("contact-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await formsparkSubmit(new FormData(e.target));
     document.getElementById("form-success").style.display = "block";
     e.target.reset();
   });
