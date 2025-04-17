@@ -464,7 +464,7 @@ header {
 
   <label>
     <input type="checkbox" name="datenschutz" required>
-    Ich stimme der <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.
+    Ich stimme der <a href="#" onclick="document.getElementById('datenschutz-popup').style.display='block'; return false;">Datenschutzerklärung</a> zu.
   </label>
 
   <button type="submit">Absenden</button>
@@ -476,8 +476,8 @@ header {
 <footer>
 <p>© 2025 Mona Schmidt. Alle Rechte vorbehalten.</p>
 <p>
-<a href="#" onclick="document.getElementById('impressum-modal').style.display='flex'; return false;">Impressum</a> |
-        <a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;">Datenschutz</a>
+<a href="#" onclick="document.getElementById('datenschutz-popup').style.display='block'; return false;">Impressum</a> |
+        <a href="#" onclick="document.getElementById('datenschutz-popup').style.display='block'; return false;">Datenschutz</a>
 </p>
 </footer>
 <!-- Lightbox -->
@@ -606,5 +606,42 @@ window.addEventListener("scroll", function() {
   }
 });
 </script>
+
+
+<div id="datenschutz-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px; z-index: 9999; overflow: auto;">
+    <div style="position: relative; background: #333; padding: 30px; border-radius: 10px; max-width: 800px; max-height: 80vh; overflow-y: auto; margin: 50px auto; box-sizing: border-box;">
+        <span onclick="document.getElementById('datenschutz-popup').style.display='none';" style="position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer;">&times;</span>
+        <h2>Datenschutzerklärung</h2>
+
+        <h3>1. Allgemeine Hinweise</h3>
+        <p>Der Schutz deiner persönlichen Daten ist mir wichtig. Auf dieser Website werden nur so viele Daten verarbeitet, wie unbedingt nötig. Diese Erklärung gibt dir einen Überblick darüber, was mit deinen Daten passiert, wenn du meine Website besuchst.</p>
+
+        <h3>2. Verantwortliche Stelle</h3>
+        <p>Ramona Schmidt<br>E-Mail: hobbymodel292@gmail.com</p>
+
+        <h3>3. Erhebung und Nutzung personenbezogener Daten</h3>
+        <p>Beim Besuch dieser Website werden automatisch Informationen allgemeiner Natur erfasst (z. B. IP-Adresse, Browsertyp, Datum/Uhrzeit). Diese Daten dienen ausschließlich der Sicherstellung eines technisch fehlerfreien Betriebs und werden nicht zur Identifizierung verwendet. Wenn du das Kontaktformular nutzt, werden dein Name, deine E-Mail-Adresse und deine Nachricht per E-Mail an mich weitergeleitet (über dein Mailprogramm) – es erfolgt keine Speicherung auf einem Server.</p>
+
+        <h3>4. Einbindung externer Inhalte</h3>
+        <p>Auf dieser Seite ist ein Spotify-Player eingebunden. Beim Laden dieses Players können Daten wie deine IP-Adresse an Spotify (Spotify AB, Schweden) übermittelt werden. Außerdem ist ein Link zu Instagram eingebunden. Beim Anklicken verlässt du diese Seite und es gelten die Datenschutzrichtlinien von Instagram (Meta Platforms Ireland Ltd.).</p>
+
+        <h3>5. Deine Rechte</h3>
+        <ul>
+            <li>Auskunft über deine gespeicherten Daten</li>
+            <li>Berichtigung oder Löschung dieser Daten</li>
+            <li>Einschränkung der Verarbeitung</li>
+            <li>Widerspruch gegen die Verarbeitung</li>
+            <li>Datenübertragbarkeit</li>
+        </ul>
+        <p>Du kannst dich außerdem bei der zuständigen Datenschutzbehörde beschweren.</p>
+
+        <h3>6. SSL-Verschlüsselung</h3>
+        <p>Diese Website nutzt eine SSL-Verschlüsselung (https), um deine Daten bei der Übertragung zu schützen.</p>
+
+        <h3>7. Keine Cookies oder Tracking</h3>
+        <p>Diese Website verwendet keine Cookies und kein Analyse- oder Trackingtool wie Google Analytics.</p>
+    </div>
+</div>
+
 </body>
 </html>
