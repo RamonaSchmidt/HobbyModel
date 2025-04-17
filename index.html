@@ -148,6 +148,39 @@
         height: auto;
         opacity: 0.95;
         z-index: 5;
+        padding: 5px;
+        border: 2px solid;
+        border-image: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) 1;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.5),
+                    0 0 20px rgba(212, 175, 55, 0.3),
+                    0 0 30px rgba(212, 175, 55, 0.1);
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(2px);
+      }
+      .logo path:not([fill="black"]) {
+        stroke: url(#goldGradient);
+        stroke-width: 2;
+        fill: none;
+      }
+      .logo text {
+        fill: black;
+      }
+      .logo circle {
+        fill: black;
+        stroke: url(#goldGradient);
+        stroke-width: 2;
+      }
+      .logo svg {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+      .logo svg defs {
+        position: absolute;
+      }
+      .logo svg linearGradient {
+        position: absolute;
       }
       @media (max-width: 1024px) { .logo { width: 140px; top: 15px; right: 20px; } }
       @media (max-width: 768px) { .logo { width: 110px; } }
@@ -367,6 +400,124 @@ h1, h2 {
   animation: shimmer 12s infinite ease-in-out;
   background-size: 200% auto;
 }
+
+/* Hero Text Effekte */
+.hero-text h1 {
+  font-family: 'AlexBrush', cursive;
+  font-size: 6rem;
+  color: white;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(212, 175, 55, 0.5),
+    0 0 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.hero-text p {
+  font-family: 'AlexBrush', cursive;
+  font-size: 2.6rem;
+  color: white;
+  font-weight: normal;
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(212, 175, 55, 0.4),
+    0 0 15px rgba(212, 175, 55, 0.2);
+  position: relative;
+  animation: subtleGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(212, 175, 55, 0.5),
+      0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  to {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(212, 175, 55, 0.6),
+      0 0 25px rgba(212, 175, 55, 0.4),
+      0 0 35px rgba(212, 175, 55, 0.2);
+  }
+}
+
+@keyframes subtleGlow {
+  from {
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 8px rgba(212, 175, 55, 0.4),
+      0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  to {
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(212, 175, 55, 0.5),
+      0 0 20px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Instagram Button Styling */
+.hero-insta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(255,255,255,0.05);
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) 1;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-insta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.hero-insta:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(212, 175, 55, 0.5),
+    0 0 25px rgba(212, 175, 55, 0.3);
+  border-image: linear-gradient(45deg, #ffd700, #c0c0c0, #ffd700) 1;
+}
+
+.hero-insta:hover::before {
+  left: 100%;
+}
+
+.hero-insta svg {
+  transition: transform 0.3s ease;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-insta:hover svg {
+  transform: scale(1.1);
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
@@ -423,16 +574,27 @@ h1, h2 {
 <!-- Hero-Bereich -->
 <header id="home" style="background-attachment: fixed; background-size: cover; background-position: center;">
 <img alt="Logo" class="logo" src="images/logo.png"/>
+<svg style="position: absolute; width: 0; height: 0;">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
 <div class="gradient-overlay"></div>
 <div class="hero-text">
 <h1 style="font-family: 'AlexBrush', cursive; font-size: 6rem; color: white;">Mona Schmidt</h1>
 <p class="lang-de" style="font-family: 'AlexBrush', cursive; font-size: 2.6rem; color: white; font-weight: normal;">Natürlich. Echt. MONA.</p>
 <p class="lang-en" style="font-family: 'AlexBrush', cursive; font-size: 2.6rem; color: white; font-weight: normal;">Natural. Real. MONA.</p>
-<a class="hero-insta" href="https://instagram.com/mona_292_" style="display: inline-block; margin-top: 20px; font-size: 20px; color: gold; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 30px; border: 2px solid gold;" target="_blank" title="Instagram">
-<svg fill="currentColor" height="36" style="color: gold;" viewbox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.963.24 2.414.403a4.919 4.919 0 011.675 1.093 4.919 4.919 0 011.093 1.675c.163.451.347 1.244.403 2.414.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.963-.403 2.414a4.919 4.919 0 01-1.093 1.675 4.919 4.919 0 01-1.675 1.093c-.451.163-1.244.347-2.414.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.963-.24-2.414-.403a4.919 4.919 0 01-1.675-1.093 4.919 4.919 0 01-1.093-1.675c-.163-.451-.347-1.244-.403-2.414C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.963.403-2.414a4.919 4.919 0 011.093-1.675 4.919 4.919 0 011.675-1.093c.451-.163 1.244-.347 2.414-.403C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.013 7.052.072 5.775.131 4.68.322 3.757.659a7.078 7.078 0 00-2.58 1.664A7.078 7.078 0 00.659 4.903C.322 5.826.131 6.921.072 8.198.013 9.478 0 9.881 0 12c0 2.119.013 2.522.072 3.802.059 1.277.25 2.372.587 3.295a7.078 7.078 0 001.664 2.58 7.078 7.078 0 002.58 1.664c.923.337 2.018.528 3.295.587 1.28.059 1.683.072 3.802.072s2.522-.013 3.802-.072c1.277-.059 2.372-.25 3.295-.587a7.078 7.078 0 002.58-1.664 7.078 7.078 0 001.664-2.58c.337-.923.528-2.018.587-3.295.059-1.28.072-1.683.072-3.802s-.013-2.522-.072-3.802c-.059-1.277-.25-2.372-.587-3.295a7.078 7.078 0 00-1.664-2.58A7.078 7.078 0 0020.243.659c-.923-.337-2.018-.528-3.295-.587C14.522.013 14.119 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"></path>
-</svg>
-</a></div>
+<a class="hero-insta" href="https://instagram.com/mona_292_" target="_blank" title="Instagram">
+  <svg fill="currentColor" height="48" style="color: gold;" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.963.24 2.414.403a4.919 4.919 0 011.675 1.093 4.919 4.919 0 011.093 1.675c.163.451.347 1.244.403 2.414.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.963-.403 2.414a4.919 4.919 0 01-1.093 1.675 4.919 4.919 0 01-1.675 1.093c-.451.163-1.244.347-2.414.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.963-.24-2.414-.403a4.919 4.919 0 01-1.675-1.093 4.919 4.919 0 01-1.093-1.675c-.163-.451-.347-1.244-.403-2.414C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.963.403-2.414a4.919 4.919 0 011.093-1.675 4.919 4.919 0 011.675-1.093c.451-.163 1.244-.347 2.414-.403C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.013 7.052.072 5.775.131 4.68.322 3.757.659a7.078 7.078 0 00-2.58 1.664A7.078 7.078 0 00.659 4.903C.322 5.826.131 6.921.072 8.198.013 9.478 0 9.881 0 12c0 2.119.013 2.522.072 3.802.059 1.277.25 2.372.587 3.295a7.078 7.078 0 001.664 2.58 7.078 7.078 0 002.58 1.664c.923.337 2.018.528 3.295.587 1.28.059 1.683.072 3.802.072s2.522-.013 3.802-.072c1.277-.059 2.372-.25 3.295-.587a7.078 7.078 0 002.58-1.664 7.078 7.078 0 001.664-2.58c.337-.923.528-2.018.587-3.295.059-1.28.072-1.683.072-3.802s-.013-2.522-.072-3.802c-.059-1.277-.25-2.372-.587-3.295a7.078 7.078 0 00-1.664-2.58A7.078 7.078 0 0020.243.659c-.923-.337-2.018-.528-3.295-.587C14.522.013 14.119 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"></path>
+  </svg>
+</a>
+<p class="follow-text" style="color: gold; font-family: 'AlexBrush', cursive; font-size: 1.8rem; margin-top: 10px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);">Jeder Follow wird angenommen ! ❤️</p>
+</div>
 </header>
 <!-- Über Mich -->
 <section data-aos="fade-up" data-aos-duration="1200" id="about">
@@ -480,7 +642,7 @@ h1, h2 {
 </section>
 
 <!-- Kontaktformular -->
-<section data-aos="fade-up" data-aos-duration="1200" id="contact">
+<section data-aos="fade-up" data-aos-duration="1200" id="contact" style="margin-bottom: 100px;">
   <h2 class="lang-de" style="text-align: center; font-size: 3rem; margin-bottom: 30px;">Kontakt</h2>
   <h2 class="lang-en" style="text-align: center; font-size: 3rem; margin-bottom: 30px;">Contact</h2>
   <div class="contact" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(6px); max-width: 700px; margin: 0 auto;">
