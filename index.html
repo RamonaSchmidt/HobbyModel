@@ -477,15 +477,18 @@ h1, h2 {
   justify-content: center;
   margin-top: 20px;
   font-size: 28px;
-  color: gold;
+  color: #d4af37;
   text-decoration: none;
   font-weight: bold;
   background: rgba(255,255,255,0.05);
   padding: 18px 36px;
   border-radius: 30px;
+  backdrop-filter: blur(4px);
   border: 2px solid;
   border-image: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) 1;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 0 10px rgba(212, 175, 55, 0.3),
+    0 0 20px rgba(212, 175, 55, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -953,6 +956,29 @@ h1, h2 {
     overflow-y: auto;
   }
 }
+
+@keyframes shimmer {
+  0% { background-position: -100% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: -100% center; }
+}
+
+/* Mobile Optimierung für den Follow-Text */
+@media (max-width: 768px) {
+  .follow-text {
+    font-size: 1.5rem !important;
+    margin-top: 15px !important;
+    padding: 0 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .follow-text {
+    font-size: 1.3rem !important;
+    margin-top: 10px !important;
+    padding: 0 10px !important;
+  }
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -1034,17 +1060,44 @@ h1, h2 {
 </header>
 <!-- Über Mich -->
 <section data-aos="fade-up" data-aos-duration="1200" id="about">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-    <h2 class="lang-de" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px;">Über Mich</h2>
-    <h2 class="lang-en" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px;">About Me</h2>
-    <p class="lang-de" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Hey, ich bin Ramona – aber alle nennen mich Mona.</p>
-    <p class="lang-de" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Ich bin 32 Jahre jung und das, was man wohl ein Hobbymodel mit Herz nennt. Vor der Kamera zu stehen ist für mich keine Bühne – es ist mein Spielplatz.</p>
-    <p class="lang-de" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Ob Street Fashion, Portrait, Lifestyle, Fine Art, Lookbook, Beauty Editorial, Retro, Romantic oder auch mal ein bisschen Conceptual – ich liebe es, in neue Rollen zu schlüpfen und dabei trotzdem immer ich selbst zu bleiben.</p>
-    <p class="lang-de" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Ich bin kein Supermodel (noch nicht 😉), aber dafür echt, kreativ und leidenschaftlich. Und wenn du Lust hast, mit mir gemeinsam etwas Schönes zu erschaffen – dann schreib mir einfach. Ich freu mich drauf! ❤️</p>
-    <p class="lang-en" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Hey, I'm Ramona – but everyone calls me Mona.</p>
-    <p class="lang-en" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">I'm 32 years old and what you'd probably call a hobby model with heart. Standing in front of the camera isn't a stage for me – it's my playground.</p>
-    <p class="lang-en" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">Whether it's Street Fashion, Portrait, Lifestyle, Fine Art, Lookbook, Beauty Editorial, Retro, Romantic, or a bit of Conceptual – I love slipping into new styles while always staying true to myself.</p>
-    <p class="lang-en" style="max-width: 800px; margin: 0 auto 1.5rem auto; text-align: center; font-size: 1.25rem; line-height: 2; font-family: 'Montserrat', sans-serif;">I'm not a supermodel (yet 😉), but I am real, creative, and passionate. If you're up for creating something beautiful together – hit me up. I'm looking forward to hearing from you! ❤️</p>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative;">
+    <!-- Dekorative Linie oben -->
+    <div style="width: 150px; height: 2px; background: linear-gradient(90deg, transparent, #d4af37, transparent); margin: 0 auto 40px;"></div>
+    
+    <h2 class="lang-de" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); animation: shimmer 12s infinite ease-in-out; background-size: 200% auto;">
+      Über Mich
+    </h2>
+
+    <div style="max-width: 800px; margin: 0 auto; text-align: center; position: relative;">
+      <!-- Dekorative Elemente -->
+      <div style="position: absolute; top: 0; left: -40px; width: 30px; height: 30px; border-left: 2px solid #d4af37; border-top: 2px solid #d4af37; opacity: 0.4;"></div>
+      <div style="position: absolute; top: 0; right: -40px; width: 30px; height: 30px; border-right: 2px solid #d4af37; border-top: 2px solid #d4af37; opacity: 0.4;"></div>
+      
+      <!-- Einleitender Text mit Highlight -->
+      <p class="lang-de" style="font-size: 1.4rem; margin-bottom: 30px; color: #d4af37; font-family: 'Playfair Display', serif;">
+        Hey, ich bin Ramona – aber alle nennen mich Mona.
+      </p>
+      
+      <!-- Haupttext mit verbessertem Styling -->
+      <div style="background: rgba(20,20,20,0.3); padding: 30px; border-radius: 15px; margin: 20px 0; backdrop-filter: blur(6px); line-height: 1.8;">
+        <p class="lang-de" style="margin-bottom: 20px; font-size: 1.25rem;">
+          Ich bin 32 Jahre jung und das, was man wohl ein Hobbymodel mit Herz nennt. Vor der Kamera zu stehen ist für mich keine Bühne – es ist mein Spielplatz.
+        </p>
+        <p class="lang-de" style="margin-bottom: 20px; font-size: 1.25rem;">
+          Ob Street Fashion, Portrait, Lifestyle, Fine Art, Lookbook, Beauty Editorial, Retro, Romantic oder auch mal ein bisschen Conceptual – ich liebe es, in neue Rollen zu schlüpfen und dabei trotzdem immer ich selbst zu bleiben.
+        </p>
+        <p class="lang-de" style="font-size: 1.25rem;">
+          Ich bin kein Supermodel (noch nicht 😉), aber dafür echt, kreativ und leidenschaftlich. Und wenn du Lust hast, mit mir gemeinsam etwas Schönes zu erschaffen – dann schreib mir einfach. Ich freu mich drauf! ❤️
+        </p>
+      </div>
+      
+      <!-- Dekorative Elemente unten -->
+      <div style="position: absolute; bottom: 0; left: -40px; width: 30px; height: 30px; border-left: 2px solid #d4af37; border-bottom: 2px solid #d4af37; opacity: 0.4;"></div>
+      <div style="position: absolute; bottom: 0; right: -40px; width: 30px; height: 30px; border-right: 2px solid #d4af37; border-bottom: 2px solid #d4af37; opacity: 0.4;"></div>
+    </div>
+    
+    <!-- Dekorative Linie unten -->
+    <div style="width: 150px; height: 2px; background: linear-gradient(90deg, transparent, #d4af37, transparent); margin: 40px auto 0;"></div>
   </div>
 </section>
 
