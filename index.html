@@ -291,14 +291,25 @@
       @media (max-width: 1024px) { .logo { width: 140px; top: 15px; right: 20px; } }
       @media (max-width: 768px) {
         .logo { width: 100px; top: 12px; right: 15px; }
-        .hero-text h1 { font-size: 2.2rem; }
-        .hero-text p { font-size: 1rem; }
+        .hero-text h1 { font-size: 4rem !important; margin-top: 20px; }
+        .hero-text p { font-size: 2rem !important; margin-top: 10px; }
         .gallery img { height: 250px; }
         section h2 { font-size: 2rem; }
         section p { font-size: 1rem; padding: 0 10px; }
         .contact input, .contact textarea { font-size: 0.95rem; }
+        .follow-text { font-size: 1.4rem !important; }
+        .hero-insta { font-size: 16px !important; padding: 8px 16px !important; margin-top: 10px; }
+        .hero-insta svg { width: 32px !important; height: 32px !important; }
       }
-      @media (max-width: 480px) { .logo { width: 80px; top: 10px; right: 10px; } .gallery img { height: 200px; } }
+      @media (max-width: 480px) {
+        .logo { width: 80px; top: 10px; right: 10px; }
+        .gallery img { height: 200px; }
+        .hero-text h1 { font-size: 3.5rem !important; }
+        .hero-text p { font-size: 1.8rem !important; }
+        .follow-text { font-size: 1.2rem !important; }
+        .hero-insta { font-size: 14px !important; padding: 6px 12px !important; }
+        .hero-insta svg { width: 28px !important; height: 28px !important; }
+      }
 
       /* AOS Animation */
     
@@ -526,21 +537,44 @@ h1, h2 {
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 6rem;
+    font-size: 4rem !important;
+    margin-top: 20px;
   }
   .hero-text p {
-    font-size: 2.6rem;
+    font-size: 2rem !important;
+    margin-top: 10px;
   }
   .follow-text {
-    font-size: 1.8rem !important;
+    font-size: 1.4rem !important;
   }
   .hero-insta {
-    font-size: 20px;
-    padding: 12px 24px;
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+    margin-top: 10px;
   }
   .hero-insta svg {
-    width: 48px;
-    height: 48px;
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 3.5rem !important;
+  }
+  .hero-text p {
+    font-size: 1.8rem !important;
+  }
+  .follow-text {
+    font-size: 1.2rem !important;
+  }
+  .hero-insta {
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+  }
+  .hero-insta svg {
+    width: 28px !important;
+    height: 28px !important;
   }
 }
 </style>
