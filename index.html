@@ -1059,6 +1059,74 @@ h1, h2 {
     padding: 0 10px !important;
   }
 }
+
+/* Tablet Portrait (Hochformat) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .logo {
+    width: 120px;
+    top: 20px;
+    right: 25px;
+    padding: 4px;
+  }
+
+  .hero-text h1 {
+    font-size: 6rem !important;
+  }
+
+  .hero-text p {
+    font-size: 3rem !important;
+  }
+}
+
+/* Tablet Landscape (Querformat) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero-text {
+    padding-top: 80px !important;
+  }
+
+  .hero-text h1 {
+    font-size: 4.5rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero-text p {
+    font-size: 2.2rem !important;
+  }
+
+  .logo {
+    width: 80px !important;
+    top: 10px !important;
+    right: 20px !important;
+    padding: 3px !important;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+  }
+
+  header {
+    height: 100vh;
+    min-height: 600px;
+  }
+
+  nav {
+    padding: 8px 0;
+  }
+
+  nav ul {
+    margin-bottom: 10px;
+  }
+
+  .hero-insta {
+    transform: scale(0.9);
+    margin-top: 10px !important;
+  }
+
+  .follow-text {
+    font-size: 1.5rem !important;
+    margin-top: 10px !important;
+  }
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
