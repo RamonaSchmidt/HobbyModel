@@ -1284,6 +1284,35 @@ h1::after, h2::after, h3::after {
     padding-top: 60px;
   }
 }
+
+/* Überschriften in den Formularen ohne Unterstreichung */
+.contact h3::after,
+.guestbook-form h3::after,
+.kontakt-formular h3::after {
+  display: none;
+}
+
+.contact h3,
+.guestbook-form h3,
+.kontakt-formular h3 {
+  padding-bottom: 0;
+  margin-bottom: 30px;
+}
+
+/* Bestehende Überschriften-Styles bleiben für andere h3 erhalten */
+h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
+  background-size: 200% auto;
+  animation: shimmer 12s infinite ease-in-out;
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
