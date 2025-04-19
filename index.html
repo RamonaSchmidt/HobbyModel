@@ -122,42 +122,72 @@
         border: none; border-radius: 6px; cursor: pointer;
       }
 
-      /* Top-Bar (DE/EN + Instagram) */
-      .top-bar {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        display: flex;
-        gap: 12px;
-        background: rgba(0,0,0,0.4);
-        padding: 6px 12px;
-        border-radius: 16px;
-        z-index: 10;
-        backdrop-filter: blur(4px);
-      }
-      .top-bar a { color: gold; font-weight: bold; }
-
-      /* Navigation */
+      /* Top-Bar und Navigation kombiniert */
       nav {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: rgba(0,0,0,0.85);
         padding: 15px 0;
         z-index: 10;
+        backdrop-filter: blur(4px);
       }
-      nav ul {
+      
+      .nav-container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+      
+      .nav-left {
+        display: flex;
+        gap: 12px;
+      }
+      
+      .nav-left a {
+        color: #d4af37;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      
+      .nav-right ul {
         list-style: none;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 20px;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
       }
-      nav ul li { margin: 0 15px; }
-      nav ul li a { color: #fff; font-weight: bold; }
-      nav ul li a:hover {
+      
+      .nav-right ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-right ul li a:hover {
         color: #d4af37;
-        text-shadow: 0 0 5px #d4af37;
+      }
+
+      @media (max-width: 768px) {
+        .nav-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+        
+        .nav-right ul {
+          gap: 20px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
       }
 
       /* Hero-Bereich */
@@ -1546,6 +1576,71 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
     left: 10px !important;
   }
 }
+
+/* Navigation Styling */
+nav {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
+}
+
+nav:hover {
+  background: rgba(0,0,0,0.95) !important;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 5px 10px;
+}
+
+nav ul li a:hover {
+  color: #d4af37;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 0;
+  }
+  
+  nav ul li {
+    margin: 0 8px;
+  }
+  
+  nav ul li a {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  nav {
+    padding: 8px 0;
+  }
+  
+  nav ul li a {
+    font-size: 13px;
+    padding: 2px 4px;
+  }
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -1578,11 +1673,97 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
     <script>
       function toggleLanguage() {
         const isEN = document.body.classList.toggle("lang-en");
-        document.querySelectorAll(".lang-de").forEach(el => el.style.display = isEN ? "none" : "block");
-        document.querySelectorAll(".lang-en").forEach(el => el.style.display = isEN ? "block" : "none");
+        
+        // Alle deutschen Elemente
+        document.querySelectorAll('.lang-de').forEach(el => {
+          el.style.display = isEN ? 'none' : 'block';
+        });
+        
+        // Alle englischen Elemente
+        document.querySelectorAll('.lang-en').forEach(el => {
+          el.style.display = isEN ? 'block' : 'none';
+        });
+
+        // Spezielle Übersetzungen für Buttons und Formulare
+        if (isEN) {
+          // Englische Texte
+          document.querySelector('#contact-form button').textContent = 'Submit';
+          document.querySelector('#guestbook-form button').textContent = 'Submit Entry';
+          document.querySelectorAll('label[for="name"]').forEach(label => label.textContent = 'Name*');
+          document.querySelectorAll('label[for="email"]').forEach(label => label.textContent = 'Email*');
+          document.querySelectorAll('label[for="betreff"]').forEach(label => label.textContent = 'Subject*');
+          document.querySelectorAll('label[for="nachricht"]').forEach(label => label.textContent = 'Message*');
+          document.querySelectorAll('label[for="guestbook-message"]').forEach(label => label.textContent = 'Message*');
+          document.querySelectorAll('label[for="guestbook-role"]').forEach(label => label.textContent = 'Role*');
+        } else {
+          // Deutsche Texte
+          document.querySelector('#contact-form button').textContent = 'Absenden';
+          document.querySelector('#guestbook-form button').textContent = 'Eintrag absenden';
+          document.querySelectorAll('label[for="name"]').forEach(label => label.textContent = 'Name*');
+          document.querySelectorAll('label[for="email"]').forEach(label => label.textContent = 'E-Mail*');
+          document.querySelectorAll('label[for="betreff"]').forEach(label => label.textContent = 'Betreff*');
+          document.querySelectorAll('label[for="nachricht"]').forEach(label => label.textContent = 'Nachricht*');
+          document.querySelectorAll('label[for="guestbook-message"]').forEach(label => label.textContent = 'Nachricht*');
+          document.querySelectorAll('label[for="guestbook-role"]').forEach(label => label.textContent = 'Rolle*');
+        }
       }
+
+      // Initial Setup
+      document.addEventListener('DOMContentLoaded', () => {
+        // Standardmäßig deutsche Version anzeigen
+        document.querySelectorAll('.lang-en').forEach(el => {
+          el.style.display = 'none';
+        });
+      });
     </script>
-    <style> .lang-en { display: none; } </style>
+
+    <style>
+    /* Übersetzungs-Styling */
+    .lang-en {
+      display: none;
+    }
+
+    /* Verhindere, dass Elemente verschwinden */
+    .lang-de, .lang-en {
+      transition: opacity 0.3s ease;
+    }
+
+    /* Stelle sicher, dass Container ihre Höhe behalten */
+    section, div {
+      min-height: fit-content;
+    }
+
+    /* Stelle sicher, dass Navigations-Links nebeneinander bleiben */
+    nav ul li a.lang-de,
+    nav ul li a.lang-en {
+      display: inline-block;
+    }
+
+    /* Verbesserte Sichtbarkeit für aktive Sprache */
+    body:not(.lang-en) .lang-de,
+    body.lang-en .lang-en {
+      opacity: 1;
+    }
+    </style>
+
+    <!-- Aktualisierte Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="nav-left">
+          <a href="#" onclick="setLanguage('de')">DE</a>
+          <a href="#" onclick="setLanguage('en')">EN</a>
+          <a href="https://instagram.com/mona_292_" target="_blank">Instagram</a>
+        </div>
+        <div class="nav-right">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 </head>
 <body class="loaded">
 <!-- Passwortschutz-Overlay -->
@@ -1592,12 +1773,12 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
 <button onclick="toggleLanguage()" style="padding: 6px 12px; border-radius: 20px; background: black; color: #d4af37; font-weight: bold; border: 1px solid #d4af37; cursor: pointer;">DE | EN</button>
 </div>
 <!-- Navigation -->
-<nav>
+<nav style="position: sticky; top: 0; width: 100%; background: rgba(0,0,0,0.85); padding: 15px 0; z-index: 1000;">
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">Über Mich</a></li>
-<li><a href="#gallery">Galerie</a></li>
-<li><a href="#contact">Kontakt</a></li>
+<li><a href="#home" class="lang-de">Home</a><a href="#home" class="lang-en" style="display: none;">Home</a></li>
+<li><a href="#about" class="lang-de">Über Mich</a><a href="#about" class="lang-en" style="display: none;">About Me</a></li>
+<li><a href="#gallery" class="lang-de">Galerie</a><a href="#gallery" class="lang-en" style="display: none;">Gallery</a></li>
+<li><a href="#contact" class="lang-de">Kontakt</a><a href="#contact" class="lang-en" style="display: none;">Contact</a></li>
 </ul>
 </nav>
 <!-- Hero-Bereich -->
@@ -1995,7 +2176,7 @@ document.querySelectorAll('input, textarea').forEach(input => {
 <h2 style="text-align:center; font-family:'Playfair Display', serif;">Impressum</h2>
 <p><strong>Angaben gemäß § 5 TMG</strong><br/>
     Ramona Schmidt<br/>
-    E-Mail: <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAaCAYAAAATvZxHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADm0lEQVR4nO2cT2hcVRTGfzdTYqF/wKXSRQUhJo1U2mXpUhdSKEgFQXCbgrgQsnTlwlLJpgtRiFWXdiWl2m0RtIiu6kYQw81krBBcWBdKiziZSQqK4mRO9+N6H5c3LyG5Z4bJ/eCbxT3nnfvNfPe+d+67r6BERInj+BjwFrAEzACXVfVnI68EvAKcBiaBBvA58L6q/gnkjHVT4WTNM4d9vxs4DnwEPAO88gDnO9I2W4nbPwcGgRNAP/ALMFV1g1EUT7rXDuAc8BBwFZhQ1QVfHNa0FfhBbXdj7QTw9oN0QD2qfT/+EpG7g6Lef8ek1Ul9GpDjqZpXC44D3dXv2yUi3wFDO3Ql4UBdSTg0mzT2+zHgLLAGvA28D/QCX4jII8OQLRYRFsBF4A/gMHAEeApo+OIT4A9gFHgROA+8CLzm7h8AJgJzjJL4MIDf75tACzgDjAC3gE9EZJ9DvqNt1/Xv6xmI4/gi0NHxcvxeRBaD/a7/8a3hcL9Xge+BQ257B/C4iOQc8a15K/CDWmtYx6z97nWvAPwG7Nf2QX1QRG7pfw/oBOATAGCPl7Ng7jf8RH9qmgDdatvmpSx4GbPZMhxT1ddNtCYiz4vIFRG5CbwOvGlMOSHZF8BP7v4RY5pS1TejKLrQbDY/z+Vyr9o9RkTOe+JzCZsigI5qW+t1NMM4vhyZDz1zXlZ0W72NTn2ZcrQkSkF8nR1AFEU3VfXLLeLIrLFWq82p6rc259bYuVqtXjWu7SLSozt3TGG9f1+p/OruD/GwVwn9R+BoAJePgR/NtUdVF+I4fvlev3Ec7wZy9vMFB7PfL4APt7jvFPCEud6ptuuO/VeOJIcDHdWn51iS/2uo6npCvyRfnC0R5nytVvvbDGZUdT2KIjEOe+t4HEA+f7i/e3YSaZ/vKRHZ5mZLV9y1J6LsHcBzzrYA3BYRPxO6YD4vZTDnMhv39Ut3AHR027rX3VFt7Jjy+8RI3xHZpK+dOhI28WspWuLZY22LtEb+uQOEYUHuZ0TkZ+ALfzEhYTUb9NnS7MrwfJO0Q1tCOKHY7WFxnCDYzE99qR0/w+54aOQxW2YfX72JKy3Rb8D4vQp8aJNEwurZpK9wA8SUtdKzlzQN4ygJ44dw4gj39lLbfwT7DGfgBcf8yWxc7whHx2k5tMXrM63G+n+M1O/Wfo8Bt9vE0lQJXdR2ZyOjf+YTr99O/t+T+f179Tjpzw8A9j0l1w5h3b0AAAAASUVORK5CYII=" alt="E-Mail-Adresse" style="vertical-align: middle;"></p>
+    E-Mail: <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAaCAYAAAATvZxHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADm0lEQVR4nO2cT2hcVRTGfzdTYqF/wKXSRQUhJo1U2mXpUhdSKEgFQXCbgrgQsnTlwlLJpgtRiFWXdiWl2m0RtIiu6kYQw81krBBcWBdKiziZSQqK4mRO9+N6H5c3LyG5Z4bJ/eCbxT3nnfvNfPe+d+67r6BERInj+BjwFrAEzACXVfVnI68EvAKcBiaBBvA58L6q/gnkjHVT4WTNM4d9vxs4DnwEPAO88gDnO9I2W4nbPwcGgRNAP/ALMFV1g1EUT7rXDuAc8BBwFZhQ1QVfHNa0FfhBbXdj7QTw9oN0QD2qfT/+EpG7g6Lef8ek1Ul9GpDjqZpXC44D3dXv2yUi3wFDO3Ql4UBdSTg0mzT2+zHgLLAGvA28D/QCX4jII8OQLRYRFsBF4A/gMHAEeApo+OIT4A9gFHgROA+8CLzm7h8AJgJzjJL4MIDf75tACzgDjAC3gE9EZJ9DvqNt1/Xv6xmI4/gi0NHxcvxeRBaD/a7/8a3hcL9Xge+BQ257B/C4iOQc8a15K/CDWmtYx6z97nWvAPwG7Nf2QX1QRG7pfw/oBOATAGCPl7Ng7jf8RH9qmgDdatvmpSx4GbPZMhxT1ddNtCYiz4vIFRG5CbwOvGlMOSHZF8BP7v4RY5pS1TejKLrQbDY/z+Vyr9q9RkTOe+JzCZsigI5qW+t1NMM4vhyZDz1zXlZ0W72NTn2ZcrQkSkF8nR1AFEU3VfXLLeLIrLFWq82p6rc259bYuVqtXjWu7SLSozt3TGG9f1+p/OruD/GwVwn9R+BoAJePgR/NtUdVF+I4fvlev3Ec7wZy9vMFB7PfL4APt7jvFPCEud6ptuuO/VeOJIcDHdWn51iS/2uo6npCvyRfnC0R5nytVvvbDGZUdT2KIjEOe+t4HEA+f7i/e3YSaZ/vKRHZ5mZLV9y1J6LsHcBzzrYA3BYRPxO6YD4vZTDnMhv39Ut3AHR027rX3VFt7Jjy+8RI3xHZpK+dOhI28WspWuLZY22LtEb+uQOEYUHuZ0TkZ+ALfzEhYTUb9NnS7MrwfJO0Q1tCOKHY7WFxnCDYzE99qR0/w+54aOQxW2YfX72JKy3Rb8D4vQp8aJNEwurZpK9wA8SUtdKzlzQN4ygJ44dw4gj39lLbfwT7DGfgBcf8yWxc7whHx2k5tMXrM63G+n+M1O/Wfo8Bt9vE0lQJXdR2ZyOjf+YTr99O/t+T+f179Tjpzw8A9j0l1w5h3b0AAAAASUVORK5CYII=" alt="E-Mail-Adresse" style="vertical-align: middle;"></p>
 </div>
 </div>
 <script>AOS.init({ once: true });</script>
@@ -2046,7 +2227,7 @@ window.addEventListener("scroll", function() {
     <h3>1. Allgemeine Hinweise</h3>
     <p>Der Schutz deiner persönlichen Daten ist mir wichtig. Auf dieser Website werden nur so viele Daten verarbeitet, wie unbedingt nötig. Diese Erklärung gibt dir einen Überblick darüber, was mit deinen Daten passiert, wenn du meine Website besuchst.</p>
     <h3>2. Verantwortliche Stelle</h3>
-    <p>Ramona Schmidt<br>E-Mail: <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAaCAYAAAATvZxHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADm0lEQVR4nO2cT2hcVRTGfzdTYqF/wKXSRQUhJo1U2mXpUhdSKEgFQXCbgrgQsnTlwlLJpgtRiFWXdiWl2m0RtIiu6kYQw81krBBcWBdKiziZSQqK4mRO9+N6H5c3LyG5Z4bJ/eCbxT3nnfvNfPe+d+67r6BERInj+BjwFrAEzACXVfVnI68EvAKcBiaBBvA58L6q/gnkjHVT4WTNM4d9vxs4DnwEPAO88gDnO9I2W4nbPwcGgRNAP/ALMFV1g1EUT7rXDuAc8BBwFZhQ1QVfHNa0FfhBbXdj7QTw9oN0QD2qfT/+EpG7g6Lef8ek1Ul9GpDjqZpXC44D3dXv2yUi3wFDO3Ql4UBdSTg0mzT2+zHgLLAGvA28D/QCX4jII8OQLRYRFsBF4A/gMHAEeApo+OIT4A9gFHgROA+8CLzm7h8AJgJzjJL4MIDf75tACzgDjAC3gE9EZJ9DvqNt1/Xv6xmI4/gi0NHxcvxeRBaD/a7/8a3hcL9Xge+BQ257B/C4iOQc8a15K/CDWmtYx6z97nWvAPwG7Nf2QX1QRG7pfw/oBOATAGCPl7Ng7jf8RH9qmgDdatvmpSx4GbPZMhxT1ddNtCYiz4vIFRG5CbwOvGlMOSHZF8BP7v4RY5pS1TejKLrQbDY/z+Vyr9o9RkTOe+JzCZsigI5qW+t1NMM4vhyZDz1zXlZ0W72NTn2ZcrQkSkF8nR1AFEU3VfXLLeLIrLFWq82p6rc259bYuVqtXjWu7SLSozt3TGG9f1+p/OruD/GwVwn9R+BoAJePgR/NtUdVF+I4fvlev3Ec7wZy9vMFB7PfL4APt7jvFPCEud6ptuuO/VeOJIcDHdWn51iS/2uo6npCvyRfnC0R5nytVvvbDGZUdT2KIjEOe+t4HEA+f7i/e3YSaZ/vKRHZ5mZLV9y1J6LsHcBzzrYA3BYRPxO6YD4vZTDnMhv39Ut3AHR027rX3VFt7Jjy+8RI3xHZpK+dOhI28WspWuLZY22LtEb+uQOEYUHuZ0TkZ+ALfzEhYTUb9NnS7MrwfJO0Q1tCOKHY7WFxnCDYzE99qR0/w+54aOQxW2YfX72JKy3Rb8D4vQp8aJNEwurZpK9wA8SUtdKzlzQN4ygJ44dw4gj39lLbfwT7DGfgBcf8yWxc7whHx2k5tMXrM63G+n+M1O/Wfo8Bt9vE0lQJXdR2ZyOjf+YTr99O/t+T+f179Tjpzw8A9j0l1w5h3b0AAAAASUVORK5CYII=" alt="E-Mail-Adresse" style="vertical-align: middle;"></p>
+    <p>Ramona Schmidt<br>E-Mail: <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAaCAYAAAATvZxHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADm0lEQVR4nO2cT2hcVRTGfzdTYqF/wKXSRQUhJo1U2mXpUhdSKEgFQXCbgrgQsnTlwlLJpgtRiFWXdiWl2m0RtIiu6kYQw81krBBcWBdKiziZSQqK4mRO9+N6H5c3LyG5Z4bJ/eCbxT3nnfvNfPe+d+67r6BERInj+BjwFrAEzACXVfVnI68EvAKcBiaBBvA58L6q/gnkjHVT4WTNM4d9vxs4DnwEPAO88gDnO9I2W4nbPwcGgRNAP/ALMFV1g1EUT7rXDuAc8BBwFZhQ1QVfHNa0FfhBbXdj7QTw9oN0QD2qfT/+EpG7g6Lef8ek1Ul9GpDjqZpXC44D3dXv2yUi3wFDO3Ql4UBdSTg0mzT2+zHgLLAGvA28D/QCX4jII8OQLRYRFsBF4A/gMHAEeApo+OIT4A9gFHgROA+8CLzm7h8AJgJzjJL4MIDf75tACzgDjAC3gE9EZJ9DvqNt1/Xv6xmI4/gi0NHxcvxeRBaD/a7/8a3hcL9Xge+BQ257B/C4iOQc8a15K/CDWmtYx6z97nWvAPwG7Nf2QX1QRG7pfw/oBOATAGCPl7Ng7jf8RH9qmgDdatvmpSx4GbPZMhxT1ddNtCYiz4vIFRG5CbwOvGlMOSHZF8BP7v4RY5pS1TejKLrQbDY/z+Vyr9q9RkTOe+JzCZsigI5qW+t1NMM4vhyZDz1zXlZ0W72NTn2ZcrQkSkF8nR1AFEU3VfXLLeLIrLFWq82p6rc259bYuVqtXjWu7SLSozt3TGG9f1+p/OruD/GwVwn9R+BoAJePgR/NtUdVF+I4fvlev3Ec7wZy9vMFB7PfL4APt7jvFPCEud6ptuuO/VeOJIcDHdWn51iS/2uo6npCvyRfnC0R5nytVvvbDGZUdT2KIjEOe+t4HEA+f7i/e3YSaZ/vKRHZ5mZLV9y1J6LsHcBzzrYA3BYRPxO6YD4vZTDnMhv39Ut3AHR027rX3VFt7Jjy+8RI3xHZpK+dOhI28WspWuLZY22LtEb+uQOEYUHuZ0TkZ+ALfzEhYTUb9NnS7MrwfJO0Q1tCOKHY7WFxnCDYzE99qR0/w+54aOQxW2YfX72JKy3Rb8D4vQp8aJNEwurZpK9wA8SUtdKzlzQN4ygJ44dw4gj39lLbfwT7DGfgBcf8yWxc7whHx2k5tMXrM63G+n+M1O/Wfo8Bt9vE0lQJXdR2ZyOjf+YTr99O/t+T+f179Tjpzw8A9j0l1w5h3b0AAAAASUVORK5CYII=" alt="E-Mail-Adresse" style="vertical-align: middle;"></p>
     <h3>3. Erhebung und Nutzung personenbezogener Daten</h3>
     <p>Beim Besuch dieser Website werden automatisch Informationen allgemeiner Natur erfasst (z. B. IP-Adresse, Browsertyp, Datum/Uhrzeit). Diese Daten dienen ausschließlich der Sicherstellung eines technisch fehlerfreien Betriebs und werden nicht zur Identifizierung verwendet. Wenn du das Kontaktformular nutzt, werden dein Name, deine E-Mail-Adresse und deine Nachricht per E-Mail an mich weitergeleitet (über dein Mailprogramm) – es erfolgt keine Speicherung auf einem Server.</p>
     <h3>4. Einbindung externer Inhalte</h3>
