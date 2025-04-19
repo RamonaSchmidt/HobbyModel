@@ -437,7 +437,7 @@ header {
 }
 
 /* Gold-Silber Effekt für Überschriften */
-h1, h2 {
+h1, h2, h3 {
   background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37, #c0c0c0, #d4af37);
   -webkit-background-clip: text;
   background-clip: text;
@@ -445,18 +445,41 @@ h1, h2 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.3);
   animation: shimmer 12s infinite ease-in-out;
   background-size: 200% auto;
+  position: relative;
+  padding-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Container für zentrierte Überschriften */
+h1, h2, h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Unterstreichung für alle Überschriften */
+h1::after, h2::after, h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
+  background-size: 200% auto;
+  animation: shimmer 12s infinite ease-in-out;
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -100% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-  100% {
-    background-position: -100% center;
-  }
+  0% { background-position: -100% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: -100% center; }
 }
 
 .hero-text h1 {
@@ -540,14 +563,53 @@ h1, h2 {
   padding: 18px 36px;
   border-radius: 30px;
   backdrop-filter: blur(4px);
-  border: 2px solid;
-  border-image: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) 1;
   box-shadow: 
     0 0 10px rgba(212, 175, 55, 0.3),
     0 0 20px rgba(212, 175, 55, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+/* Tablet Version */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-insta {
+    font-size: 20px;
+    padding: 12px 24px;
+    box-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.3),
+      0 0 15px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Mobile Version */
+@media (max-width: 767px) {
+  .hero-insta {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    box-shadow: 
+      0 0 6px rgba(212, 175, 55, 0.3),
+      0 0 12px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero-insta {
+    font-size: 14px;
+    padding: 6px 12px;
+    box-shadow: 
+      0 0 5px rgba(212, 175, 55, 0.3),
+      0 0 10px rgba(212, 175, 55, 0.1);
+  }
+}
+
+.hero-insta:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(212, 175, 55, 0.5),
+    0 0 25px rgba(212, 175, 55, 0.3);
 }
 
 .hero-insta::before {
@@ -564,14 +626,6 @@ h1, h2 {
     transparent
   );
   transition: 0.5s;
-}
-
-.hero-insta:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 0 15px rgba(212, 175, 55, 0.5),
-    0 0 25px rgba(212, 175, 55, 0.3);
-  border-image: linear-gradient(45deg, #ffd700, #c0c0c0, #ffd700) 1;
 }
 
 .hero-insta:hover::before {
@@ -1420,7 +1474,7 @@ h1, h2 {
         <span class="error-message" aria-live="polite"></span>
 
         <label for="email">E‑Mail*</label>
-        <input type="email" id="email" name="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <input type="email" id="email" name="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Bitte geben Sie eine gültige E-Mail-Adresse ein">
         <span class="error-message" aria-live="polite"></span>
 
         <label for="betreff">Betreff*</label>
@@ -1574,6 +1628,25 @@ document.getElementById('guestbook-form').addEventListener('submit', function(e)
   .catch(error => {
     console.error('Error:', error);
     alert('Es gab einen Fehler beim Senden des Formulars. Bitte versuche es später noch einmal.');
+  });
+});
+
+// E-Mail-Validierung
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  const emailInput = document.getElementById('email');
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+  if (!emailPattern.test(emailInput.value)) {
+    e.preventDefault();
+    emailInput.setCustomValidity('Bitte geben Sie eine gültige E-Mail-Adresse ein');
+    emailInput.reportValidity();
+  }
+});
+
+// Fehlermeldungen anzeigen
+document.querySelectorAll('input, textarea').forEach(input => {
+  input.addEventListener('input', function() {
+    this.setCustomValidity('');
   });
 });
 </script>
