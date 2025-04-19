@@ -1002,6 +1002,7 @@ h1, h2 {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .hero-text h1 {
     font-size: 5rem !important;
+    margin-top: 60px !important; /* Mehr Platz für das Logo */
   }
 
   .hero-text p {
@@ -1009,9 +1010,30 @@ h1, h2 {
   }
 
   .logo {
-    width: 100px;
-    top: 15px;
+    width: 90px;
+    top: 10px;
     right: 20px;
+    padding: 3px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+  }
+
+  /* Header Höhe anpassen */
+  header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Navigation im Landscape */
+  nav {
+    padding: 8px 0;
+  }
+
+  nav ul {
+    margin-bottom: 10px;
   }
 }
 
