@@ -475,18 +475,25 @@
 
 @media (max-width: 768px) {
   .top-bar {
+    display: flex !important;
+    top: 70px !important;
+    left: 10px !important;
+    background: rgba(0,0,0,0.8) !important;
+    padding: 4px 8px !important;
+    z-index: 1002 !important;
+    transform: scale(0.85) !important;
+  }
+
+  .top-bar button {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    border-width: 1px !important;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3) !important;
+  }
+
+  /* Untere Navigation ausblenden */
+  nav:not(.top-bar) {
     display: none !important;
-  }
-  .gallery {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  .instagram-fix {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    z-index: 10 !important;
-    width: 32px !important;
-    height: 32px !important;
   }
 }
 
@@ -1536,21 +1543,31 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
 
 /* Mobile Optimierungen für die Top-Bar */
 @media (max-width: 768px) {
+  .nav-container {
+    display: flex !important; /* Zeigt die obere Navigationsleiste */
+  }
+
   .top-bar {
     display: flex !important;
+    position: fixed !important;
     top: 70px !important;
     left: 10px !important;
     background: rgba(0,0,0,0.8) !important;
-    padding: 4px 8px !important; /* Reduziertes Padding */
+    padding: 4px 8px !important;
     z-index: 1002 !important;
-    transform: scale(0.85) !important; /* Gesamte Bar etwas kleiner */
+    transform: scale(0.85) !important;
   }
 
   .top-bar button {
-    font-size: 12px !important; /* Kleinere Schriftgröße */
-    padding: 4px 8px !important; /* Reduziertes Padding */
-    border-width: 1px !important; /* Dünnerer Rahmen */
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3) !important; /* Reduzierter Schatten */
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    border-width: 1px !important;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3) !important;
+  }
+
+  /* Verstecke die untere Navigation, aber behalte den DE/EN Button */
+  nav ul li a:not(.language-switch) {
+    display: none !important;
   }
 }
 
@@ -1639,6 +1656,19 @@ nav ul li a:hover {
   nav ul li a {
     font-size: 13px;
     padding: 2px 4px;
+  }
+}
+
+/* Mobile Optimierungen für die Navigation */
+@media (max-width: 768px) {
+  /* Hauptnavigation */
+  .nav-container {
+    display: flex !important;
+  }
+  
+  /* Verstecke die untere Navigation komplett */
+  .top-bar {
+    display: none !important;
   }
 }
 </style>
