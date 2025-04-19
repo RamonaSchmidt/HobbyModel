@@ -903,57 +903,115 @@ h1, h2 {
 }
 
 /* Tablet Optimierungen */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .contact, .guestbook-form {
-    padding: 25px;
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Logo Anpassungen */
+  .logo {
+    width: 120px;
+    top: 20px;
+    right: 25px;
+    padding: 4px;
   }
-  
-  #spotify h2 {
+
+  /* Hero Bereich */
+  .hero-text h1 {
+    font-size: 6rem !important;
+  }
+
+  .hero-text p {
+    font-size: 3rem !important;
+  }
+
+  /* Überschriften */
+  section h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: 25px !important;
+  }
+
+  /* Über Mich Text */
+  #about p {
+    font-size: 1.2rem !important;
+    line-height: 1.6;
+  }
+
+  /* Gästebuch & Kontakt */
+  .guestbook-entry-name {
+    font-size: 1.2rem !important;
+  }
+
+  .guestbook-entry-role {
+    font-size: 1rem !important;
+  }
+
+  .guestbook-entry-message {
+    font-size: 1.1rem !important;
+  }
+
+  .contact h3, .guestbook-form h3 {
+    font-size: 1.8rem !important;
+  }
+
+  /* Formular Elemente */
+  .kontakt-formular input,
+  .kontakt-formular textarea,
+  .guestbook-form input,
+  .guestbook-form textarea {
+    font-size: 1.1rem !important;
+    padding: 10px !important;
+  }
+
+  /* Instagram Button */
+  .hero-insta {
+    font-size: 20px !important;
+    padding: 12px 24px !important;
+  }
+
+  .hero-insta svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Follow Text */
+  .follow-text {
+    font-size: 1.8rem !important;
+    margin-top: 20px !important;
+  }
+
+  /* Navigation */
+  nav ul li a {
+    font-size: 1.1rem;
+    padding: 8px 15px;
+  }
+
+  /* Spotify Container */
+  .spotify-container {
+    padding: 0 20px;
+  }
+
+  /* Galerie */
+  .gallery {
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .gallery img {
+    height: 280px;
+  }
+}
+
+/* Landscape Mode für Tablets */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero-text h1 {
+    font-size: 5rem !important;
+  }
+
+  .hero-text p {
     font-size: 2.5rem !important;
   }
-  
-  .spotify-container iframe {
-    height: 350px !important;
-  }
-}
 
-/* Kleine Mobilgeräte */
-@media (max-width: 480px) {
-  h2 {
-    font-size: 1.8rem !important;
-  }
-  
-  .contact, .guestbook-form {
-    padding: 15px 10px;
-  }
-  
-  #spotify h2 {
-    font-size: 1.8rem !important;
-  }
-  
-  #spotify h2 span {
-    font-size: 0.9rem !important;
-  }
-  
-  .spotify-container iframe {
-    height: 250px !important;
-  }
-  
-  .kontakt-formular button,
-  .guestbook-form button {
-    padding: 10px 15px !important;
-  }
-}
-
-/* Landscape Mode Optimierungen */
-@media (max-height: 600px) and (orientation: landscape) {
-  .spotify-container iframe {
-    height: 200px !important;
-  }
-  
-  .contact, .guestbook-form {
-    max-height: 80vh;
-    overflow-y: auto;
+  .logo {
+    width: 100px;
+    top: 15px;
+    right: 20px;
   }
 }
 
@@ -1225,6 +1283,10 @@ h1, h2 {
           <input type="text" id="guestbook-name" name="name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.3); color: white;">
         </div>
         <div>
+          <label for="guestbook-email" style="display: block; margin-bottom: 8px; color: #d4af37; font-weight: bold;">E-Mail*</label>
+          <input type="email" id="guestbook-email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.3); color: white;">
+        </div>
+        <div>
           <label for="guestbook-role" style="display: block; margin-bottom: 8px; color: #d4af37; font-weight: bold;">Rolle*</label>
           <input type="text" id="guestbook-role" name="role" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.3); color: white;">
         </div>
@@ -1257,6 +1319,48 @@ h1, h2 {
 </section>
 
 <script>
+// Gästebucheinträge direkt im Code
+const guestbookData = {
+  "entries": [
+    {
+      "id": 1,
+      "name": "Hier steht vielleicht dein Name",
+      "role": "Fotograf",
+      "message": "Hier steht vielleicht deine Nachricht",
+      "date": "Hier steht vielleicht der Tag"
+    },
+  ]
+};
+
+// Funktion zum Laden der Gästebucheinträge
+function loadGuestbookEntries() {
+  const entriesContainer = document.getElementById('entries-container');
+  if (!entriesContainer) return;
+  
+  entriesContainer.innerHTML = ''; // Leere den Container
+
+  guestbookData.entries.forEach(entry => {
+    const entryElement = document.createElement('div');
+    entryElement.className = 'guestbook-entry';
+    entryElement.innerHTML = `
+      <div class="guestbook-entry-header">
+        <div>
+          <span class="guestbook-entry-name">${entry.name}</span>
+          <span class="guestbook-entry-role">${entry.role}</span>
+        </div>
+        <span class="guestbook-entry-date">${entry.date}</span>
+      </div>
+      <div class="guestbook-entry-message">
+        ${entry.message}
+      </div>
+    `;
+    entriesContainer.appendChild(entryElement);
+  });
+}
+
+// Einträge beim Laden der Seite laden
+document.addEventListener('DOMContentLoaded', loadGuestbookEntries);
+
 // Gästebuch Formular Handling
 document.getElementById('guestbook-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -1264,59 +1368,47 @@ document.getElementById('guestbook-form').addEventListener('submit', function(e)
   const form = e.target;
   const formData = new FormData(form);
   
+  // Log der Formulardaten
+  console.log('Sende Formulardaten:', Object.fromEntries(formData));
+  
   fetch(form.action, {
     method: 'POST',
-    body: formData,
+    body: JSON.stringify(Object.fromEntries(formData)),
     headers: {
+      'Content-Type': 'application/json',
       'Accept': 'application/json'
     }
   })
   .then(response => {
-    if (response.ok) {
-      // Erfolgsmeldung anzeigen
-      const successMessage = document.createElement('div');
-      successMessage.id = 'success-message';
-      successMessage.innerHTML = '<span class="lang-de">Vielen Dank für deinen Eintrag! Er wird nach Überprüfung veröffentlicht.</span><span class="lang-en">Thank you for your entry! It will be published after review.</span>';
-      form.parentNode.insertBefore(successMessage, form.nextSibling);
-      successMessage.style.display = 'block';
-      
-      // Formular zurücksetzen
-      form.reset();
-      
-      // Erfolgsmeldung nach 5 Sekunden ausblenden
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 5000);
-    }
+    console.log('Response Status:', response.status);
+    console.log('Response OK:', response.ok);
+    return response.text().then(text => {
+      console.log('Response Text:', text);
+      if (response.ok) {
+        // Erfolgsmeldung anzeigen
+        const successMessage = document.createElement('div');
+        successMessage.id = 'success-message';
+        successMessage.innerHTML = '<span class="lang-de">Vielen Dank für deinen Eintrag! Er wird nach Überprüfung veröffentlicht.</span><span class="lang-en">Thank you for your entry! It will be published after review.</span>';
+        form.parentNode.insertBefore(successMessage, form.nextSibling);
+        successMessage.style.display = 'block';
+        
+        // Formular zurücksetzen
+        form.reset();
+        
+        // Erfolgsmeldung nach 5 Sekunden ausblenden
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      } else {
+        throw new Error('Fehler beim Senden: ' + text);
+      }
+    });
   })
   .catch(error => {
     console.error('Error:', error);
+    alert('Es gab einen Fehler beim Senden des Formulars. Bitte versuche es später noch einmal.');
   });
 });
-
-// Funktion zum Laden der Gästebucheinträge
-function loadGuestbookEntries() {
-  // Hier würde normalerweise ein API-Call stehen, um die Einträge zu laden
-  // Für die Demo zeigen wir einen Beispiel-Eintrag
-  const entriesContainer = document.getElementById('entries-container');
-  const exampleEntry = document.createElement('div');
-  exampleEntry.className = 'guestbook-entry';
-  exampleEntry.innerHTML = `
-    <div class="guestbook-entry-header">
-      <div>
-        <span class="guestbook-entry-name">Max Mustermann</span>
-        <span class="guestbook-entry-role">Fotograf</span>
-      </div>
-    </div>
-    <div class="guestbook-entry-message">
-      Tolle Zusammenarbeit! Die Fotos sind wunderschön geworden. Danke für die tolle Zeit!
-    </div>
-  `;
-  entriesContainer.appendChild(exampleEntry);
-}
-
-// Einträge beim Laden der Seite laden
-document.addEventListener('DOMContentLoaded', loadGuestbookEntries);
 </script>
 
 <!-- Impressum & Datenschutzerklärung (nebeneinander) -->
