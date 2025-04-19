@@ -202,18 +202,82 @@
         right: 30px;
         width: 180px;
         height: auto;
-        opacity: 0.95;
-        z-index: 5;
-        padding: 5px;
-        border: 2px solid;
-        border-image: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) 1;
-        box-shadow: 0 0 10px rgba(212, 175, 55, 0.5),
-                    0 0 20px rgba(212, 175, 55, 0.3),
-                    0 0 30px rgba(212, 175, 55, 0.1);
-        border-radius: 5px;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(2px);
+        z-index: 1000;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+          0 0 20px rgba(212, 175, 55, 0.2),
+          0 0 40px rgba(212, 175, 55, 0.1),
+          inset 0 0 15px rgba(212, 175, 55, 0.1);
+        animation: logoGlow 3s infinite alternate;
       }
+
+      .logo:hover {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 
+          0 0 25px rgba(212, 175, 55, 0.3),
+          0 0 50px rgba(212, 175, 55, 0.2),
+          inset 0 0 20px rgba(212, 175, 55, 0.15);
+      }
+
+      @keyframes logoGlow {
+        from {
+          box-shadow: 
+            0 0 20px rgba(212, 175, 55, 0.2),
+            0 0 40px rgba(212, 175, 55, 0.1),
+            inset 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+        to {
+          box-shadow: 
+            0 0 30px rgba(212, 175, 55, 0.3),
+            0 0 60px rgba(212, 175, 55, 0.2),
+            inset 0 0 25px rgba(212, 175, 55, 0.15);
+        }
+      }
+
+      /* Responsive Anpassungen für das Logo */
+      @media (max-width: 1024px) {
+        .logo {
+          width: 150px;
+          top: 15px;
+          right: 25px;
+          padding: 8px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .logo {
+          width: 120px;
+          top: 12px;
+          right: 20px;
+          padding: 6px;
+          border-radius: 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          width: 100px;
+          top: 10px;
+          right: 15px;
+          padding: 5px;
+          border-radius: 10px;
+        }
+      }
+
+      /* Landscape Mode Optimierung */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .logo {
+          width: 90px;
+          top: 8px;
+          right: 15px;
+          padding: 4px;
+        }
+      }
+
       .logo path:not([fill="black"]) {
         stroke: url(#goldGradient);
         stroke-width: 2;
@@ -238,30 +302,31 @@
       .logo svg linearGradient {
         position: absolute;
       }
-      @media (max-width: 1024px) { .logo { width: 140px; top: 15px; right: 20px; } }
-      @media (max-width: 768px) { .logo { width: 100px; top: 12px; right: 15px; } }
-      @media (max-width: 480px) { .logo { width: 80px; top: 10px; right: 10px; } }
 
       /* Galerie */
       .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
+        gap: 25px;
         max-width: 1200px;
         margin: 80px auto 40px auto;
         position: relative;
         z-index: 1;
+        padding: 0 20px;
       }
       .gallery img {
         width: 100%;
         height: 300px;
         object-fit: cover;
-        border-radius: 10px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        border-radius: 15px;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        filter: brightness(0.95);
       }
       .gallery img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+        filter: brightness(1.1);
       }
       /* Extra Bilder-Kästen (7 Kästen), integriert in die Galerie */
       .gallery .extra-box {
@@ -798,37 +863,38 @@ h1::after, h2::after, h3::after {
 
 .guestbook-form input,
 .guestbook-form textarea {
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(212, 175, 55, 0.1) !important;
   color: white;
   padding: 12px;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 
 .guestbook-form input:focus,
 .guestbook-form textarea:focus {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  background: rgba(0,0,0,0.3) !important;
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1) !important;
   outline: none;
 }
 
 .guestbook-form button {
-  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37);
+  background: linear-gradient(45deg, #d4af37, #c0c0c0) !important;
   color: black;
   padding: 15px 30px;
-  border: none;
+  border: none !important;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   margin-top: 20px;
   font-size: 1.1rem;
 }
 
 .guestbook-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
 }
 
 @keyframes fadeIn {
@@ -855,12 +921,12 @@ h1::after, h2::after, h3::after {
 .kontakt-formular input,
 .kontakt-formular textarea {
   width: 100%;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(212, 175, 55, 0.1) !important;
   color: white;
   padding: 12px;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   margin-bottom: 20px;
   font-size: 1rem;
 }
@@ -882,7 +948,7 @@ h1::after, h2::after, h3::after {
   
   .kontakt-formular input,
   .kontakt-formular textarea {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2) !important;
     color: white;
     font-size: 16px;
   }
@@ -895,14 +961,14 @@ h1::after, h2::after, h3::after {
 }
 
 .kontakt-formular button {
-  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37);
+  background: linear-gradient(45deg, #d4af37, #c0c0c0) !important;
   color: black;
   padding: 15px 30px;
-  border: none;
+  border: none !important;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   margin-top: 20px;
   font-size: 1.1rem;
   width: 100%;
@@ -910,7 +976,7 @@ h1::after, h2::after, h3::after {
 
 .kontakt-formular button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
 }
 
 .kontakt-formular .error-message {
@@ -1025,10 +1091,19 @@ h1::after, h2::after, h3::after {
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Logo Anpassungen */
   .logo {
-    width: 120px;
-    top: 20px;
-    right: 25px;
-    padding: 4px;
+    width: 140px;
+    top: 15px;
+    right: 20px;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 
+      0 0 15px rgba(212, 175, 55, 0.2),
+      0 0 30px rgba(212, 175, 55, 0.1),
+      inset 0 0 12px rgba(212, 175, 55, 0.1);
+  }
+
+  .logo:hover {
+    transform: scale(1.03) translateY(-1px);
   }
 
   /* Hero Bereich */
@@ -1129,14 +1204,10 @@ h1::after, h2::after, h3::after {
   }
 
   .logo {
-    width: 90px;
-    top: 10px;
-    right: 20px;
-    padding: 3px;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    border-radius: 8px;
+    width: 120px;
+    top: 12px;
+    right: 18px;
+    padding: 6px;
   }
 
   /* Header Höhe anpassen */
@@ -1252,21 +1323,34 @@ h1::after, h2::after, h3::after {
 /* Mobile Styles */
 @media (max-width: 767px) {
   .logo {
-    width: 140px;
-    top: 15px;
+    width: 110px;
+    top: 12px;
     right: 15px;
-    padding: 4px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-    z-index: 1000;
+    padding: 6px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      0 0 12px rgba(212, 175, 55, 0.2),
+      0 0 24px rgba(212, 175, 55, 0.1),
+      inset 0 0 10px rgba(212, 175, 55, 0.1);
+  }
+
+  .logo:hover {
+    transform: scale(1.02);
   }
 
   /* Extra kleine Bildschirme */
   @media (max-width: 380px) {
     .logo {
-      width: 120px;
+      width: 90px;
       top: 10px;
       right: 10px;
+      padding: 4px;
+      border-radius: 8px;
+      box-shadow: 
+        0 0 10px rgba(212, 175, 55, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.1),
+        inset 0 0 8px rgba(212, 175, 55, 0.1);
     }
   }
 }
@@ -1274,10 +1358,11 @@ h1::after, h2::after, h3::after {
 /* Mobile Landscape */
 @media (max-width: 767px) and (orientation: landscape) {
   .logo {
-    width: 100px;
-    top: 10px;
-    right: 10px;
-    padding: 3px;
+    width: 90px;
+    top: 8px;
+    right: 12px;
+    padding: 4px;
+    border-radius: 8px;
   }
 
   .hero-text {
@@ -1312,6 +1397,111 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
   background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
   background-size: 200% auto;
   animation: shimmer 12s infinite ease-in-out;
+}
+
+/* Datenschutz-Popup Styling */
+#datenschutz-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  z-index: 9999;
+}
+
+#datenschutz-popup > div {
+  position: relative;
+  background: #333;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  margin: 50px auto;
+  box-sizing: border-box;
+}
+
+#datenschutz-popup h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  padding-right: 40px;
+}
+
+#datenschutz-popup h3 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px 0;
+}
+
+/* Mobile Anpassungen für das Popup */
+@media (max-width: 768px) {
+  #datenschutz-popup > div {
+    margin: 20px;
+    padding: 20px;
+    max-height: 90vh;
+  }
+
+  #datenschutz-popup h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  #datenschutz-popup h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 8px 0;
+  }
+
+  #datenschutz-popup p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Kleine Handys */
+@media (max-width: 380px) {
+  #datenschutz-popup > div {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  #datenschutz-popup h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  #datenschutz-popup h3 {
+    font-size: 1.1rem;
+    margin: 12px 0 6px 0;
+  }
+
+  #datenschutz-popup p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Schließen-Button im Popup */
+#datenschutz-popup .close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #d4af37;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  #datenschutz-popup .close-button {
+    font-size: 20px;
+    top: 8px;
+    right: 12px;
+  }
 }
 </style>
 
