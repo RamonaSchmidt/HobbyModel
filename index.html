@@ -880,7 +880,7 @@ h1::after, h2::after, h3::after {
 }
 
 .guestbook-form button {
-  background: linear-gradient(45deg, #d4af37, #c0c0c0) !important;
+  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37) !important;
   color: black;
   padding: 15px 30px;
   border: none !important;
@@ -1507,19 +1507,20 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
 /* Mobile Optimierungen für die Top-Bar */
 @media (max-width: 768px) {
   .top-bar {
-    display: flex !important; /* Überschreibt das vorherige display: none */
-    top: 70px !important; /* Verschiebt die Bar nach unten unter das Logo */
+    display: flex !important;
+    top: 70px !important;
     left: 10px !important;
-    background: rgba(0,0,0,0.8) !important; /* Dunklerer Hintergrund für bessere Sichtbarkeit */
-    padding: 8px 16px !important;
-    z-index: 1002 !important; /* Höherer z-index um über anderen Elementen zu bleiben */
+    background: rgba(0,0,0,0.8) !important;
+    padding: 4px 8px !important; /* Reduziertes Padding */
+    z-index: 1002 !important;
+    transform: scale(0.85) !important; /* Gesamte Bar etwas kleiner */
   }
 
   .top-bar button {
-    font-size: 14px !important;
-    padding: 8px 16px !important;
-    border-width: 2px !important; /* Dickerer Rahmen für bessere Sichtbarkeit */
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important; /* Leichtes Glühen für bessere Sichtbarkeit */
+    font-size: 12px !important; /* Kleinere Schriftgröße */
+    padding: 4px 8px !important; /* Reduziertes Padding */
+    border-width: 1px !important; /* Dünnerer Rahmen */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3) !important; /* Reduzierter Schatten */
   }
 }
 
@@ -1528,12 +1529,13 @@ h3:not(.contact h3):not(.guestbook-form h3):not(.kontakt-formular h3)::after {
   .top-bar {
     top: 60px !important;
     left: 5px !important;
-    padding: 6px 12px !important;
+    padding: 3px 6px !important; /* Noch kleineres Padding */
+    transform: scale(0.8) !important; /* Noch kleiner für sehr kleine Bildschirme */
   }
 
   .top-bar button {
-    font-size: 12px !important;
-    padding: 6px 12px !important;
+    font-size: 11px !important; /* Noch kleinere Schriftgröße */
+    padding: 3px 6px !important; /* Noch kleineres Padding */
   }
 }
 
