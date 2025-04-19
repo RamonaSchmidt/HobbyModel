@@ -844,25 +844,12 @@ h1::after, h2::after, h3::after {
 
 /* Kontaktformular Styling */
 .kontakt-formular {
-  background: rgba(255,255,255,0.05);
+  background: rgba(20,20,20,0.7);
   backdrop-filter: blur(6px);
   border-radius: 15px;
   padding: 30px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: none;
   transition: all 0.3s ease;
-}
-
-.kontakt-formular:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-.kontakt-formular label {
-  display: block;
-  margin-bottom: 8px;
-  color: #d4af37;
-  font-weight: bold;
-  font-size: 1.1rem;
 }
 
 .kontakt-formular input,
@@ -878,11 +865,33 @@ h1::after, h2::after, h3::after {
   font-size: 1rem;
 }
 
-.kontakt-formular input:focus,
-.kontakt-formular textarea:focus {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-  outline: none;
+.kontakt-formular label {
+  color: #d4af37;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 768px) {
+  .kontakt-formular {
+    background: rgba(20,20,20,0.7);
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .kontakt-formular input,
+  .kontakt-formular textarea {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-size: 16px;
+  }
+  
+  .contact {
+    background: rgba(20,20,20,0.7);
+    backdrop-filter: blur(6px);
+    margin: 10px;
+  }
 }
 
 .kontakt-formular button {
