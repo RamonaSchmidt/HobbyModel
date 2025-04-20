@@ -179,14 +179,29 @@
 
       @media (max-width: 768px) {
         .nav-container {
-          flex-direction: column;
-          gap: 15px;
+          flex-direction: row;
+          gap: 10px;
+          padding: 10px;
         }
         
         .nav-right ul {
-          gap: 20px;
-          flex-wrap: wrap;
-          justify-content: center;
+          gap: 15px;
+          flex-wrap: nowrap;
+          justify-content: flex-end;
+        }
+
+        .nav-right ul li a {
+          font-size: 14px;
+        }
+
+        .nav-left {
+          flex-shrink: 0;
+        }
+
+        .language-switch {
+          display: block;
+          position: relative;
+          z-index: 1000;
         }
       }
 
