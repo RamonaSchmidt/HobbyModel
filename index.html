@@ -1686,6 +1686,85 @@ nav ul li a:hover {
     display: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav-left a {
+    color: #d4af37;
+    font-size: 14px;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-right ul {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-right ul li a {
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+
+  /* Hamburger Menu für sehr kleine Bildschirme */
+  @media (max-width: 480px) {
+    .nav-right {
+      display: none;
+    }
+    
+    .nav-right.active {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.95);
+      padding: 10px;
+    }
+    
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      padding: 10px;
+    }
+  }
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -1797,7 +1876,6 @@ nav ul li a:hover {
         <div class="nav-left">
           <a href="#" onclick="setLanguage('de')">DE</a>
           <a href="#" onclick="setLanguage('en')">EN</a>
-          <a href="https://instagram.com/mona_292_" target="_blank">Instagram</a>
         </div>
         <div class="nav-right">
           <ul>
