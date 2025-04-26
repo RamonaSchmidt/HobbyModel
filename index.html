@@ -420,11 +420,16 @@
         pointer-events: none;
         background: linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
         z-index: 1;
-        /* Alternatives Styling für Android */
         background: -webkit-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
         background: -moz-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
         background: -o-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
         opacity: 1 !important;
+      }
+
+      @media (max-width: 1024px) {
+        .gradient-overlay {
+          display: none !important;
+        }
       }
 
       .hero-text {
