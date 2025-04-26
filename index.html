@@ -2360,6 +2360,67 @@ nav.desktop-nav { display: flex !important; }
   }
 }
 
+/* Kontaktformular iOS & Mobile Optimierung */
+.kontakt-formular input,
+.kontakt-formular textarea {
+  font-size: 16px !important; /* Kein Zoom auf iOS */
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  background: rgba(0,0,0,0.2) !important;
+  color: #fff !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  padding: 14px !important;
+  margin-bottom: 16px !important;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.kontakt-formular input:focus,
+.kontakt-formular textarea:focus {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2) !important;
+  outline: none !important;
+}
+.kontakt-formular button {
+  font-size: 18px !important;
+  border-radius: 8px !important;
+  background: linear-gradient(45deg, #d4af37, #c0c0c0) !important;
+  color: #181818 !important;
+  font-weight: bold;
+  padding: 16px 0 !important;
+  width: 100%;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08) !important;
+  margin-top: 18px !important;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.kontakt-formular button:hover,
+.kontakt-formular button:focus {
+  background: linear-gradient(45deg, #c0c0c0, #d4af37) !important;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18) !important;
+}
+.kontakt-formular label {
+  color: #d4af37 !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  margin-bottom: 6px !important;
+  display: block;
+}
+.kontakt-formular .error-message {
+  color: #ff6b6b !important;
+  font-size: 0.95rem !important;
+  margin-top: -10px !important;
+  margin-bottom: 10px !important;
+  display: block;
+}
+@media (max-width: 768px) {
+  .kontakt-formular {
+    padding: 18px !important;
+    border-radius: 12px !important;
+    background: rgba(20,20,20,0.85) !important;
+  }
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
