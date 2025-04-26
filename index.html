@@ -1504,11 +1504,13 @@ h1::after, h2::after, h3::after {
 
   .hero-text h1 {
     font-size: 4.5rem !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 5px !important;
   }
 
   .hero-text p {
     font-size: 2.2rem !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
   }
 
   .logo {
@@ -1537,29 +1539,13 @@ h1::after, h2::after, h3::after {
 
   .hero-insta {
     transform: scale(0.9);
-    margin-top: 10px !important;
+    margin-top: 5px !important;
   }
 
   .follow-text {
     font-size: 1.5rem !important;
-    margin-top: 10px !important;
-  }
-
-  /* Neue Regeln für iOS Querformat */
-  @supports (-webkit-touch-callout: none) {
-    .hero-text h1 {
-      margin-bottom: 5px !important;
-    }
-    
-    .hero-text p {
-      margin-top: 5px !important;
-      margin-bottom: 5px !important;
-    }
-    
-    .follow-text {
-      margin-top: 5px !important;
-      margin-bottom: 5px !important;
-    }
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
   }
 }
 
@@ -2114,6 +2100,58 @@ nav.desktop-nav { display: flex !important; }
 @supports (-webkit-touch-callout: none) {
   nav.ios-nav { display: flex !important; }
   nav.desktop-nav { display: none !important; }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  .hero-text {
+    padding-top: 60px !important;
+  }
+
+  .hero-text h1 {
+    font-size: 4rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-text p {
+    font-size: 2rem !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .logo {
+    width: 70px !important;
+    top: 8px !important;
+    right: 15px !important;
+    padding: 2px !important;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+  }
+
+  header {
+    height: 100vh;
+    min-height: 500px;
+  }
+
+  nav {
+    padding: 6px 0;
+  }
+
+  nav ul {
+    margin-bottom: 8px;
+  }
+
+  .hero-insta {
+    transform: scale(0.85);
+    margin-top: 8px !important;
+  }
+
+  .follow-text {
+    font-size: 1.4rem !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
 }
 
 </style>
