@@ -113,6 +113,7 @@
         padding: 15px 0;
         z-index: 10;
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
       }
       
       .nav-container {
@@ -157,87 +158,29 @@
       /* Mobile Navigation */
       @media (max-width: 768px) {
         nav {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          background: rgba(0,0,0,0.95);
           padding: 10px 0;
-          z-index: 1000;
-          display: block !important;
         }
 
         .nav-container {
-          display: flex !important;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
           padding: 0 15px;
-          width: 100%;
-          max-width: 100%;
         }
 
         .nav-left {
-          display: flex !important;
-          gap: 10px;
-          align-items: center;
-          visibility: visible !important;
-          opacity: 1 !important;
+          gap: 8px;
         }
 
         .nav-left a {
-          color: #d4af37;
           font-size: 14px;
           padding: 5px 10px;
-          white-space: nowrap;
-          display: inline-block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-        }
-
-        .nav-right {
-          display: flex !important;
-          align-items: center;
         }
 
         .nav-right ul {
-          display: flex !important;
-          gap: 10px;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .nav-right ul li {
-          display: inline-block !important;
+          gap: 15px;
         }
 
         .nav-right ul li a {
-          color: #fff;
           font-size: 14px;
           padding: 5px 10px;
-          white-space: nowrap;
-          display: inline-block !important;
-        }
-
-        /* Sprachumschalt-Button spezifische Regeln */
-        .language-switch {
-          display: inline-block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          position: relative !important;
-          z-index: 1001 !important;
-        }
-
-        .language-switch a {
-          display: inline-block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          padding: 5px 10px !important;
-          margin: 0 5px !important;
-          background: rgba(212, 175, 55, 0.2) !important;
-          border-radius: 4px !important;
         }
       }
 
@@ -248,7 +191,7 @@
         }
         
         .nav-right.active {
-          display: block !important;
+          display: block;
           position: absolute;
           top: 100%;
           left: 0;
@@ -381,7 +324,9 @@
         height: 100vh;
         background: url('images/galerie-bg.jpeg') no-repeat center center/cover;
         background-attachment: fixed;
+        -webkit-background-attachment: fixed;
       }
+
       .gradient-overlay {
         position: absolute;
         top: 0;
@@ -390,6 +335,7 @@
         bottom: 0;
         background: linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
       }
+
       .hero-text {
         position: relative;
         z-index: 2;
@@ -399,15 +345,61 @@
         color: #fff;
         padding: 0 20px;
       }
+
       .hero-text h1 {
         font-family: 'Playfair Display', serif;
         font-size: 4rem;
         margin-bottom: 20px;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
       }
+
       .hero-text p {
         font-size: 1.5rem;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      }
+
+      /* Mobile Hero Anpassungen */
+      @media (max-width: 768px) {
+        header {
+          background-attachment: scroll;
+          -webkit-background-attachment: scroll;
+        }
+
+        .hero-text h1 {
+          font-size: 3rem;
+          margin-top: 20px;
+        }
+
+        .hero-text p {
+          font-size: 1.2rem;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-text p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Landscape Mode */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero-text {
+          padding-top: 60px;
+        }
+
+        .hero-text h1 {
+          font-size: 2.2rem;
+          margin-bottom: 10px;
+        }
+
+        .hero-text p {
+          font-size: 1rem;
+        }
       }
 
       /* Logo (oben rechts) */
@@ -421,13 +413,13 @@
         padding: 10px;
         background: rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         border-radius: 15px;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 
           0 0 20px rgba(212, 175, 55, 0.2),
           0 0 40px rgba(212, 175, 55, 0.1),
           inset 0 0 15px rgba(212, 175, 55, 0.1);
-        animation: logoGlow 3s infinite alternate;
       }
 
       .logo:hover {
