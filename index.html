@@ -2088,6 +2088,17 @@ nav {
 }
 
 /* Sicherstellung der Navigation */
+
+/* Standard: iOS-Leiste ausblenden, Desktop/Android-Leiste zeigen */
+nav.ios-nav { display: none !important; }
+nav.desktop-nav { display: flex !important; }
+
+/* Nur auf iOS/Safari: iOS-Leiste zeigen, Desktop/Android-Leiste verstecken */
+@supports (-webkit-touch-callout: none) {
+  nav.ios-nav { display: flex !important; }
+  nav.desktop-nav { display: none !important; }
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
