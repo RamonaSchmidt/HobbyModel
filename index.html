@@ -1544,6 +1544,23 @@ h1::after, h2::after, h3::after {
     font-size: 1.5rem !important;
     margin-top: 10px !important;
   }
+
+  /* Neue Regeln für iOS Querformat */
+  @supports (-webkit-touch-callout: none) {
+    .hero-text h1 {
+      margin-bottom: 5px !important;
+    }
+    
+    .hero-text p {
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+    }
+    
+    .follow-text {
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+    }
+  }
 }
 
 /* Mobile Styles */
