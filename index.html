@@ -172,7 +172,9 @@
         cursor: url('https://cdn-icons-png.flaticon.com/512/32/32355.png'), auto;
         position: relative;
         overflow-x: hidden;
-        padding-bottom: 40px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
       body.loaded { opacity: 1; }
       a { transition: color 0.3s ease; text-decoration: none; }
@@ -690,8 +692,46 @@
         color: #fff;
         text-align: center;
         padding: 20px;
+        position: relative;
+        z-index: 100;
+        width: 100%;
+        margin-top: 40px;
+        flex-shrink: 0;
       }
-      footer a { color: #ccc; }
+
+      footer a { 
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #d4af37;
+      }
+
+      /* Responsive Footer Styles */
+      @media (max-width: 768px) {
+        footer {
+          padding: 15px;
+          margin-top: 30px;
+        }
+        
+        footer p {
+          font-size: 14px;
+          margin: 5px 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        footer {
+          padding: 10px;
+          margin-top: 20px;
+        }
+        
+        footer p {
+          font-size: 12px;
+        }
+      }
 
       /* Back-to-Top Button */
       #backToTop {
@@ -2428,7 +2468,7 @@ nav.desktop-nav { display: flex !important; }
 
 @media (max-width: 767px) {
   .logo {
-    width: 90px;
+    width: 50px;
     top: 10px;
     right: 12px;
     padding: 4px;
@@ -2444,7 +2484,7 @@ nav.desktop-nav { display: flex !important; }
 /* Extra kleine Bildschirme */
 @media (max-width: 380px) {
   .logo {
-    width: 80px;
+    width: 50px;
     top: 8px;
     right: 10px;
     padding: 3px;
@@ -2458,8 +2498,12 @@ nav.desktop-nav { display: flex !important; }
 
 @media (max-width: 1024px) {
   .logo {
-    top: 15px !important;
+    top: 15px!important;
   }
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 </style>
@@ -2630,8 +2674,8 @@ nav.desktop-nav { display: flex !important; }
     <p class="follow-text lang-en" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 20px; color: #d4af37; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); position: relative; z-index: 2;">Every follow is welcome! ❤️</p>
   </div>
 </header>
+<main>
 <!-- Über Mich -->
-
 <section data-aos="fade-up" data-aos-duration="1200" id="about">
   <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative;">
     <h2 class="lang-de" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px;">Über Mich</h2>
