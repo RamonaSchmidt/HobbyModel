@@ -20,13 +20,13 @@
 <meta property="og:description" content="Mona Schmidt (Ramona) - Professionelles Fashion & Portrait Model aus Rheinland-Pfalz. Erfahrenes Model für Fashion, Portrait, Lifestyle, Beauty, Editorial, Werbung, Mode, Kosmetik, Laufsteg, Catwalk, Fotoshooting. Jetzt für Shootings in Bad Kreuznach, Kaiserslautern und Umgebung buchen!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ramonaschmidt.github.io/HobbyModel/">
-<meta property="og:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild1.jpg">
+<meta property="og:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild10.jpeg">
 <meta property="og:site_name" content="Mona Schmidt Model Portfolio">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mona Schmidt - Fashion & Portrait Model | Professional Model | Hobby Model">
 <meta name="twitter:description" content="Professionelles Fashion & Portrait Model aus Rheinland-Pfalz. Erfahrenes Model für Fashion, Portrait, Lifestyle, Beauty, Editorial, Werbung, Mode, Kosmetik, Laufsteg, Catwalk, Fotoshooting. Jetzt für Shootings in Bad Kreuznach, Kaiserslautern und Umgebung buchen!">
-<meta name="twitter:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild1.jpg">
+<meta name="twitter:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild10.jpeg">
 <meta name="twitter:site" content="@monaschmidtmodel">
 <meta name="twitter:creator" content="@monaschmidtmodel">
 <link rel="canonical" href="https://ramonaschmidt.github.io/HobbyModel/">
@@ -42,7 +42,7 @@
   "alternateName": ["Ramona", "Ramona Schmidt"],
   "jobTitle": ["Fashion Model", "Portrait Model", "Professional Model", "Editorial Model", "Beauty Model", "Hobby Model"],
   "url": "https://ramonaschmidt.github.io/HobbyModel/",
-  "image": "https://ramonaschmidt.github.io/HobbyModel/images/bild1.jpg",
+  "image": "https://ramonaschmidt.github.io/HobbyModel/images/bild10.jpeg",
   "sameAs": [
     "https://instagram.com/mona_292_"
   ],
@@ -97,7 +97,7 @@
 </script>
 
 <!-- Preload wichtige Ressourcen -->
-<link rel="preload" href="images/bild1.jpg" as="image">
+<link rel="preload" href="images/bild10.jpeg" as="image">
 <link rel="preload" href="images/logo.png" as="image">
 
 <!-- Favicon -->
@@ -109,7 +109,7 @@
 <meta property="og:title" content="Mona Schmidt - Fashion & Portrait Model Deutschland">
 <meta property="og:description" content="Professionelles Model für Fashion, Portrait und Lifestyle Fotografie. Erfahren, authentisch, vielseitig.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/bild1.jpg">
+<meta property="og:image" content="images/bild10.jpeg">
 <meta property="og:url" content="https://www.mona-schmidt-model.de">
 <meta property="og:site_name" content="Mona Schmidt Model Portfolio">
 
@@ -117,7 +117,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mona Schmidt - Fashion & Portrait Model">
 <meta name="twitter:description" content="Professionelles Model für Fashion, Portrait und Lifestyle Fotografie in Deutschland">
-<meta name="twitter:image" content="images/bild1.jpg">
+<meta name="twitter:image" content="images/bild10.jpeg">
 
 <!-- Schema.org Markup für Google -->
 <script type="application/ld+json">
@@ -128,7 +128,7 @@
   "alternateName": "Ramona Schmidt",
   "jobTitle": "Model",
   "description": "Professionelles Model für Fashion, Portrait, Lifestyle und Beauty Fotografie in Deutschland",
-  "image": "images/bild1.jpg",
+  "image": "images/bild10.jpeg",
   "url": "https://www.mona-schmidt-model.de",
   "sameAs": [
     "https://instagram.com/mona_292_"
@@ -3256,6 +3256,177 @@ main {
   }
 }
 
+/* Shop Bereich Styling */
+.shop-section {
+  padding: 80px 20px;
+  background: #0e0e0e;
+}
+
+.shop-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.shop-item {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.shop-item:hover {
+  transform: translateY(-5px);
+}
+
+.shop-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.shop-item-content {
+  padding: 20px;
+}
+
+.shop-item h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.shop-item p {
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.shop-item .price {
+  font-size: 1.2em;
+  color: #d4af37;
+  font-weight: bold;
+}
+
+.buy-button {
+  background: #d4af37;
+  color: #0e0e0e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.buy-button:hover {
+  background: #b38f1d;
+}
+
+/* Shopping Cart */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #d4af37;
+  color: #0e0e0e;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+#cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+}
+
+.cart-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 400px;
+  background: #1a1a1a;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.remove-item {
+  color: #ff4444;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #d4af37;
+}
+
+.checkout-button {
+  background: #d4af37;
+  color: #0e0e0e;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout-button:hover {
+  background: #b38f1d;
+}
+
+/* Responsive Design für Shop */
+@media (max-width: 768px) {
+  .shop-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .cart-content {
+    width: 100%;
+  }
+}
+
+
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -3373,6 +3544,7 @@ main {
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Über mich</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="#contact">Kontakt</a></li>
           </ul>
         </div>
@@ -3380,6 +3552,56 @@ main {
     </nav>
 </head>
 <body class="loaded">
+<!-- Lightbox Container -->
+<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.9); z-index: 99999;">
+    <span style="position: fixed; top: 20px; right: 30px; color: white; font-size: 30px; cursor: pointer; z-index: 100000;" onclick="closeLightbox()">×</span>
+    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <img id="lightbox-img" src="" style="max-width: 90%; max-height: 90vh; object-fit: contain;" />
+    </div>
+</div>
+
+<script>
+// Lightbox Funktionen
+function openLightbox(imgSrc) {
+    console.log('Opening lightbox with:', imgSrc); // Debug-Log
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = imgSrc;
+        lightbox.style.display = 'flex';
+    } else {
+        console.error('Lightbox elements not found!'); // Debug-Log
+    }
+}
+
+function closeLightbox() {
+    console.log('Closing lightbox'); // Debug-Log
+    var lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+    }
+}
+
+// Event Listener für Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Event Listener für Klick außerhalb des Bildes
+document.addEventListener('DOMContentLoaded', function() {
+    var lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+    }
+});
+</script>
+
 <div class="top-bar" style="position: fixed; top: 20px; left: 20px; z-index: 1001; display: flex; gap: 12px; background: rgba(0,0,0,0.8); padding: 6px 12px; border-radius: 16px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transform: translateZ(0); -webkit-transform: translateZ(0);">
   <button onclick="toggleLanguage()" style="padding: 6px 12px; border-radius: 20px; background: black; color: #d4af37; font-weight: bold; border: 1px solid #d4af37; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;">DE | EN</button>
 </div>
@@ -3390,6 +3612,7 @@ main {
     <li><a href="#home" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Home</a><a href="#home" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Home</a></li>
     <li><a href="#about" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Über Mich</a><a href="#about" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">About Me</a></li>
     <li><a href="#gallery" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Galerie</a><a href="#gallery" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Gallery</a></li>
+    <li><a href="shop.html" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Shop</a><a href="shop.html" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Shop</a></li>
     <li><a href="#contact" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Kontakt</a><a href="#contact" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Contact</a></li>
   </ul>
 </nav>
@@ -3473,28 +3696,28 @@ main {
 <h2 class="lang-en" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px;">Gallery</h2>
 <div class="gallery">
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="0">
-    <img alt="Mona – Bild 1" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild1.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 10" loading="lazy" src="images/bild10.jpeg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="100">
-    <img alt="Mona – Bild 2" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild2.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 2" loading="lazy" src="images/bild2.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="200">
-    <img alt="Mona – Neues Bild A" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild3.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Neues Bild A" loading="lazy" src="images/bild3.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="300">
-    <img alt="Mona – Neues Bild B" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild4.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Neues Bild B" loading="lazy" src="images/bild4.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="400">
-    <img alt="Mona – Bild 5" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild5.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 5" loading="lazy" src="images/bild5.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="500">
-    <img alt="Mona – Bild 6" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild6.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 6" loading="lazy" src="images/bild6.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="600">
-    <img alt="Mona – Bild 7" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild7.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 7" loading="lazy" src="images/bild7.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
   <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="700">
-    <img alt="Mona – Bild 8" loading="lazy" onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';" src="images/bild8.jpg" style="cursor: pointer;" role="button" tabindex="0"/>
+    <img alt="Mona – Bild 8" loading="lazy" src="images/bild8.jpg" style="cursor: pointer;" onclick="openLightbox(this.src)" role="button" tabindex="0"/>
   </div>
 </div>
 </section>
@@ -3809,65 +4032,111 @@ document.querySelectorAll('input, textarea').forEach(input => {
 
 </div>
 <script>AOS.init({ once: true });</script>
-<div class="lightbox" id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
-<span class="close" onclick="document.getElementById('lightbox').style.display='none';" style="position:absolute; top:30px; right:40px; font-size:40px; color:white; cursor:pointer;">×</span>
-<img id="lightbox-img" style="max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.2); display: block; margin: auto;"/></div>
+<div class="lightbox" id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
+    <span class="close" onclick="document.getElementById('lightbox').style.display='none';" style="position: absolute; top: 30px; right: 40px; font-size: 40px; color: white; cursor: pointer; z-index: 10000;">×</span>
+    <img id="lightbox-img" style="max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.2); object-fit: contain;"/>
+</div>
+
 <script>
-window.addEventListener('load', () => {
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', () => {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      if (img.src) {
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
-      }
+// Lightbox Funktionalität
+function initLightbox() {
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
     });
-  });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-      document.getElementById('lightbox').style.display = "none";
-    }
-  });
+    // Schließen mit Escape-Taste
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
 
-  document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target.id === 'lightbox') {
-      e.target.style.display = "none";
+    // Schließen beim Klick außerhalb des Bildes
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+// Initialisiere Lightbox nach dem Laden der Seite
+document.addEventListener('DOMContentLoaded', initLightbox);
+</script>
+
+<!-- Lightbox Container -->
+<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.9); z-index: 9999;">
+    <span style="position: fixed; top: 20px; right: 30px; color: white; font-size: 30px; cursor: pointer; z-index: 10000;" onclick="document.getElementById('lightbox').style.display='none'">×</span>
+    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <img id="lightbox-img" src="" style="max-width: 90%; max-height: 90vh; object-fit: contain;" />
+    </div>
+</div>
+
+<script>
+// Warte bis das Dokument geladen ist
+document.addEventListener('DOMContentLoaded', function() {
+    // Füge Click-Event zu allen Bildern in der Galerie hinzu
+    document.querySelectorAll('.gallery img').forEach(function(img) {
+        img.onclick = function() {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = this.src;
+            lightbox.style.display = 'block';
+        }
+    });
+
+    // Schließe Lightbox mit Escape-Taste
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    });
+
+    // Schließe Lightbox beim Klick außerhalb des Bildes
+    document.getElementById('lightbox').onclick = function(e) {
+        if (e.target.id === 'lightbox') {
+            this.style.display = 'none';
+        }
     }
-  });
-});
-</script><script>
-window.addEventListener("scroll", function() {
-  const btn = document.getElementById("back-to-top");
-  if (window.scrollY > 400) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
 });
 </script>
-<style>
-#privacy-modal span[onclick] {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2.2rem;
-  color: #d4af37;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 10001;
-  transition: color 0.2s, transform 0.2s;
-  font-weight: bold;
-  line-height: 1;
-  user-select: none;
+
+<script>
+function openLightbox(imgSrc) {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = imgSrc;
+    lightbox.style.display = 'block';
 }
-#privacy-modal span[onclick]:hover {
-  color: #fff;
-  transform: scale(1.2) rotate(8deg);
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
 }
-</style>
+
+// Schließe Lightbox mit Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Schließe Lightbox beim Klick außerhalb des Bildes
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target.id === 'lightbox') {
+        closeLightbox();
+    }
+});
+</script>
+
 </body>
 </html>

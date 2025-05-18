@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona Schmidt - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/galerie-bg.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-color: #0e0e0e;
+            color: white;
+        }
+
+        .login-container {
+            background: rgba(20,20,20,0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .password-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .login-button {
+            background: linear-gradient(45deg, #d4af37, #c0c0c0);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .attempts-left {
+            color: #d4af37;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .back-link {
+            color: #d4af37;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="images/logo.png" alt="Mona Schmidt Logo" class="logo">
+        <h1>
+            <span class="lang-de">Privater Zugang</span>
+            <span class="lang-en" style="display: none;">Private Access</span>
+        </h1>
+        <p style="color: #eee; margin-bottom: 20px;">
+            <span class="lang-de">Bitte geben Sie das Passwort ein, um fortzufahren.</span>
+            <span class="lang-en" style="display: none;">Please enter the password to continue.</span>
+        </p>
+        <input type="password" id="password-input" class="password-input" placeholder="Passwort">
+        <button onclick="checkPassword()" class="login-button">
+            <span class="lang-de">Zugang gewähren</span>
+            <span class="lang-en" style="display: none;">Grant Access</span>
+        </button>
+        <p id="error-message" class="error-message">
+            <span class="lang-de">Falsches Passwort. Bitte versuchen Sie es erneut.</span>
+            <span class="lang-en" style="display: none;">Wrong password. Please try again.</span>
+        </p>
+        <p id="attempts-left" class="attempts-left"></p>
+        <a href="index.html" class="back-link">
+            <span class="lang-de">← Zurück zur Startseite</span>
+            <span class="lang-en" style="display: none;">← Back to Homepage</span>
+        </a>
+    </div>
+
+    <script>
+        // Maximale Anzahl von Versuchen
+        const MAX_ATTEMPTS = 5;
+        let attempts = 0;
+        let lockoutTime = 0;
+
+        // Passwort-Hash für "FamilyWork2030!"
+        const PASSWORD_HASH = btoa("FamilyWork2030!").replace(/[^a-zA-Z0-9]/g, '');
+
+        function updateAttemptsDisplay() {
+            const attemptsLeft = document.getElementById('attempts-left');
+            if (attempts < MAX_ATTEMPTS) {
+                attemptsLeft.textContent = `Verbleibende Versuche: ${MAX_ATTEMPTS - attempts}`;
+            } else {
+                const minutesLeft = Math.ceil((lockoutTime - Date.now()) / 60000);
+                attemptsLeft.textContent = `Konto gesperrt. Bitte warten Sie ${minutesLeft} Minuten.`;
+            }
+        }
+
+        function checkPassword() {
+            if (attempts >= MAX_ATTEMPTS) {
+                if (Date.now() < lockoutTime) {
+                    return;
+                } else {
+                    attempts = 0;
+                    lockoutTime = 0;
+                }
+            }
+
+            const passwordInput = document.getElementById('password-input');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Einfache Verschlüsselung des eingegebenen Passworts
+            const inputHash = btoa(passwordInput.value).replace(/[^a-zA-Z0-9]/g, '');
+
+            if (inputHash === PASSWORD_HASH) {
+                // Erfolgreicher Login
+                sessionStorage.setItem('shopAccessGranted', 'true');
+                sessionStorage.setItem('loginTimestamp', Date.now().toString());
+                window.location.href = 'shop.html';
+            } else {
+                // Fehlgeschlagener Versuch
+                attempts++;
+                errorMessage.style.display = 'block';
+                passwordInput.value = '';
+
+                if (attempts >= MAX_ATTEMPTS) {
+                    lockoutTime = Date.now() + (15 * 60 * 1000); // 15 Minuten Sperre
+                }
+
+                updateAttemptsDisplay();
+            }
+        }
+
+        // Enter-Taste zum Absenden
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Initial display
+        updateAttemptsDisplay();
+
+        // Sprache basierend auf URL-Parameter setzen
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentLang = urlParams.get('lang') || 'de';
+        
+        function updateLanguage() {
+            document.querySelectorAll('.lang-de').forEach(el => {
+                el.style.display = currentLang === 'de' ? 'block' : 'none';
+            });
+            
+            document.querySelectorAll('.lang-en').forEach(el => {
+                el.style.display = currentLang === 'en' ? 'block' : 'none';
+            });
+        }
+
+        // Initial language setup
+        updateLanguage();
+    </script>
+</body>
+</html> 
