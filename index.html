@@ -2506,6 +2506,827 @@ main {
   flex: 1 0 auto;
 }
 
+/* =======================
+   DESKTOP STANDARD
+   ======================= */
+
+/* Header mit Hintergrundbild */
+header {
+  background: url('images/galerie-bg.jpeg') no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Navigation sichtbar */
+nav {
+  display: flex;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  backdrop-filter: blur(4px);
+}
+
+/* =======================
+   RESPONSIVE ANPASSUNGEN
+   ======================= */
+
+/* Tablet: Header-Hintergrundbild entfernen, Overlay ausblenden */
+@media (max-width: 1024px) {
+  header {
+    background-image: none;
+    background: #181818;
+    background-attachment: scroll;
+  }
+  .gradient-overlay {
+    display: none;
+  }
+}
+
+/* Mobile: Navigation ausblenden, nur Top-Bar bleibt */
+@media (max-width: 705px) {
+  nav:not(.top-bar) {
+    display: none;
+  }
+}
+
+/* Mobile: Navigationslinks (außer Sprachumschalter) ausblenden */
+@media (max-width: 768px) {
+  nav ul li a:not(.language-switch) {
+    display: none;
+  }
+}
+
+/* Extra kleine Geräte: weitere Anpassungen möglich */
+
+/* Logo Anpassungen */
+.logo {
+  position: absolute;
+  top: 72px;
+  right: 30px;
+  width: 180px;
+  height: auto;
+  z-index: 1000;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.2),
+    0 0 40px rgba(212, 175, 55, 0.1),
+    inset 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.logo:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 
+    0 0 25px rgba(212, 175, 55, 0.3),
+    0 0 50px rgba(212, 175, 55, 0.2),
+    inset 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Responsive Logo Anpassungen */
+@media (max-width: 1024px) {
+  .logo {
+    width: 150px;
+    top: 67px;
+    right: 25px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+    top: 62px;
+    right: 20px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+    top: 57px;
+    right: 15px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    width: 90px;
+    top: 10px;
+    right: 10px;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 
+      0 0 10px rgba(212, 175, 55, 0.2),
+      0 0 20px rgba(212, 175, 55, 0.1),
+      inset 0 0 8px rgba(212, 175, 55, 0.1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    top: 15px!important;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* =======================
+   RESPONSIVE ANPASSUNGEN
+   ======================= */
+
+/* Tablet: Header-Hintergrundbild entfernen, Overlay ausblenden */
+@media (max-width: 1024px) {
+  header {
+    background-image: none;
+    background: #181818;
+    background-attachment: scroll;
+  }
+  .gradient-overlay {
+    display: none;
+  }
+}
+
+/* Mobile: Navigation ausblenden, nur Top-Bar bleibt */
+@media (max-width: 705px) {
+  nav:not(.top-bar) {
+    display: none;
+  }
+}
+
+/* Mobile: Navigationslinks (außer Sprachumschalter) ausblenden */
+@media (max-width: 768px) {
+  nav ul li a:not(.language-switch) {
+    display: none;
+  }
+}
+
+/* Extra kleine Geräte: weitere Anpassungen möglich */
+
+/* =======================
+   RESPONSIVE BREAKPOINTS
+   ======================= */
+
+/* Große Desktops (≤1540px) */
+@media (max-width: 1540px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .hero-text h1 {
+    font-size: 6rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text p {
+    font-size: 2.5rem;
+    margin: 10px 0;
+  }
+  
+  .hero-insta {
+    font-size: 1.5rem;
+    padding: 12px 24px;
+  }
+  
+  .follow-text {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+  }
+}
+
+/* Desktops & große Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  /* Header & Navigation */
+  header {
+    background: #181818;
+  }
+  
+  header::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: url('images/galerie-bg.jpeg') no-repeat center center/cover;
+    pointer-events: none;
+    will-change: transform;
+  }
+  
+  .gradient-overlay {
+    display: none;
+  }
+  
+  .logo {
+    width: 140px;
+    top: 15px;
+    right: 20px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 960px;
+  }
+  
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* Hero Text */
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: auto;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  
+  .hero-text h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    left: auto;
+    right: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Contact Form */
+  .contact {
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .kontakt-formular {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  /* Sections */
+  section,
+  .about-content,
+  .gallery,
+  .contact,
+  .guestbook-form {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+/* Tablets (≤768px) */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  header {
+    min-height: 80vh;
+  }
+  
+  nav {
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .nav-right ul {
+    gap: 15px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 14px;
+  }
+  
+  .logo {
+    width: 120px;
+    top: 62px;
+    right: 20px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 720px;
+  }
+  
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 20px 0;
+  }
+  
+  /* Contact Form */
+  .kontakt-formular {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(20,20,20,0.85);
+  }
+}
+
+/* Große Handys (≤480px) */
+@media (max-width: 480px) {
+  /* Header & Navigation */
+  .nav-container {
+    padding: 5px;
+  }
+  
+  .nav-right ul {
+    gap: 10px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+  
+  .logo {
+    width: 100px;
+    top: 57px;
+    right: 15px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 15px 0;
+  }
+}
+
+/* Sehr kleine Handys (≤380px) */
+@media (max-width: 380px) {
+  /* Navigation */
+  .nav-container {
+    padding: 3px;
+  }
+  
+  .nav-right ul {
+    gap: 8px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+  
+  .logo {
+    width: 90px;
+    top: 10px;
+    right: 10px;
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.2),
+      0 0 16px rgba(212, 175, 55, 0.1),
+      inset 0 0 6px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Landscape Mode */
+@media (orientation: landscape) and (max-width: 1024px) {
+  header {
+    min-height: 100vh;
+  }
+  
+  .logo {
+    width: 80px;
+    top: 8px;
+    right: 15px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 13px;
+    padding: 2px 4px;
+  }
+}
+
+/* Kontaktformular iOS & Mobile Optimierung */
+.kontakt-formular input,
+.kontakt-formular textarea {
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+  box-shadow: none;
+  background: rgba(0,0,0,0.2);
+  color: var(--text-color);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 14px;
+  margin-bottom: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.kontakt-formular input:focus,
+.kontakt-formular textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+  outline: none;
+}
+
+.kontakt-formular button {
+  font-size: 18px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary-color), #c0c0c0);
+  color: #181818;
+  font-weight: bold;
+  padding: 16px 0;
+  width: 100%;
+  border: none;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08);
+  margin-top: 18px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.kontakt-formular button:hover,
+.kontakt-formular button:focus {
+  background: linear-gradient(45deg, #c0c0c0, var(--primary-color));
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
+}
+
+.kontakt-formular label {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.kontakt-formular .error-message {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  margin: -10px 0 10px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .kontakt-formular {
+    padding: 18px !important;
+    border-radius: 12px !important;
+    background: rgba(20,20,20,0.85) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    width: 50px;
+    top: 10px;
+    right: 12px;
+    padding: 4px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      0 0 10px rgba(212, 175, 55, 0.2),
+      0 0 20px rgba(212, 175, 55, 0.1),
+      inset 0 0 8px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Extra kleine Bildschirme */
+@media (max-width: 380px) {
+  .logo {
+    width: 50px;
+    top: 8px;
+    right: 10px;
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.2),
+      0 0 16px rgba(212, 175, 55, 0.1),
+      inset 0 0 6px rgba(212, 175, 55, 0.1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    top: 15px!important;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* =======================
+   RESPONSIVE BREAKPOINTS
+   ======================= */
+
+/* Große Desktops (≤1540px) */
+@media (max-width: 1540px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .hero-text h1 {
+    font-size: 6rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text p {
+    font-size: 2.5rem;
+    margin: 10px 0;
+  }
+  
+  .hero-insta {
+    font-size: 1.5rem;
+    padding: 12px 24px;
+  }
+  
+  .follow-text {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+  }
+}
+
+/* Desktops & große Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  /* Header & Navigation */
+  header {
+    background: #181818;
+  }
+  
+  header::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: url('images/galerie-bg.jpeg') no-repeat center center/cover;
+    pointer-events: none;
+    will-change: transform;
+  }
+  
+  .gradient-overlay {
+    display: none;
+  }
+  
+  .logo {
+    width: 140px;
+    top: 15px;
+    right: 20px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 960px;
+  }
+  
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* Hero Text */
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: auto;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  
+  .hero-text h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    left: auto;
+    right: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Contact Form */
+  .contact {
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .kontakt-formular {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  /* Sections */
+  section,
+  .about-content,
+  .gallery,
+  .contact,
+  .guestbook-form {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+/* Tablets (≤768px) */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  header {
+    min-height: 80vh;
+  }
+  
+  nav {
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .nav-right ul {
+    gap: 15px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 14px;
+  }
+  
+  .logo {
+    width: 120px;
+    top: 62px;
+    right: 20px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 720px;
+  }
+  
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 20px 0;
+  }
+  
+  /* Contact Form */
+  .kontakt-formular {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(20,20,20,0.85);
+  }
+}
+
+/* Große Handys (≤480px) */
+@media (max-width: 480px) {
+  /* Header & Navigation */
+  .nav-container {
+    padding: 5px;
+  }
+  
+  .nav-right ul {
+    gap: 10px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+  
+  .logo {
+    width: 100px;
+    top: 57px;
+    right: 15px;
+  }
+  
+  /* Container & Layout */
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 15px 0;
+  }
+}
+
+/* Sehr kleine Handys (≤380px) */
+@media (max-width: 380px) {
+  /* Navigation */
+  .nav-container {
+    padding: 3px;
+  }
+  
+  .nav-right ul {
+    gap: 8px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+  
+  .logo {
+    width: 90px;
+    top: 10px;
+    right: 10px;
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.2),
+      0 0 16px rgba(212, 175, 55, 0.1),
+      inset 0 0 6px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Landscape Mode */
+@media (orientation: landscape) and (max-width: 1024px) {
+  header {
+    min-height: 100vh;
+  }
+  
+  .logo {
+    width: 80px;
+    top: 8px;
+    right: 15px;
+  }
+  
+  .nav-right ul li a {
+    font-size: 13px;
+    padding: 2px 4px;
+  }
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -3045,10 +3866,19 @@ document.querySelectorAll('input, textarea').forEach(input => {
 <div id="impressum-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
 <div style="background:#0e0e0e; max-width:700px; padding:40px; border-radius:12px; color:white; font-family:'Montserrat', sans-serif; overflow-y:auto; max-height:80vh; position:relative;">
 <span onclick="document.getElementById('impressum-modal').style.display='none';" style="position:absolute; top:10px; right:20px; cursor:pointer; font-size:24px;">×</span>
-<h2 style="text-align:center; font-family:'Playfair Display', serif;">Impressum</h2>
-<p><strong>Angaben gemäß § 5 TMG</strong><br/>
-    Ramona Schmidt<br/>
-    E-Mail: <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAaCAYAAAATvZxHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADm0lEQVR4nO2cT2hcVRTGfzdTYqF/wKXSRQUhJo1U2mXpUhdSKEgFQXCbgrgQsnTlwlLJpgtRiFWXdiWl2m0RtIiu6kYQw81krBBcWBdKiziZSQqK4mRO9+N6H5c3LyG5Z4bJ/eCbxT3nnfvNfPe+d+67r6BERInj+BjwFrAEzACXVfVnI68EvAKcBiaBBvA58L6q/gnkjHVT4WTNM4d9vxs4DnwEPAO88gDnO9I2W4nbPwcGgRNAP/ALMFV1g1EUT7rXDuAc8BBwFZhQ1QVfHNa0FfhBbXdj7QTw9oN0QD2qfT/+EpG7g6Lef8ek1Ul9GpDjqZpXC44D3dXv2yUi3wFDO3Ql4UBdSTg0mzT2+zHgLLAGvA28D/QCX4jII8OQLRYRFsBF4A/gMHAEeApo+OIT4A9gFHgROA+8CLzm7h8AJgJzjJL4MIDf75tACzgDjAC3gE9EZJ9DvqNt1/Xv6xmI4/gi0NHxcvxeRBaD/a7/8a3hcL9Xge+BQ257B/C4iOQc8a15K/CDWmtYx6z97nWvAPwG7Nf2QX1QRG7pfw/oBOATAGCPl7Ng7jf8RH9qmgDdatvmpSx4GbPZMhxT1ddNtCYiz4vIFRG5CbwOvGlMOSHZF8BP7v4RY5pS1TejKLrQbDY/z+Vyr9q9RkTOe+JzCZsigI5qW+t1NMM4vhyZDz1zXlZ0W72NTn2ZcrQkSkF8nR1AFEU3VfXLLeLIrLFWq82p6rc259bYuVqtXjWu7SLSozt3TGG9f1+p/OruD/GwVwn9R+BoAJePgR/NtUdVF+I4fvlev3Ec7wZy9vMFB7PfL4APt7jvFPCEud6ptuuO/VeOJIcDHdWn51iS/2uo6npCvyRfnC0R5nytVvvbDGZUdT2KIjEOe+t4HEA+f7i/e3YSaZ/vKRHZ5mZLV9y1J6LsHcBzzrYA3BYRPxO6YD4vZTDnMhv39Ut3AHR027rX3VFt7Jjy+8RI3xHZpK+dOhI28WspWuLZY22LtEb+uQOEYUHuZ0TkZ+ALfzEhYTUb9NnS7MrwfJO0Q1tCOKHY7WFxnCDYzE99qR0/w+54aOQxW2YfX72JKy3Rb8D4vQp8aJNEwurZpK9wA8SUtdKzlzQN4ygJ44dw4gj39lLbfwT7DGfgBcf8yWxc7whHx2k5tMXrM63G+n+M1O/Wfo8Bt9vE0lQJXdR2ZyOjf+YTr99O/t+T+f179Tjpzw8A9j0l1w5h3b0AAAAASUVORK5CYII=" alt="E-Mail-Adresse" style="vertical-align: middle;"></p>
+<h2 style="text-align:center; font-family:'Playfair Display', serif;"<h2>Impressum</h2>
+<p>
+  <strong>Angaben gemäß § 5 TMG</strong><br>
+  Ramona Schmidt<br>
+  Auf Anfrage <br>
+  55743 Idar-Oberstein</Idar-Oberstein><br>
+  E-Mail: hobbymodel292@gmail.com<br>
+  <br>
+  Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Ramona Schmidt<br>
+  <br>
+  Dies ist ein nicht-kommerzielles, privates Portfolio.
+</p>
+
 </div>
 </div>
 <script>AOS.init({ once: true });</script>
