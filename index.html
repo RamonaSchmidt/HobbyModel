@@ -3606,8 +3606,24 @@ document.addEventListener('DOMContentLoaded', function() {
   <button onclick="toggleLanguage()" style="padding: 6px 12px; border-radius: 20px; background: black; color: #d4af37; font-weight: bold; border: 1px solid #d4af37; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;">DE | EN</button>
 </div>
 
-<!-- iOS-optimierte Navigation -->
-<nav style="position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 15px 0; z-index: 1000; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transform: translateZ(0); -webkit-transform: translateZ(0); border-bottom: 1px solid rgba(128, 128, 128, 0.2);">
+<!-- Mobile Navigation -->
+<nav class="mobile-nav" style="display: none; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 15px 0; z-index: 1000; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+    <button class="menu-toggle" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">☰</button>
+    <div class="mobile-menu" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 20px;">
+      <ul style="list-style: none; margin: 0; padding: 0;">
+        <li><a href="#home" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 10px; display: block;">Home</a><a href="#home" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 10px;">Home</a></li>
+        <li><a href="#about" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 10px; display: block;">Über Mich</a><a href="#about" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 10px;">About Me</a></li>
+        <li><a href="#gallery" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 10px; display: block;">Galerie</a><a href="#gallery" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 10px;">Gallery</a></li>
+        <li><a href="shop.html" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 10px; display: block;">Shop</a><a href="shop.html" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 10px;">Shop</a></li>
+        <li><a href="#contact" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 10px; display: block;">Kontakt</a><a href="#contact" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 10px;">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Desktop Navigation (wird auf mobilen Geräten ausgeblendet) -->
+<nav class="desktop-nav" style="position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 15px 0; z-index: 1000; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
   <ul style="list-style: none; display: flex; justify-content: center; gap: 25px; margin: 0; padding: 0;">
     <li><a href="#home" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Home</a><a href="#home" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Home</a></li>
     <li><a href="#about" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Über Mich</a><a href="#about" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">About Me</a></li>
@@ -3616,6 +3632,32 @@ document.addEventListener('DOMContentLoaded', function() {
     <li><a href="#contact" class="lang-de" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px; display: block;">Kontakt</a><a href="#contact" class="lang-en" style="display: none; color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Contact</a></li>
   </ul>
 </nav>
+
+<style>
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  #about {
+    margin-top: 10cm !important; /* Erhöht von 7cm auf 10cm für mobile Geräte */
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+  });
+});
+</script>
+
 <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png"/>
 
 <!-- Hero-Bereich -->
@@ -3635,7 +3677,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <h1 style="font-family: 'AlexBrush', cursive; font-size: 10rem; color: white; position: relative; z-index: 2;">Ramona Schmidt</h1>
     <p class="lang-de" style="font-family: 'AlexBrush', cursive; font-size: 4.5rem; color: white; font-weight: normal; position: relative; z-index: 2;">Natürlich - Echt - Mona</p>
     <p class="lang-en" style="font-family: 'AlexBrush', cursive; font-size: 4.5rem; color: white; font-weight: normal; position: relative; z-index: 2;">Natural - Authentic - Mona</p>
-    <a class="hero-insta" href="https://instagram.com/mona_292_" target="_blank" title="Instagram" style="position: relative; z-index: 2;">
+    <a class="hero-insta" href="https://instagram.com/mona_292_" target="_blank" title="Instagram" style="position: relative; z-index: 2; margin-bottom: 20px;">
       <svg fill="currentColor" height="48" style="color: gold;" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.963.24 2.414.403a4.919 4.919 0 011.675 1.093 4.919 4.919 0 011.093 1.675c.163.451.347 1.244.403 2.414.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.963-.403 2.414a4.919 4.919 0 01-1.093 1.675 4.919 4.919 0 01-1.675 1.093c-.451.163-1.244.347-2.414.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.963-.24-2.414-.403a4.919 4.919 0 01-1.675-1.093 4.919 4.919 0 01-1.093-1.675c-.163-.451-.347-1.244-.403-2.414C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.963.403-2.414a4.919 4.919 0 011.093-1.675 4.919 4.919 0 011.675-1.093c.451-.163 1.244-.347 2.414-.403C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.013 7.052.072 5.775.131 4.68.322 3.757.659a7.078 7.078 0 00-2.58 1.664A7.078 7.078 0 00.659 4.903C.322 5.826.131 6.921.072 8.198.013 9.478 0 9.881 0 12c0 2.119.013 2.522.072 3.802.059 1.277.25 2.372.587 3.295a7.078 7.078 0 001.664 2.58 7.078 7.078 0 002.58 1.664c.923.337 2.018.528 3.295.587 1.28.059 1.683.072 3.802.072s2.522-.013 3.802-.072c1.277-.059 2.372-.25 3.295-.587a7.078 7.078 0 002.58-1.664 7.078 7.078 0 001.664-2.58c.337-.923.528-2.018.587-3.295.059-1.28.072-1.683.072-3.802s-.013-2.522-.072-3.802c-.059-1.277-.25-2.372-.587-3.295a7.078 7.078 0 00-1.664-2.58A7.078 7.078 0 0020.243.659c-.923-.337-2.018-.528-3.295-.587C14.522.013 14.119 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"></path>
       </svg>
@@ -3646,7 +3688,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </header>
 <main>
 <!-- Über Mich -->
-<section data-aos="fade-up" data-aos-duration="1200" id="about">
+<section data-aos="fade-up" data-aos-duration="1200" id="about" style="margin-top: 7cm;">
   <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative;">
     <h2 class="lang-de" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px;">Über Mich</h2>
     <h2 class="lang-en" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px;">About Me</h2>
