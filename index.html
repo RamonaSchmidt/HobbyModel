@@ -4236,7 +4236,7 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 }
 
 /* Responsive Styles */
-@media (max-width: 705px) {
+@media screen and (max-width: 768px) {
   .burger-menu-container {
     display: block;
   }
@@ -4252,8 +4252,45 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
   /* Überschreibe alle anderen Navigation display:none Regeln */
   nav.ios-nav,
   nav.desktop-nav,
-  .mobile-nav {
+  nav.mobile-nav {
     display: none !important;
+  }
+}
+
+/* Styles für iOS Geräte */
+@supports (-webkit-touch-callout: none) {
+  .burger-menu-container {
+    /* Berücksichtigt die Safe Area auf iOS */
+    top: calc(70px + env(safe-area-inset-top));
+    left: max(15px, env(safe-area-inset-left));
+    display: block;
+  }
+}
+
+/* Extra kleine Bildschirme */
+@media screen and (max-width: 480px) {
+  .burger-menu-container {
+    left: 15px;
+    display: block !important;
+  }
+  
+  .burger-button {
+    padding: 4px 10px !important;
+    font-size: 14px;
+  }
+
+  /* Zusätzliche Anpassungen für iOS */
+  .burger-menu {
+    width: calc(100vw - 30px);
+    max-width: 300px;
+  }
+}
+
+/* Stelle sicher, dass das Menü auf iOS Geräten sichtbar ist */
+@media screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .burger-menu-container {
+    display: block !important;
+    z-index: 9999;
   }
 }
 
