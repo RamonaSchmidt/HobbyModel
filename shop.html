@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona Schmidt - Bildershop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet"/>
+    <!-- Preload wichtige Ressourcen -->
+    <link rel="preload" href="images/logo.png" as="image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+            background-image: url('images/galerie-bg.jpeg');
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-attachment: fixed;
+            background-size: 100% auto;
+            background-color: #0e0e0e;
+            color: white;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        /* Spezielle Styles für die Paket-Karten */
+        .shop-grid > div:nth-last-child(-n+2) {
+            grid-column: 1 / -1;
+            width: 85%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(20,20,20,0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .buy-button {
+            background: linear-gradient(45deg, #d4af37, #c0c0c0);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .features {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+
+        .back-to-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        .back-to-home:hover {
+            background: #fff;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1001;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .shop-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Paket-Karten auf mobilen Geräten */
+            .shop-grid > div:nth-last-child(-n+2) {
+                grid-column: 1;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Cookie-Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
+
+        #cookie-banner div {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #cookie-banner p {
+            color: #fff;
+            margin: 0;
+            flex: 1;
+        }
+
+        #cookie-banner button {
+            background: #d4af37;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ladeanimation -->
+    <div id="loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(14,14,14,0.9); z-index: 2000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+            <div class="spinner" style="width: 50px; height: 50px; border: 3px solid #d4af37; border-top: 3px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+            <p style="color: #d4af37; margin-top: 20px;">
+                <span class="lang-de">Wird geladen...</span>
+                <span class="lang-en" style="display: none;">Loading...</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Cookie-Banner -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.95); padding: 20px; z-index: 1000; display: none;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <p style="color: #fff; margin: 0; flex: 1;">
+                <span class="lang-de">
+                    Diese Website verwendet Cookies, um Ihre Spracheinstellungen zu speichern. 
+                    Mit der Nutzung der Website stimmen Sie der Verwendung von Cookies zu.
+                </span>
+                <span class="lang-en" style="display: none;">
+                    This website uses cookies to save your language preferences. 
+                    By using the website, you agree to the use of cookies.
+                </span>
+            </p>
+            <button onclick="acceptCookies()" style="background: #d4af37; border: none; padding: 10px 20px; border-radius: 20px; color: #000; cursor: pointer;">
+                <span class="lang-de">Akzeptieren</span>
+                <span class="lang-en" style="display: none;">Accept</span>
+            </button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-to-home">← Zurück zur Startseite</a>
+    <div class="language-switch" onclick="toggleLanguage()">
+        <span class="lang-de">EN</span>
+        <span class="lang-en" style="display: none;">DE</span>
+    </div>
+
+    <div class="container">
+        <!-- Logo -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="images/logo.png" alt="Mona Schmidt Logo" style="max-width: 150px; height: auto; margin: 0 auto; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+
+        <h1 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+            <span class="lang-de">Exklusive Bilder</span>
+            <span class="lang-en" style="display: none;">Exclusive Pictures</span>
+        </h1>
+
+        <p style="text-align: center; color: #bbb; max-width: 600px; margin: 0 auto 40px; font-size: 1.1em;">
+            <span class="lang-de">Hochwertige Portraits in Premium-Qualität für private Nutzung. Nach dem Kauf erhalten Sie das Bild in voller Auflösung.</span>
+            <span class="lang-en" style="display: none;">Premium quality portraits for private use. After purchase, you'll receive the full resolution image.</span>
+        </p>
+
+        <div class="shop-grid">
+            <!-- Produkt 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild12.jpg" alt="Portrait 1">
+                    <div class="price-tag">20 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 1</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Hochauflösendes Portrait in warmen Farbtönen.<br>
+                                Perfekt für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                High-resolution portrait in warm colors.<br>
+                                Perfect for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 1066 × 1600 Pixel (Hochformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 1–2 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 1066 × 1600 pixels (portrait)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 1–2 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P001</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P001</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/20" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild11.jpg" alt="Portrait 2">
+                    <div class="price-tag">35 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 2</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Künstlerisches Portrait mit besonderem Charme.<br>
+                                Ideal für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                Artistic portrait with special charm.<br>
+                                Ideal for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 6000 × 4000 Pixel (Querformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 8–12 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 6000 × 4000 pixels (landscape)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 8–12 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P002</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P002</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/35" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 3 (Portrait 3) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild1.jpg" alt="Portrait 3">
+                    <div class="price-tag">30 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 3</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Elegantes Portrait in natürlichem Licht.<br>
+                                Perfekt für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                Elegant portrait in natural light.<br>
+                                Perfect for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 1280 × 1600 Pixel (Hochformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 1–2 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 1280 × 1600 pixels (portrait)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 1–2 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P003</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P003</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/30" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 4 (Portrait 4) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild15.jpg" alt="Portrait 4">
+                    <div class="price-tag">35 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 4</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Elegantes Portrait in natürlichem Licht.<br>
+                                Perfekt für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                Elegant portrait in natural light.<br>
+                                Perfect for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 3896 × 5041 Pixel (Hochformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 8–12 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 3896 × 5041 pixels (portrait)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 8–12 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P004</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P004</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/35" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 5 (Portrait 5) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild16.jpg" alt="Portrait 5">
+                    <div class="price-tag">30 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 5</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Elegantes Portrait in natürlichem Licht.<br>
+                                Perfekt für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                Elegant portrait in natural light.<br>
+                                Perfect for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 1604 × 1080 Pixel (Querformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 1–2 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 1604 × 1080 pixels (landscape)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 1–2 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P005</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P005</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/30" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 6 (Portrait 6) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Vorschau</span>
+                        <span class="lang-en" style="display: none;">Preview</span>
+                    </div>
+                    <img src="images/bild17.jpg" alt="Portrait 6">
+                    <div class="price-tag">15 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>Portrait 6</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Elegantes Portrait in natürlichem Licht.<br>
+                                Perfekt für:<br>
+                                • Persönliche Erinnerungen<br>
+                                • Geschenke<br>
+                                • Wanddekoration
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                Elegant portrait in natural light.<br>
+                                Perfect for:<br>
+                                • Personal memories<br>
+                                • Gifts<br>
+                                • Wall decoration
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Auflösung: 800 × 1200 Pixel (Hochformat)<br>
+                                • Farbraum: RGB<br>
+                                • Dateigröße: ca. 1–2 MB
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Resolution: 800 × 1200 pixels (portrait)<br>
+                                • Color space: RGB<br>
+                                • File size: approx. 1–2 MB
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P006</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P006</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/15" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 7 (3er Paket) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Paket-Angebot</span>
+                        <span class="lang-en" style="display: none;">Package Deal</span>
+                    </div>
+                    <img src="images/bild16.jpg" alt="Beispielbild aus der Serie" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="price-tag">70 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>3er Bilder-Paket</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                3er Portrait-Paket - Ihre Wahl!<br>
+                                Das Paket enthält:<br>
+                                <br>
+                                Option A: Wählen Sie selbst<br>
+                                • 3 Portraits Ihrer Wahl aus den gezeigten Bildern<br>
+                                • Geben Sie die gewünschten Bildnummern bei der Bestellung an<br><br>
+                                Option B: Überraschungspaket<br>
+                                • 3 zufällig ausgewählte Portraits aus der Serie<br>
+                                • Jedes Bild ist eine Überraschung<br><br>
+                                Für beide Optionen gilt:<br>
+                                • Garantiert hochwertige Portraits<br>
+                                • Sie sparen 12,50 € gegenüber Einzelkauf<br>
+                                • Bitte bei Bestellung "Option A" oder "Option B" angeben
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                3 Portrait Package - Your Choice!<br>
+                                The package includes:<br>
+                                <br>
+                                Option A: Choose yourself<br>
+                                • 3 portraits of your choice from the shown images<br>
+                                • Specify the desired image numbers when ordering<br><br>
+                                Option B: Surprise package<br>
+                                • 3 randomly selected portraits from the series<br>
+                                • Each image is a surprise<br><br>
+                                For both options:<br>
+                                • Guaranteed high-quality portraits<br>
+                                • You save 12.50 € compared to individual purchase<br>
+                                • Please specify "Option A" or "Option B" when ordering
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Verschiedene Auflösungen je nach Bild<br>
+                                • Farbraum: RGB<br>
+                                • Bei Option A: Bitte Bildnummern (MS-P001 bis MS-P006) angeben<br>
+                                • Bei Option B: Überraschungsauswahl aus der Serie
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Various resolutions depending on image<br>
+                                • Color space: RGB<br>
+                                • For Option A: Please specify image numbers (MS-P001 to MS-P006)<br>
+                                • For Option B: Random selection from the series
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P007</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P007</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/70" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produkt 8 (6er Paket) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 2em; color: rgba(255,255,255,0.3); text-transform: uppercase; pointer-events: none; white-space: nowrap; z-index: 1;">
+                        <span class="lang-de">Premium-Paket</span>
+                        <span class="lang-en" style="display: none;">Premium Package</span>
+                    </div>
+                    <img src="images/bild15.jpg" alt="Beispielbild aus der Serie" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="price-tag">150 €</div>
+                </div>
+                <div class="product-info">
+                    <h3>6er Premium-Paket</h3>
+                    <div class="product-details" style="margin: 15px 0;">
+                        <p style="color: #eee; font-size: 1.1em; line-height: 1.6; margin: 0;">
+                            <span class="lang-de">
+                                Das komplette Premium-Paket!<br>
+                                Das Premium-Paket enthält:<br>
+                                • Alle 6 hier gezeigten Portrait-Bilder<br>
+                                • PLUS 3 zusätzliche Überraschungsbilder<br>
+                                • Insgesamt also 9 hochwertige Portraits<br>
+                                • Maximale Vielfalt garantiert<br>
+                                • Beste Qualität<br>
+                                • Sie sparen fast 100 € gegenüber Einzelkauf<br>
+                                • Die 3 Extra-Bilder werden erst nach dem Kauf enthüllt
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                The complete premium package!<br>
+                                The premium package includes:<br>
+                                • All 6 portrait images shown here<br>
+                                • PLUS 3 additional surprise images<br>
+                                • Total of 9 high-quality portraits<br>
+                                • Maximum variety guaranteed<br>
+                                • Best quality<br>
+                                • You save almost 100 € compared to individual purchase<br>
+                                • The 3 extra images will be revealed after purchase
+                            </span>
+                        </p>
+                        <div class="technical-details" style="margin-top: 10px; font-size: 0.9em; color: #888;">
+                            <span class="lang-de">
+                                • Format: JPEG<br>
+                                • Verschiedene Auflösungen je nach Bild<br>
+                                • Farbraum: RGB<br>
+                                • Nach Kauf: Übersicht aller verfügbaren Bilder per E-Mail
+                            </span>
+                            <span class="lang-en" style="display: none;">
+                                • Format: JPEG<br>
+                                • Various resolutions depending on image<br>
+                                • Color space: RGB<br>
+                                • After purchase: Overview of all available images via email
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 10px; border-radius: 8px; margin: 10px 0;">
+                        <p style="color: #d4af37; font-size: 0.9em; margin: 0;">
+                            <span class="lang-de">Bestellnummer: MS-P008</span>
+                            <span class="lang-en" style="display: none;">Order Number: MS-P008</span>
+                        </p>
+                    </div>
+                    <a href="https://www.paypal.me/RamonaSchmidt929/150" target="_blank" class="buy-button">
+                        <span class="lang-de">Jetzt kaufen</span>
+                        <span class="lang-en" style="display: none;">Buy Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hinweis zur Mehrwertsteuer -->
+        <div style="margin: 30px auto 0; max-width: 600px; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 18px 24px; text-align: center; color: #bbb; font-size: 1.05em;">
+            <span class="lang-de">Alle Preise inkl. gesetzlicher MwSt. Die Bilder werden digital per E-Mail geliefert.</span>
+            <span class="lang-en" style="display: none;">All prices include VAT. Images are delivered digitally via email.</span>
+        </div>
+
+        <!-- Zusätzliche Informationen -->
+        <div style="margin-top: 60px; text-align: center; padding: 30px; background: rgba(255,255,255,0.02); border-radius: 15px;">
+            <h3 style="color: #d4af37; margin-bottom: 20px; font-size: 1.6em;">
+                <span class="lang-de">Wichtige Information</span>
+                <span class="lang-en" style="display: none;">Important Information</span>
+            </h3>
+            <p style="color: #eee; max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.1em;">
+                <span class="lang-de">
+                    Bitte geben Sie beim Kauf im PayPal-Kommentar folgende Informationen an:<br>
+                    1. Ihre E-Mail-Adresse<br>
+                    2. Die Bestellnummer des gewünschten Bildes (z.B. MS-P001)<br><br>
+                    Sie erhalten das Bild innerhalb von 24 Stunden per E-Mail. Der Download-Link ist 48 Stunden gültig.
+                </span>
+                <span class="lang-en" style="display: none;">
+                    Please provide the following information in the PayPal comment:<br>
+                    1. Your email address<br>
+                    2. The order number of the desired image (e.g. MS-P001)<br><br>
+                    You will receive the image via email within 24 hours. The download link is valid for 48 hours.
+                </span>
+            </p>
+        </div>
+
+        <!-- Technische Spezifikationen -->
+        <div class="technical-specs" style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+            <h3 style="color: #d4af37; text-align: center; margin-bottom: 20px;">
+                <span class="lang-de">Technische Details & Empfehlungen</span>
+                <span class="lang-en" style="display: none;">Technical Details & Recommendations</span>
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="text-align: center;">
+                    <p style="color: #888; font-size: 0.95em; margin: 0; line-height: 1.7;">
+                        <span class="lang-de">
+                            <b>Empfohlene Formate für verschiedene Zwecke:</b><br><br>
+                            <b>JPEG:</b> Standardformat für Fotos, ideal für Web, Social Media und schnelle Vorschau.<br>
+                            <b>PNG:</b> Geeignet für Bilder mit Transparenz oder Grafiken, weniger für Fotos.<br>
+                            <b>Hohe Auflösung (ab 3000 px):</b> Empfohlen für hochwertige Drucke (Poster, Leinwand).<br>
+                            <b>Mittlere Auflösung (ab 1200 px):</b> Optimal für Social Media, Webseiten, digitale Nutzung.<br><br>
+                            Für Drucke empfehlen wir immer die höchste verfügbare Auflösung.
+                        </span>
+                        <span class="lang-en" style="display: none;">
+                            <b>Recommended formats for different purposes:</b><br><br>
+                            <b>JPEG:</b> Standard format for photos, ideal for web, social media, and quick previews.<br>
+                            <b>PNG:</b> Suitable for images with transparency or graphics, less for photos.<br>
+                            <b>High resolution (from 3000 px):</b> Recommended for high-quality prints (posters, canvas).<br>
+                            <b>Medium resolution (from 1200 px):</b> Optimal for social media, websites, digital use.<br><br>
+                            For prints, we always recommend the highest available resolution.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lieferung & Abwicklung -->
+        <div class="delivery-info" style="margin-top: 40px; text-align: center; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
+            <h4 style="color: #d4af37;">
+                <span class="lang-de">Lieferung & Abwicklung</span>
+                <span class="lang-en" style="display: none;">Delivery & Processing</span>
+            </h4>
+            <p style="color: #eee;">
+                <span class="lang-de">
+                    1. Zahlung über PayPal (bitte E-Mail + Bildnummer angeben)<br>
+                    2. Automatische Zahlungsbestätigung<br>
+                    3. Bildversand innerhalb von 24 Stunden per E-Mail<br>
+                    4. Download-Link gültig für 48 Stunden
+                </span>
+                <span class="lang-en" style="display: none;">
+                    1. Payment via PayPal (please provide email + image number)<br>
+                    2. Automatic payment confirmation<br>
+                    3. Image delivery within 24 hours via email<br>
+                    4. Download link valid for 48 hours
+                </span>
+            </p>
+        </div>
+
+        <!-- Rechtliche Informationen -->
+        <div class="legal-section" style="margin-top: 60px; padding: 30px; background: rgba(255,255,255,0.02); border-radius: 15px;">
+            <h3 style="color: #d4af37;">
+                <span class="lang-de">Rechtliche Informationen</span>
+                <span class="lang-en" style="display: none;">Legal Information</span>
+            </h3>
+            <div class="legal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <!-- Nutzungsbedingungen -->
+                <div class="legal-item">
+                    <h4 style="color: #c0c0c0;">
+                        <span class="lang-de">Nutzungslizenz</span>
+                        <span class="lang-en" style="display: none;">Usage License</span>
+                    </h4>
+                    <p style="color: #bbb;">
+                        <span class="lang-de">
+                            • Nur für private, nicht-kommerzielle Nutzung<br>
+                            • Keine Weitergabe an Dritte<br>
+                            • Keine Bearbeitung oder Veränderung erlaubt<br>
+                            • Urheberrecht verbleibt bei Mona Schmidt
+                        </span>
+                        <span class="lang-en" style="display: none;">
+                            • For private, non-commercial use only<br>
+                            • No distribution to third parties<br>
+                            • No editing or modification allowed<br>
+                            • Copyright remains with Mona Schmidt
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Widerrufsrecht -->
+                <div class="legal-item">
+                    <h4 style="color: #c0c0c0;">
+                        <span class="lang-de">Widerrufsrecht & Download</span>
+                        <span class="lang-en" style="display: none;">Right of Withdrawal & Download</span>
+                    </h4>
+                    <p style="color: #bbb;">
+                        <span class="lang-de">
+                            Wichtiger Hinweis zum Widerrufsrecht:<br>
+                            • Mit dem Start des Downloads erlischt Ihr Widerrufsrecht automatisch<br>
+                            • Bitte stellen Sie sicher, dass Sie das Bild wirklich kaufen möchten, bevor Sie den Download starten<br><br>
+                            
+                            Download-Verfügbarkeit:<br>
+                            • Der Download-Link ist 48 Stunden nach Erhalt gültig<br>
+                            • Bitte sichern Sie das Bild innerhalb dieser Zeit<br>
+                            • Bei technischen Problemen kontaktieren Sie uns bitte umgehend
+                        </span>
+                        <span class="lang-en" style="display: none;">
+                            Important notice regarding right of withdrawal:<br>
+                            • Your right of withdrawal expires automatically when you start the download<br>
+                            • Please make sure you want to purchase the image before starting the download<br><br>
+                            
+                            Download Availability:<br>
+                            • The download link is valid for 48 hours after receipt<br>
+                            • Please save the image within this time<br>
+                            • In case of technical problems, please contact us immediately
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Datenschutz -->
+                <div class="legal-item">
+                    <h4 style="color: #c0c0c0;">
+                        <span class="lang-de">Datenschutz</span>
+                        <span class="lang-en" style="display: none;">Privacy Policy</span>
+                    </h4>
+                    <p style="color: #bbb;">
+                        <span class="lang-de">
+                            Ihre E-Mail wird nur für die Bildübermittlung verwendet und nicht gespeichert.
+                            Die Zahlungsabwicklung erfolgt über PayPal gemäß deren Datenschutzrichtlinien.
+                        </span>
+                        <span class="lang-en" style="display: none;">
+                            Your email will only be used for image delivery and will not be stored.
+                            Payment processing is handled by PayPal according to their privacy policy.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Integration -->
+    <div class="social-share" style="position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;">
+        <a href="https://www.instagram.com/mona_292_/" target="_blank" style="background: linear-gradient(45deg, #d4af37, #c0c0c0); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; text-decoration: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Sprache basierend auf URL-Parameter setzen
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentLang = urlParams.get('lang') || 'de';
+        
+        function updateLanguage() {
+            document.querySelectorAll('.lang-de').forEach(el => {
+                el.style.display = currentLang === 'de' ? 'block' : 'none';
+            });
+            
+            document.querySelectorAll('.lang-en').forEach(el => {
+                el.style.display = currentLang === 'en' ? 'block' : 'none';
+            });
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'de' ? 'en' : 'de';
+            updateLanguage();
+            
+            // URL-Parameter aktualisieren
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', newUrl);
+        }
+
+        // Cookie-Funktionen
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        // Cookie-Banner anzeigen, wenn noch nicht akzeptiert
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+
+        // Ladeanimation
+        window.addEventListener('load', function() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        });
+
+        // Error Handling
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            alert(
+                currentLang === 'de' 
+                    ? 'Es ist ein Fehler aufgetreten. Bitte laden Sie die Seite neu.' 
+                    : 'An error occurred. Please reload the page.'
+            );
+            return false;
+        };
+
+        // Initial language setup
+        updateLanguage();
+
+        // Überprüfe den Login-Status
+        function checkLoginStatus() {
+            const accessGranted = sessionStorage.getItem('shopAccessGranted');
+            const loginTimestamp = sessionStorage.getItem('loginTimestamp');
+            
+            // Überprüfe, ob der Login älter als 10 Minuten ist
+            if (loginTimestamp) {
+                const loginTime = parseInt(loginTimestamp);
+                const currentTime = Date.now();
+                const minutesSinceLogin = (currentTime - loginTime) / (1000 * 60);
+                
+                if (minutesSinceLogin > 10) {
+                    // Login abgelaufen
+                    sessionStorage.removeItem('shopAccessGranted');
+                    sessionStorage.removeItem('loginTimestamp');
+                    window.location.href = 'login.html';
+                    return;
+                }
+            }
+            
+            if (!accessGranted) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Überprüfe den Login-Status beim Laden der Seite
+        window.addEventListener('load', checkLoginStatus);
+    </script>
+</body>
+</html> 
