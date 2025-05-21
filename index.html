@@ -4181,7 +4181,7 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 </script>
 
 <!-- Burger Menu für kleine Bildschirme -->
-<div class="burger-menu-container" style="display: none; position: fixed; top: 70px; left: 20px; z-index: 1001;">
+<div class="burger-menu-container">
   <button onclick="toggleBurgerMenu()" class="burger-button" style="padding: 6px 12px; border-radius: 20px; background: black; color: #d4af37; font-weight: bold; border: 1px solid #d4af37; cursor: pointer; display: flex; align-items: center; gap: 8px;">
     <span class="burger-icon">☰</span>
     <span class="lang-de">Menü</span>
@@ -4200,6 +4200,14 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 
 <style>
 /* Burger Menu Styles */
+.burger-menu-container {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  z-index: 1001;
+}
+
 .burger-button {
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
@@ -4230,15 +4238,22 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 /* Responsive Styles */
 @media (max-width: 705px) {
   .burger-menu-container {
-    display: block !important;
+    display: block;
   }
   
-  nav:not(.top-bar) {
+  nav:not(.top-bar):not(.burger-menu-container) {
     display: none !important;
   }
   
   .burger-menu {
     animation: fadeIn 0.3s ease;
+  }
+
+  /* Überschreibe alle anderen Navigation display:none Regeln */
+  nav.ios-nav,
+  nav.desktop-nav,
+  .mobile-nav {
+    display: none !important;
   }
 }
 
@@ -4257,6 +4272,7 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 @media (max-width: 380px) {
   .burger-menu-container {
     left: 15px;
+    display: block !important;
   }
   
   .burger-button {
