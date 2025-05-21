@@ -4205,7 +4205,7 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
   position: fixed;
   top: 70px;
   left: 20px;
-  z-index: 1001;
+  z-index: 9999;
 }
 
 .burger-button {
@@ -4323,43 +4323,32 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 // Burger Menu Funktionalität
 function toggleBurgerMenu() {
   const menu = document.getElementById('burger-menu');
-  const isVisible = menu.style.display === 'block';
+  const isOpen = menu.style.display === 'block';
   
-  // Menü ein-/ausblenden mit Animation
-  if (!isVisible) {
-    menu.style.display = 'block';
-    menu.style.opacity = '0';
-    menu.style.transform = 'translateY(-10px)';
-    setTimeout(() => {
-      menu.style.opacity = '1';
-      menu.style.transform = 'translateY(0)';
-    }, 10);
-  } else {
-    menu.style.opacity = '0';
-    menu.style.transform = 'translateY(-10px)';
-    setTimeout(() => {
-      menu.style.display = 'none';
-    }, 300);
+  // Toggle Menu
+  menu.style.display = isOpen ? 'none' : 'block';
+  
+  // Animation
+  if (!isOpen) {
+    menu.style.animation = 'fadeIn 0.3s ease forwards';
   }
 }
 
-// Menü schließen wenn außerhalb geklickt wird
+// Schließe Menü beim Klick außerhalb
 document.addEventListener('click', function(event) {
-  const burgerMenu = document.getElementById('burger-menu');
+  const menu = document.getElementById('burger-menu');
   const burgerButton = document.querySelector('.burger-button');
   
-  if (burgerMenu.style.display === 'block' && 
-      !burgerMenu.contains(event.target) && 
-      !burgerButton.contains(event.target)) {
-    toggleBurgerMenu();
+  if (!menu.contains(event.target) && !burgerButton.contains(event.target) && menu.style.display === 'block') {
+    menu.style.display = 'none';
   }
 });
 
-// Menü schließen nach Klick auf einen Link
-document.querySelectorAll('.burger-link').forEach(link => {
-  link.addEventListener('click', () => {
-    toggleBurgerMenu();
-  });
+// iOS Safari Fix
+document.addEventListener('DOMContentLoaded', function() {
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.querySelector('.burger-menu-container').style.display = 'block';
+  }
 });
 </script>
 
