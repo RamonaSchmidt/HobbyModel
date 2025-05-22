@@ -1,0 +1,1536 @@
+/* 
+* Mona Schmidt - Model Portfolio 
+* Sektionen-Stile
+*/
+
+/* ==================
+   1. VERBESSERTE ABSTANDSREGELN
+==================== */
+
+/* Verbesserte Abstandsregeln für alle Sektionen */
+section {
+  margin: 6rem 0;
+  padding: 2rem 0;
+  position: relative;
+}
+
+/* Spezifische Abstandsregel für die erste Sektion (About) nach dem Header */
+#about {
+  margin-top: 8rem;
+  padding-top: 3rem;
+}
+
+/* Verbesserter Abstand zwischen Video-Sektion und Galerie-Sektion */
+#gallery {
+  margin-top: 8rem;
+  padding-top: 2rem;
+}
+
+/* Angepasster Abstand für den Kontaktbereich */
+#contact {
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+/* Verbesserte Abstandsregeln für Spotify-Sektion */
+#spotify {
+  margin: 7rem auto;
+  padding: 2rem 0;
+}
+
+/* Verbesserte Abstände für die Gästebuch-Einträge */
+#guestbook-entries {
+  margin-top: 6rem;
+}
+
+/* Verbesserte Abstandsregeln für die Container in Sektionen */
+.container {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Überschriften mit besserem Abstand nach unten */
+section h2 {
+  margin-bottom: 3rem;
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
+  border-radius: 2px;
+}
+
+/* Linie als visuelle Trennung zwischen Sektionen */
+.section-divider {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
+  margin: 4rem auto;
+  opacity: 0.7;
+}
+
+/* Optimierter Hauptcontainer */
+main {
+  padding: 0 1rem;
+}
+
+/* Responsive Anpassungen für die Abstände */
+@media (max-width: 768px) {
+  section {
+    margin: 4rem 0;
+    padding: 1.5rem 0;
+  }
+  
+  #about {
+    margin-top: 7rem;
+    padding-top: 0;
+  }
+  
+  #gallery {
+    margin-top: 5rem;
+  }
+  
+  #contact {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+  
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  section h2::after {
+    width: 100px;
+    height: 2px;
+  }
+  
+  .section-divider {
+    width: 100px;
+    margin: 3rem auto;
+  }
+  
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  main {
+    padding: 0 0.5rem;
+  }
+  
+  /* Burger-Menü Anpassungen für mobile Geräte */
+  .burger-menu-container {
+    top: 60px;
+  }
+  
+  /* Hero-Bereich */
+  header {
+    background-attachment: fixed !important;
+    min-height: 100vh;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  
+  .gradient-overlay {
+    opacity: 0.8 !important;
+  }
+  
+  .hero-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin-top: 10px;
+  }
+
+  .follow-text {
+    margin-bottom: 10px;
+  }
+
+  .hero-insta {
+    margin-top: 10px;
+  }
+
+  .hero-insta svg {
+    /* !important entfernen, da wir clamp() verwenden */
+  }
+
+  /* Überschriften */
+  section h2 {
+    font-size: 2rem !important;
+    margin-bottom: 20px !important;
+  }
+
+  section p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  /* Galerie */
+  .gallery img {
+    height: 250px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  /* Kontakt & Gästebuch */
+  .contact, .guestbook-form {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+  
+  .kontakt-formular input,
+  .kontakt-formular textarea,
+  .guestbook-form input,
+  .guestbook-form textarea {
+    font-size: 16px !important; /* Verhindert Zoom auf iOS */
+    padding: 10px !important;
+  }
+  
+  .kontakt-formular button,
+  .guestbook-form button {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Spotify Bereich */
+  #spotify {
+    margin: 40px auto !important;
+    padding: 20px 10px !important;
+  }
+  
+  #spotify h2 {
+    font-size: 2rem !important;
+    margin-bottom: 20px !important;
+  }
+  
+  #spotify h2 span {
+    font-size: 1rem !important;
+  }
+  
+  .spotify-container {
+    padding: 0 !important;
+  }
+  
+  .spotify-container iframe {
+    height: 300px !important;
+  }
+  
+  /* Gästebucheinträge */
+  .guestbook-entry {
+    padding: 15px !important;
+    margin: 10px 0 !important;
+  }
+  
+  .guestbook-entry-name {
+    font-size: 1.1rem !important;
+  }
+  
+  .guestbook-entry-message {
+    font-size: 1rem !important;
+  }
+
+  /* Modals */
+  #privacy-modal > div {
+    max-width: 98vw !important;
+    width: 98vw !important;
+    padding: 12px !important;
+    font-size: 15px !important;
+    max-height: 84vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    margin: 3rem 0;
+    padding: 1rem 0;
+  }
+  
+  #about {
+    margin-top: 6rem;
+  }
+  
+  #gallery, #spotify, #contact {
+    margin-top: 4rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  section h2::after {
+    width: 80px;
+  }
+  
+  .section-divider {
+    width: 80px;
+    margin: 2.5rem auto;
+  }
+  
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  /* Burger-Menü Anpassungen für sehr kleine Geräte */
+  .burger-menu-container {
+    top: 55px;
+    left: 10px;
+  }
+  
+  header {
+    background-attachment: fixed !important;
+    background-position: center top;
+    height: 100vh;
+    background-size: cover;
+  }
+
+  .hero-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin-top: 8px;
+  }
+
+  .follow-text {
+    margin-bottom: 8px;
+    white-space: nowrap;
+    font-size: clamp(1rem, 5vw, 1.4rem);
+  }
+
+  .hero-insta {
+    margin-top: 8px;
+  }
+
+  .hero-insta svg {
+    /* !important entfernen, da wir clamp() verwenden */
+  }
+
+  /* Überschriften */
+  section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Galerie */
+  .gallery img {
+    height: 200px;
+  }
+
+  /* Modals und Lightbox */
+  .lightbox span.close {
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+  }
+}
+
+/* Spezielle Anpassungen für Landscape-Modus */
+@media (max-height: 500px) and (orientation: landscape) {
+  #about {
+    margin-top: 5rem;
+  }
+  
+  section {
+    margin: 3rem 0;
+    padding: 1rem 0;
+  }
+  
+  .section-divider {
+    margin: 2rem auto;
+  }
+  
+  /* Angepasstes Burger-Menü für Landscape */
+  .burger-menu-container {
+    top: 50px;
+  }
+}
+
+/* ==================
+   2. HEADER & HERO-BEREICH
+==================== */
+
+/* Header mit Hintergrundbild */
+header {
+  position: relative;
+  height: 100vh;
+  background: rgba(0,0,0,0.2);
+  background-image: url('../images/galerie-bg.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gradient Overlay für alle Geräte */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
+  z-index: 1;
+  background: -webkit-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
+  background: -moz-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
+  background: -o-linear-gradient(135deg, rgba(255,0,150,0.5), rgba(0,204,255,0.5));
+  opacity: 1 !important;
+}
+
+/* Hero-Text */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 0.9rem 0.3rem 0.9rem 0.3rem;
+  max-width: 1080px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.hero-text h1 {
+  font-family: 'AlexBrush', cursive;
+  font-size: clamp(3.2rem, 8vw, 6rem);
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.45), 0 0 10px #d4af37;
+  position: relative;
+  animation: glow 3s ease-in-out infinite alternate;
+  margin: 0 auto 0.7em auto;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  width: 100%;
+}
+
+.hero-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 320px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37 30%, #c0c0c0 70%, transparent);
+  background-size: 200% auto;
+  animation: shimmer 12s infinite ease-in-out;
+  opacity: 0.85;
+}
+
+.hero-text p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  color: #fff;
+  font-weight: 400;
+  margin: 0.7em 0 0.2em 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25), 0 0 6px #d4af37;
+  letter-spacing: 0.03em;
+}
+
+.follow-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  color: #d4af37;
+  margin: 1.2em 0 0.5em 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.hero-insta {
+  margin: 0.5em 0 1.2em 0;
+  padding: clamp(10px, 2vw, 18px) clamp(24px, 3vw, 40px);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  border-radius: 32px;
+  background: rgba(255,255,255,0.09);
+  color: #d4af37;
+  box-shadow: 0 2px 12px rgba(212,175,55,0.13);
+  border: 1.5px solid rgba(212,175,55,0.18);
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.hero-insta:hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(212,175,55,0.18);
+  border-color: #d4af37;
+  transform: translateY(-2px) scale(1.04);
+}
+.hero-insta svg {
+  width: clamp(28px, 4vw, 38px);
+  height: clamp(28px, 4vw, 38px);
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s;
+}
+.hero-insta:hover svg {
+  transform: scale(1.13);
+}
+
+@media (max-width: 600px) {
+  .hero-text {
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+    max-width: 98vw;
+    border-radius: 12px;
+    gap: 1rem;
+  }
+  .hero-text h1 {
+    font-size: clamp(2.1rem, 10vw, 3.2rem);
+    margin-bottom: 0.5em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 98vw;
+    box-sizing: border-box;
+  }
+  .hero-text h1::after {
+    width: 80%;
+    max-width: 180px;
+    height: 2px;
+    bottom: -10px;
+  }
+  .hero-text p {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+  .follow-text {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin: 0.7em 0 0.3em 0;
+  }
+  .hero-insta {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 22px;
+    gap: 0.4em;
+  }
+  .hero-insta svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ==================
+   3. ABOUT-SECTION
+==================== */
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ==================
+   4. GALLERY
+==================== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Extra Bilder-Kästen (7 Kästen), integriert in die Galerie */
+.gallery .extra-box {
+  background: #222;
+  border: 2px dashed #444;
+  border-radius: 10px;
+  height: 300px;
+}
+
+/* ==================
+   5. SPOTIFY-SECTION
+==================== */
+
+.spotify-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+/* ==================
+   6. KONTAKT & GÄSTEBUCH
+==================== */
+
+/* Container für Kontakt und Gästebuch nebeneinander */
+.forms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Kontaktformular und Gästebuch im Grid-Layout für Desktop */
+.contact, .guestbook-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  margin-bottom: 30px;
+}
+
+/* Überschriften in den Formularen */
+.contact h3, .guestbook-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 12s infinite ease-in-out;
+  background-size: 200% auto;
+}
+
+/* Kontaktformular Styling */
+.kontakt-formular {
+  background: rgba(20,20,20,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  padding: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.kontakt-formular input,
+.kontakt-formular textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(212, 175, 55, 0.1) !important;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease !important;
+  margin-bottom: 20px;
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.kontakt-formular input:focus,
+.kontakt-formular textarea:focus {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2) !important;
+  outline: none;
+}
+
+.kontakt-formular label {
+  color: #d4af37;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.kontakt-formular button {
+  background: linear-gradient(45deg, #d4af37, #c0c0c0) !important;
+  color: black;
+  padding: 15px 30px;
+  border: none !important;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.kontakt-formular button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+  background: linear-gradient(45deg, #c0c0c0, #d4af37) !important;
+}
+
+.kontakt-formular input[type="checkbox"] {
+  z-index: 10;
+  pointer-events: auto;
+  position: relative;
+}
+
+.kontakt-formular label[for="datenschutz"],
+.kontakt-formular label[for="guestbook-privacy"] {
+  z-index: 10;
+  pointer-events: auto;
+  position: relative;
+}
+
+.kontakt-formular .error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Datenschutz-Checkbox Styling */
+.kontakt-formular .privacy-container,
+.guestbook-form .privacy-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.kontakt-formular input[type="checkbox"],
+.guestbook-form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.kontakt-formular input[type="checkbox"]:checked,
+.guestbook-form input[type="checkbox"]:checked {
+  background: #d4af37;
+  border-color: #d4af37;
+}
+
+.kontakt-formular input[type="checkbox"]:checked::before,
+.guestbook-form input[type="checkbox"]:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d4af37;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.kontakt-formular input[type="checkbox"]:hover,
+.guestbook-form input[type="checkbox"]:hover {
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.kontakt-formular .privacy-label,
+.guestbook-form .privacy-label {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #fff;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.kontakt-formular .privacy-label a,
+.guestbook-form .privacy-label a {
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.kontakt-formular .privacy-label a:hover,
+.guestbook-form .privacy-label a:hover {
+  color: #c0c0c0;
+  text-decoration: underline;
+}
+
+/* Fehlermeldung für Datenschutz */
+.privacy-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+.privacy-error.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Anpassung für mobile Geräte */
+@media (max-width: 768px) {
+  .forms-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact, .guestbook-form {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Gästebuch Einträge Container */
+#guestbook-entries-section {
+  margin-top: 20px;
+}
+
+/* Erfolgsbenachrichtigungen für Gästebuchformular */
+#guestbook-success {
+  display: none;
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 500px;
+  font-size: 1.2rem;
+}
+
+/* Gästebuch Eintrag Styling verbessert */
+.guestbook-entry {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+  animation: fadeIn 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.guestbook-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.guestbook-entry:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 10px 20px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.guestbook-entry:hover::before {
+  left: 100%;
+}
+
+.guestbook-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.guestbook-entry-name {
+  font-weight: bold;
+  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.guestbook-entry-role {
+  color: #c0c0c0;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+.guestbook-entry-message {
+  color: white;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding: 10px 0;
+}
+
+/* Erfolgsmeldung Styling */
+#success-message, #form-success {
+  display: none;
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 500px;
+  font-size: 1.2rem;
+}
+
+/* ==================
+   7. LIGHTBOX
+==================== */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox span.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
+  object-fit: contain;
+}
+
+/* ==================
+   8. MODALS
+==================== */
+
+/* Gemeinsame Modal-Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #232323;
+  margin: 5% auto;
+  padding: 35px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  border-radius: 20px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.1),
+    0 0 60px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  animation: slideIn 0.4s ease-out;
+  transform-origin: center;
+}
+
+@keyframes slideIn {
+  from { 
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: #232323;
+  padding: 20px 0;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent) 1;
+  margin: -35px -35px 25px -35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-header h2 {
+  background: linear-gradient(45deg, #d4af37, #c0c0c0, #d4af37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  animation: shimmer 12s infinite ease-in-out;
+  background-size: 200% auto;
+  text-align: center;
+  width: 100%;
+  padding: 0 50px;
+}
+
+.modal-body {
+  padding: 20px 0;
+  line-height: 1.8;
+  background: #232323;
+}
+
+.modal-body h3, .modal-body h4 {
+  color: #d4af37;
+  margin: 30px 0 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.modal-body h3::after, .modal-body h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #c0c0c0, #d4af37, transparent);
+  border-radius: 2px;
+}
+
+.modal-body h4 {
+  font-size: 1.3rem;
+}
+
+.modal-body p {
+  margin-bottom: 20px;
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.modal-body ul {
+  margin: 20px 0;
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+.modal-body li {
+  margin-bottom: 12px;
+  color: #e0e0e0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.modal-body li::before {
+  content: '•';
+  color: #d4af37;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+.modal-body a {
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.modal-body a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #d4af37, #c0c0c0);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.modal-body a:hover {
+  color: #c0c0c0;
+}
+
+.modal-body a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  color: #d4af37;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  line-height: 1;
+  z-index: 2;
+}
+
+.close:hover {
+  color: #c0c0c0;
+  transform: rotate(90deg);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Scrollbar Styling */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #232323;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #d4af37, #c0c0c0);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #c0c0c0, #d4af37);
+}
+
+/* Responsive Anpassungen für Modals */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 2% auto;
+    padding: 25px;
+    max-height: 90vh;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.7rem;
+  }
+  
+  .modal-body h3 {
+    font-size: 1.3rem;
+  }
+  
+  .modal-body h4 {
+    font-size: 1.2rem;
+  }
+  
+  .modal-body p, .modal-body li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 98%;
+    margin: 1% auto;
+    padding: 20px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .close {
+    font-size: 28px;
+  }
+}
+
+/* ==================
+   9. FOOTER
+==================== */
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  margin-top: 40px;
+  flex-shrink: 0;
+}
+
+footer a { 
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #d4af37;
+}
+
+/* ==================
+   RESPONSIVE STYLES
+==================== */
+
+/* Landscape Mode */
+@media (orientation: landscape) and (max-width: 1024px) {
+  header {
+    height: 120vh;
+    min-height: 500px; 
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 5rem;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-text p {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .hero-insta {
+    transform: scale(0.85);
+    margin-top: 8px;
+  }
+
+  .follow-text {
+    font-size: 1.4rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+}
+
+/* iOS Spezifische Anpassungen */
+@supports (-webkit-touch-callout: none) {
+  header {
+    background-attachment: scroll;
+    -webkit-background-attachment: scroll;
+  }
+  
+  /* Für iOS-Geräte einen speziellen Trick anwenden, damit der Hintergrund fixiert erscheint */
+  header::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  header {
+    height: auto;
+    min-height: 120vh;
+    background-attachment: fixed !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  .hero-text {
+    margin: 6rem auto;
+    padding: 1rem;
+    width: 90%;
+    max-width: 550px;
+  }
+}
+
+/* Hinweistext unter Instagram-Button */
+.insta-story-hint {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.1rem;
+  color: #d4af37;
+  margin: 1.2em 0 0.5em 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  background: rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 0.4em 1.2em;
+  display: inline-block;
+}
+@media (max-width: 900px) {
+  .insta-story-hint {
+    font-size: 1.3rem;
+    padding: 0.3em 0.7em;
+    margin: 0.7em 0 0.3em 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-text {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  .hero-text h1 {
+    font-size: 5rem;
+  }
+  
+  .hero-text p,
+  .follow-text {
+    font-size: 1.8rem;
+  }
+  
+  .hero-insta {
+    transform: scale(1.3);
+    margin: 2rem 0;
+  }
+
+  .insta-story-hint {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* FAQ Styles */
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.faq-item {
+  margin-bottom: 30px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  color: #d4af37;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.faq-answer {
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.faq-answer ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.faq-answer li {
+  margin-bottom: 5px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  border-radius: 5px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 20px 0;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.close:hover {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 0 auto;
+    max-height: 85vh;
+  }
+}
+
+/* MODAL: Hintergrund überall dunkel */
+.modal-content, .modal-header, .modal-body {
+  background: #232323 !important;
+  background-color: #232323 !important;
+} 

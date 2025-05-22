@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Häufig gestellte Fragen | Mona Schmidt Model</title>
+    <meta name="description" content="Häufig gestellte Fragen zu Shootings, Buchungen und Zusammenarbeit mit Mona Schmidt - Ihrem Fashion & Portrait Model aus Rheinland-Pfalz.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS für Animationen -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Eigene CSS-Dateien -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/sections.css">
+    
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-container h1 {
+            margin-bottom: 40px; /* Zusätzlicher Abstand nach der Überschrift */
+            text-align: center;
+        }
+        .faq-item {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
+        }
+        .faq-question {
+            color: #d4af37;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .faq-answer {
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        .faq-answer ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .faq-answer li {
+            margin-bottom: 5px;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .back-to-home:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Anpassungen */
+        .desktop-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0; /* Erhöhtes Padding */
+        }
+
+        /* Logo Anpassungen */
+        .logo {
+            position: relative;
+            display: block;
+            margin: 80px auto 60px; /* Reduzierter oberer Abstand */
+            z-index: 999;
+            max-width: 150px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* FAQ Container Anpassung */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-container h1 {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 120px;
+                margin: 100px auto 50px;
+            }
+            .faq-container {
+                padding: 15px;
+            }
+            .faq-container h1 {
+                margin-bottom: 30px;
+            }
+            .faq-question {
+                font-size: 1.1em;
+            }
+            .faq-answer {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 100px;
+                margin: 80px auto 40px;
+            }
+            .faq-container {
+                padding: 10px;
+            }
+            .faq-container h1 {
+                margin-bottom: 25px;
+            }
+            .faq-item {
+                padding: 15px;
+            }
+            .faq-question {
+                font-size: 1em;
+            }
+            .faq-answer {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Farbige Top-Leiste -->
+    <div class="colored-top-bar"></div>
+    
+    <!-- Sprachumschalter (Top-Bar) -->
+    <div class="top-bar">
+        <button onclick="toggleLanguage()">DE | EN</button>
+    </div>
+    
+    <!-- Hauptnavigation -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index-new.html#home" class="lang-de">Home</a><a href="index-new.html#home" class="lang-en">Home</a></li>
+            <li><a href="index-new.html#about" class="lang-de">Über Mich</a><a href="index-new.html#about" class="lang-en">About Me</a></li>
+            <li><a href="index-new.html#gallery" class="lang-de">Galerie</a><a href="index-new.html#gallery" class="lang-en">Gallery</a></li>
+            <li><a href="faq.html" class="lang-de">FAQ</a><a href="faq.html" class="lang-en">FAQ</a></li>
+            <li><a href="index-new.html#contact" class="lang-de">Kontakt</a><a href="index-new.html#contact" class="lang-en">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Burger-Menü für mobile Geräte -->
+    <div class="burger-menu-container">
+        <button onclick="toggleBurgerMenu()" class="burger-button">
+            <span class="burger-icon">☰</span>
+            <span class="lang-de">Menü</span>
+            <span class="lang-en">Menu</span>
+        </button>
+        <div id="burger-menu" class="burger-menu">
+            <ul>
+                <li><a href="index-new.html#home" class="lang-de burger-link">Home</a><a href="index-new.html#home" class="lang-en burger-link">Home</a></li>
+                <li><a href="index-new.html#about" class="lang-de burger-link">Über Mich</a><a href="index-new.html#about" class="lang-en burger-link">About Me</a></li>
+                <li><a href="index-new.html#gallery" class="lang-de burger-link">Galerie</a><a href="index-new.html#gallery" class="lang-en burger-link">Gallery</a></li>
+                <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
+                <li><a href="index-new.html#contact" class="lang-de burger-link">Kontakt</a><a href="index-new.html#contact" class="lang-en burger-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Logo -->
+    <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png"/>
+    
+    <!-- FAQ Container -->
+    <div class="faq-container">
+        <h1 class="lang-de">Häufig gestellte Fragen</h1>
+        <h1 class="lang-en" style="display: none;">Frequently Asked Questions</h1>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="faq-question lang-de">Wie buche ich ein Shooting?</div>
+            <div class="faq-question lang-en" style="display: none;">How do I book a shooting?</div>
+            <div class="faq-answer lang-de">
+                Sie können mich über das Kontaktformular auf meiner Website oder direkt per E-Mail kontaktieren. 
+                Bitte teilen Sie mir dabei mit, welche Art von Shooting Sie planen, wann es stattfinden soll und 
+                welche Vorstellungen Sie haben. Ich melde mich dann schnellstmöglich bei Ihnen.
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                You can contact me through the contact form on my website or directly via email. 
+                Please let me know what type of shooting you're planning, when it should take place, 
+                and what your ideas are. I'll get back to you as soon as possible.
+            </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-question lang-de">Welche Arten von Shootings biete ich an?</div>
+            <div class="faq-question lang-en" style="display: none;">What types of shootings do I offer?</div>
+            <div class="faq-answer lang-de">
+                Ich biete verschiedene Arten von Shootings an, darunter:
+                <ul>
+                    <li>Fashion & Portrait</li>
+                    <li>Lifestyle & Beauty</li>
+                    <li>Editorial & Werbung</li>
+                    <li>Fine Art & Street Fashion</li>
+                    <li>Lookbook & Beauty Editorial</li>
+                    <li>Retro & Romantic</li>
+                </ul>
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                I offer various types of shootings, including:
+                <ul>
+                    <li>Fashion & Portrait</li>
+                    <li>Lifestyle & Beauty</li>
+                    <li>Editorial & Advertising</li>
+                    <li>Fine Art & Street Fashion</li>
+                    <li>Lookbook & Beauty Editorial</li>
+                    <li>Retro & Romantic</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-question lang-de">Wie lange dauert ein Shooting?</div>
+            <div class="faq-question lang-en" style="display: none;">How long does a shooting take?</div>
+            <div class="faq-answer lang-de">
+                Die Dauer eines Shootings hängt von der Art und dem Umfang ab. Ein typisches Shooting dauert 
+                zwischen 2-4 Stunden. Für komplexere Projekte oder mehrere Outfits/Locations kann es auch länger dauern. 
+                Die genaue Dauer besprechen wir im Vorfeld.
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                The duration of a shooting depends on the type and scope. A typical shooting takes 
+                between 2-4 hours. For more complex projects or multiple outfits/locations, it may take longer. 
+                We'll discuss the exact duration in advance.
+            </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="faq-question lang-de">Was kostet ein Shooting?</div>
+            <div class="faq-question lang-en" style="display: none;">How much does a shooting cost?</div>
+            <div class="faq-answer lang-de">
+                Die Kosten richten sich nach Art und Umfang des Shootings. Ich erstelle Ihnen gerne ein 
+                individuelles Angebot basierend auf Ihren Wünschen und Anforderungen. Kontaktieren Sie mich 
+                für eine detaillierte Preisübersicht.
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                Costs depend on the type and scope of the shooting. I'm happy to create a custom quote 
+                based on your wishes and requirements. Contact me for a detailed price overview.
+            </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <div class="faq-question lang-de">Wo finden die Shootings statt?</div>
+            <div class="faq-question lang-en" style="display: none;">Where do the shootings take place?</div>
+            <div class="faq-answer lang-de">
+                Ich bin hauptsächlich in Bad Kreuznach, Kaiserslautern und Umgebung tätig. Für Shootings 
+                können wir verschiedene Locations nutzen, sowohl im Studio als auch im Freien. Ich bin auch 
+                für Shootings in anderen Regionen verfügbar, wobei dann zusätzliche Kosten anfallen können.
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                I'm mainly active in Bad Kreuznach, Kaiserslautern and surrounding areas. For shootings, 
+                we can use various locations, both in the studio and outdoors. I'm also available for 
+                shootings in other regions, though additional costs may apply.
+            </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+            <div class="faq-question lang-de">Was muss ich zum Shooting mitbringen?</div>
+            <div class="faq-question lang-en" style="display: none;">What do I need to bring to the shooting?</div>
+            <div class="faq-answer lang-de">
+                <ul>
+                    <li>Ausgewählte Outfits und Accessoires</li>
+                    <li>Grundlegendes Make-up und Pflegeprodukte</li>
+                    <li>Bei Outdoor-Shootings: Wettergerechte Kleidung</li>
+                    <li>Bei längeren Shootings: Snacks und Getränke</li>
+                </ul>
+                Die genauen Details besprechen wir im Vorfeld.
+            </div>
+            <div class="faq-answer lang-en" style="display: none;">
+                <ul>
+                    <li>Selected outfits and accessories</li>
+                    <li>Basic makeup and care products</li>
+                    <li>For outdoor shootings: Weather-appropriate clothing</li>
+                    <li>For longer shootings: Snacks and drinks</li>
+                </ul>
+                We'll discuss the exact details in advance.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© <span id="year">2024</span> Ramona Schmidt. <span class="lang-de">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></p>
+            <p>
+                <a href="#" onclick="document.getElementById('impressum-modal').style.display = 'flex'; return false;" class="lang-de">Impressum</a>
+                <a href="#" onclick="document.getElementById('impressum-modal').style.display = 'flex'; return false;" class="lang-en">Imprint</a>
+                |
+                <a href="#" onclick="document.getElementById('privacy-modal').style.display = 'flex'; return false;" class="lang-de">Datenschutz</a>
+                <a href="#" onclick="document.getElementById('privacy-modal').style.display = 'flex'; return false;" class="lang-en">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript-Dateien -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Aktuelles Jahr per JavaScript einfügen
+        document.getElementById('year').innerText = new Date().getFullYear();
+        
+        // AOS initialisieren
+        AOS.init();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://ramonaschmidt.github.io/HobbyModel/sitemap.xml
+
+# Verhindere Crawling von temporären Dateien
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /private/
+
+# Erlaube Crawling von wichtigen Ressourcen
+Allow: /images/
+Allow: /css/
+Allow: /js/ 

@@ -1,0 +1,117 @@
+/* 
+* Mona Schmidt - Model Portfolio 
+* Hauptstildatei
+* Organisierte und optimierte Version
+*/
+
+/* ==================
+   1. GRUNDLEGENDE EINSTELLUNGEN
+==================== */
+:root{--primary-color:#d4af37;--secondary-color:#c0c0c0;--bg-color:#0e0e0e;--text-color:#f0f0f0}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:'Montserrat',sans-serif;line-height:1.8;background-color:var(--bg-color);color:var(--text-color);opacity:0;transition:opacity 1.5s ease;position:relative;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}body.loaded{opacity:1}a{transition:color .3s ease;text-decoration:none;color:var(--primary-color)}a:hover{color:#fff}h1,h2,h3{background:linear-gradient(45deg,var(--primary-color),var(--secondary-color),var(--primary-color));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:2px 2px 4px rgba(0,0,0,.3);animation:shimmer 12s infinite ease-in-out;background-size:200% auto;position:relative;padding-bottom:10px;display:inline-block;text-align:center;margin:0 auto}@keyframes shimmer{0%{background-position:-100% center}50%{background-position:100% center}100%{background-position:-100% center}}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animationen */
+@keyframes shimmer {
+  0% { background-position: -100% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: -100% center; }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(212, 175, 55, 0.5),
+      0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  to {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(212, 175, 55, 0.6),
+      0 0 25px rgba(212, 175, 55, 0.4),
+      0 0 35px rgba(212, 175, 55, 0.2);
+  }
+}
+
+@keyframes subtleGlow {
+  from {
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 8px rgba(212, 175, 55, 0.4),
+      0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  to {
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(212, 175, 55, 0.5),
+      0 0 20px rgba(212, 175, 55, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Schriftarten */
+@font-face {
+  font-family: 'AlexBrush';
+  src: url('../images/fonts/AlexBrush-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Sprachauswahl */
+.lang-en {
+  display: none;
+}
+
+/* Sprach-Switcher */
+.language-switch {
+  padding-left: 20px;
+  font-weight: bold;
+  color: #d4af37 !important;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Back-to-Top Button */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 16px;
+  padding: 12px 15px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#backToTop:hover { 
+  background-color: #444; 
+}
+
+/* Nicht-kritische CSS - Wird asynchron geladen */
+.hero-text{text-align:center;padding:2rem}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;padding:2rem}.contact-form{max-width:600px;margin:0 auto;padding:2rem} 
