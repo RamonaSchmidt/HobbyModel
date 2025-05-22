@@ -66,6 +66,66 @@
       color: #d4af37;
       font-family: 'Playfair Display', serif;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 2rem;
+      border: 1px solid #d4af37;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      position: relative;
+      color: #fff;
+    }
+
+    .close {
+      color: #d4af37;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .modal-content h3 {
+      color: #d4af37;
+      margin: 1.5rem 0 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .modal-content h4 {
+      color: #fff;
+      margin: 1rem 0;
+    }
+
+    .modal-content p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -144,6 +204,110 @@
     
     // AOS Animationen initialisieren
     AOS.init();
+
+    // Modal Funktionen
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      document.body.style.overflow = "hidden"; // Verhindert Scrollen im Hintergrund
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+      document.body.style.overflow = "auto"; // Erlaubt wieder Scrollen
+    }
+
+    // Schließen der Modal-Fenster beim Klick außerhalb
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Schließen der Modal-Fenster mit ESC-Taste
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        const modals = document.getElementsByClassName('modal');
+        for (let modal of modals) {
+          if (modal.style.display === "block") {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        }
+      }
+    });
   </script>
+
+  <!-- Impressum Modal -->
+  <div id="impressum-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('impressum-modal')">&times;</span>
+      <h2 class="lang-de">Impressum</h2>
+      <h2 class="lang-en">Imprint</h2>
+      <div class="lang-de">
+        <h3>Angaben gemäß § 5 TMG</h3>
+        <p>Ramona Schmidt<br>
+        Musterstraße 123<br>
+        55555 Bad Kreuznach</p>
+        
+        <h3>Kontakt</h3>
+        <p>Telefon: +49 (0) 123 456789<br>
+        E-Mail: info@ramonaschmidt.de</p>
+        
+        <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+        <p>Ramona Schmidt<br>
+        Musterstraße 123<br>
+        55555 Bad Kreuznach</p>
+      </div>
+      <div class="lang-en">
+        <h3>Information according to § 5 TMG</h3>
+        <p>Ramona Schmidt<br>
+        Sample Street 123<br>
+        55555 Bad Kreuznach</p>
+        
+        <h3>Contact</h3>
+        <p>Phone: +49 (0) 123 456789<br>
+        Email: info@ramonaschmidt.de</p>
+        
+        <h3>Responsible for content according to § 55 Abs. 2 RStV</h3>
+        <p>Ramona Schmidt<br>
+        Sample Street 123<br>
+        55555 Bad Kreuznach</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datenschutz Modal -->
+  <div id="privacy-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('privacy-modal')">&times;</span>
+      <h2 class="lang-de">Datenschutzerklärung</h2>
+      <h2 class="lang-en">Privacy Policy</h2>
+      <div class="lang-de">
+        <h3>1. Datenschutz auf einen Blick</h3>
+        <h4>Allgemeine Hinweise</h4>
+        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+        
+        <h4>Datenerfassung auf dieser Website</h4>
+        <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+        
+        <h3>2. Allgemeine Hinweise und Pflichtinformationen</h3>
+        <h4>Datenschutz</h4>
+        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+      </div>
+      <div class="lang-en">
+        <h3>1. Privacy at a Glance</h3>
+        <h4>General Notes</h4>
+        <p>The following notes provide a simple overview of what happens to your personal data when you visit this website.</p>
+        
+        <h4>Data Collection on this Website</h4>
+        <p>The data processing on this website is carried out by the website operator. You can find their contact details in the imprint of this website.</p>
+        
+        <h3>2. General Notes and Mandatory Information</h3>
+        <h4>Privacy</h4>
+        <p>The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html> 
