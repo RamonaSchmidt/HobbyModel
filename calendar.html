@@ -132,9 +132,28 @@
   <!-- Farbige Top-Leiste -->
   <div class="colored-top-bar"></div>
   
-  <!-- Sprachumschalter (Top-Bar) -->
-  <div class="top-bar">
-    <button onclick="toggleLanguage()">DE | EN</button>
+  <!-- Mobile Topbar: Burger + Sprache -->
+  <div class="mobile-topbar">
+    <div class="burger-menu-container">
+      <button onclick="toggleBurgerMenu()" class="burger-button">
+        <span class="burger-icon">☰</span>
+        <span class="lang-de">Menü</span>
+        <span class="lang-en">Menu</span>
+      </button>
+      <div id="burger-menu" class="burger-menu">
+        <ul>
+          <li><a href="index.html#home" class="lang-de burger-link">Home</a><a href="index.html#home" class="lang-en burger-link">Home</a></li>
+          <li><a href="index.html#about" class="lang-de burger-link">Über Mich</a><a href="index.html#about" class="lang-en burger-link">About Me</a></li>
+          <li><a href="index.html#gallery" class="lang-de burger-link">Galerie</a><a href="index.html#gallery" class="lang-en burger-link">Gallery</a></li>
+          <li><a href="calendar.html" class="lang-de burger-link">Kalender</a><a href="calendar.html" class="lang-en burger-link">Calendar</a></li>
+          <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="lang-de burger-link">Kontakt</a><a href="index.html#contact" class="lang-en burger-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="top-bar">
+      <button onclick="toggleLanguage()">DE | EN</button>
+    </div>
   </div>
   
   <!-- Hauptnavigation -->
@@ -148,25 +167,6 @@
       <li><a href="index.html#contact" class="lang-de">Kontakt</a><a href="index.html#contact" class="lang-en">Contact</a></li>
     </ul>
   </nav>
-  
-  <!-- Burger-Menü für mobile Geräte -->
-  <div class="burger-menu-container">
-    <button onclick="toggleBurgerMenu()" class="burger-button">
-      <span class="burger-icon">☰</span>
-      <span class="lang-de">Menü</span>
-      <span class="lang-en">Menu</span>
-    </button>
-    <div id="burger-menu" class="burger-menu">
-      <ul>
-        <li><a href="index.html" class="lang-de burger-link">Home</a><a href="index.html" class="lang-en burger-link">Home</a></li>
-        <li><a href="index.html#about" class="lang-de burger-link">Über Mich</a><a href="index.html#about" class="lang-en burger-link">About Me</a></li>
-        <li><a href="index.html#gallery" class="lang-de burger-link">Galerie</a><a href="index.html#gallery" class="lang-en burger-link">Gallery</a></li>
-        <li><a href="calendar.html" class="lang-de burger-link">Kalender</a><a href="calendar.html" class="lang-en burger-link">Calendar</a></li>
-        <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
-        <li><a href="index.html#contact" class="lang-de burger-link">Kontakt</a><a href="index.html#contact" class="lang-en burger-link">Contact</a></li>
-      </ul>
-    </div>
-  </div>
   
   <!-- Logo -->
   <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png" width="150" height="150" fetchpriority="high"/>
