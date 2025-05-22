@@ -1346,6 +1346,8 @@ footer a:hover {
   header {
     background-attachment: scroll;
     -webkit-background-attachment: scroll;
+    height: 100vh;
+    min-height: -webkit-fill-available;
   }
   
   /* Für iOS-Geräte einen speziellen Trick anwenden, damit der Hintergrund fixiert erscheint */
@@ -1360,6 +1362,79 @@ footer a:hover {
     background-size: cover;
     background-position: center center;
     z-index: -1;
+  }
+
+  /* iOS-spezifische Anpassungen für den Hero-Bereich */
+  .hero-text {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .hero-text p,
+  .follow-text {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .hero-insta {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    margin: 1.5rem 0;
+  }
+
+  .hero-insta svg {
+    width: clamp(32px, 6vw, 42px);
+    height: clamp(32px, 6vw, 42px);
+  }
+
+  /* iOS-spezifische Anpassungen für Überschriften */
+  section h2 {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    -webkit-text-size-adjust: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  section h2::after {
+    width: clamp(80px, 20vw, 150px);
+    height: 2px;
+  }
+
+  /* Verbesserte Touch-Targets für iOS */
+  .hero-insta,
+  .kontakt-formular button,
+  .guestbook-form button {
+    min-height: 44px;
+    padding: 12px 24px;
+  }
+
+  /* Verbesserte Formular-Eingaben für iOS */
+  .kontakt-formular input,
+  .kontakt-formular textarea,
+  .guestbook-form input,
+  .guestbook-form textarea {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+  }
+}
+
+/* Zusätzliche Anpassungen für iOS Safari */
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 
