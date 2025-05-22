@@ -19,20 +19,20 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   
   <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Mona Schmidt - Fashion & Portrait Model | Model Portfolio Bad Kreuznach | Professional Model Rheinland-Pfalz">
-  <meta property="og:description" content="Mona Schmidt - Ihr Fashion & Portrait Model aus Bad Kreuznach. Erfahrenes Model für Fashion, Portrait, Lifestyle, Beauty, Editorial, Werbung, Mode, Kosmetik, Laufsteg, Catwalk, Fotoshooting. Jetzt für Shootings in Bad Kreuznach, Kaiserslautern, Rheinland-Pfalz und Saarland buchen!">
+  <meta property="og:title" content="Portfolio Ramona Schmidt – Hobbymodel">
+  <meta property="og:description" content="Authentisches Hobbymodel aus Leidenschaft – Street, Lifestyle, Fine Art und mehr. Galerie, Kontakt & mehr.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ramonaschmidt.github.io/HobbyModel/">
-  <meta property="og:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild10.jpeg">
+  <meta property="og:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild8.jpg">
   <meta property="og:site_name" content="Mona Schmidt Model Portfolio">
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_US">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mona Schmidt - Fashion & Portrait Model | Professional Model Bad Kreuznach">
-  <meta name="twitter:description" content="Ihr Fashion & Portrait Model aus Bad Kreuznach. Erfahrenes Model für Fashion, Portrait, Lifestyle, Beauty, Editorial, Werbung, Mode, Kosmetik, Laufsteg, Catwalk, Fotoshooting. Jetzt für Shootings buchen!">
-  <meta name="twitter:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild10.jpeg">
+  <meta name="twitter:title" content="Portfolio Ramona Schmidt – Hobbymodel">
+  <meta name="twitter:description" content="Authentisches Hobbymodel aus Leidenschaft – Street, Lifestyle, Fine Art und mehr. Galerie, Kontakt & mehr.">
+  <meta name="twitter:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild8.jpg">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ramonaschmidt.github.io/HobbyModel/">
@@ -121,9 +121,28 @@
     <img id="lightbox-img" src="" alt="Bildvorschau" />
   </div>
   
-  <!-- Sprachumschalter (Top-Bar) -->
-  <div class="top-bar">
-    <button onclick="toggleLanguage()">DE | EN</button>
+  <!-- Mobile Topbar: Burger + Sprache -->
+  <div class="mobile-topbar">
+    <div class="burger-menu-container">
+      <button onclick="toggleBurgerMenu()" class="burger-button">
+        <span class="burger-icon">☰</span>
+        <span class="lang-de">Menü</span>
+        <span class="lang-en">Menu</span>
+      </button>
+      <div id="burger-menu" class="burger-menu">
+        <ul>
+          <li><a href="#home" class="lang-de burger-link">Home</a><a href="#home" class="lang-en burger-link">Home</a></li>
+          <li><a href="#about" class="lang-de burger-link">Über Mich</a><a href="#about" class="lang-en burger-link">About Me</a></li>
+          <li><a href="#gallery" class="lang-de burger-link">Galerie</a><a href="#gallery" class="lang-en burger-link">Gallery</a></li>
+          <li><a href="calendar.html" class="lang-de burger-link">Kalender</a><a href="calendar.html" class="lang-en burger-link">Calendar</a></li>
+          <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
+          <li><a href="#contact" class="lang-de burger-link">Kontakt</a><a href="#contact" class="lang-en burger-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="top-bar">
+      <button onclick="toggleLanguage()">DE | EN</button>
+    </div>
   </div>
   
   <!-- Hauptnavigation -->
@@ -132,28 +151,11 @@
       <li><a href="#home" class="lang-de">Home</a><a href="#home" class="lang-en">Home</a></li>
       <li><a href="#about" class="lang-de">Über Mich</a><a href="#about" class="lang-en">About Me</a></li>
       <li><a href="#gallery" class="lang-de">Galerie</a><a href="#gallery" class="lang-en">Gallery</a></li>
+      <li><a href="calendar.html" class="lang-de">Kalender</a><a href="calendar.html" class="lang-en">Calendar</a></li>
       <li><a href="faq.html" class="lang-de">FAQ</a><a href="faq.html" class="lang-en">FAQ</a></li>
       <li><a href="#contact" class="lang-de">Kontakt</a><a href="#contact" class="lang-en">Contact</a></li>
     </ul>
   </nav>
-  
-  <!-- Burger-Menü für mobile Geräte -->
-  <div class="burger-menu-container">
-    <button onclick="toggleBurgerMenu()" class="burger-button">
-      <span class="burger-icon">☰</span>
-      <span class="lang-de">Menü</span>
-      <span class="lang-en">Menu</span>
-    </button>
-    <div id="burger-menu" class="burger-menu">
-      <ul>
-        <li><a href="#home" class="lang-de burger-link">Home</a><a href="#home" class="lang-en burger-link">Home</a></li>
-        <li><a href="#about" class="lang-de burger-link">Über Mich</a><a href="#about" class="lang-en burger-link">About Me</a></li>
-        <li><a href="#gallery" class="lang-de burger-link">Galerie</a><a href="#gallery" class="lang-en burger-link">Gallery</a></li>
-        <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
-        <li><a href="#contact" class="lang-de burger-link">Kontakt</a><a href="#contact" class="lang-en burger-link">Contact</a></li>
-      </ul>
-    </div>
-  </div>
   
   <!-- Logo -->
   <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png" width="150" height="150" fetchpriority="high"/>
@@ -305,6 +307,11 @@
       <!-- Visuelle Trennung als echter Divider statt CSS-Linie -->
       <div class="section-divider"></div>
     </section>
+    
+    <!-- Button: Hier Terminkalender! über Kontaktsektion -->
+    <div style="text-align:center; margin: 2rem 0;">
+      <a href="calendar.html" class="btn-terminkalender">Hier Terminkalender!</a>
+    </div>
     
     <!-- Kontakt -->
     <section data-aos="fade-up" data-aos-duration="1200" id="contact">
@@ -800,7 +807,13 @@
           <p>The usage rights of the images are determined in an individual agreement. I generally reserve the right to use the images in my portfolio.</p>
           
           <h3>6. Cancellation Conditions</h3>
-          <p>I reserve the right to cancel shootings up to 48 hours before the scheduled date. This applies especially in cases of illness, unforeseen emergencies, weather-related limitations, or technical problems.</p>
+          <p>I reserve the right to cancel shootings up to 48 hours before the scheduled date. This applies especially in cases of:</p>
+          <ul>
+            <li>Illness or health restrictions</li>
+            <li>Unexpected private emergencies</li>
+            <li>Weather-related limitations for outdoor shootings</li>
+            <li>Technical problems or failures</li>
+          </ul>
           
           <h3>7. Data Protection</h3>
           <p>Collection and processing of personal data is carried out in accordance with the Privacy Policy.</p>
@@ -841,8 +854,6 @@
         <div class="lang-en">
           <h3>Cancellation Conditions</h3>
           <p>As a hobby model, I reserve the right to cancel shootings up to 48 hours before the scheduled date. This applies especially in cases of:</p>
-          <h3>Right of Cancellation</h3>
-          <p>As a hobby model, I reserve the right to cancel shootings free of charge up to 48 hours before the scheduled date. This applies especially in cases of:</p>
           <ul>
             <li>Illness or health restrictions</li>
             <li>Unexpected private emergencies</li>
@@ -850,10 +861,10 @@
             <li>Technical problems or failures</li>
           </ul>
           
-          <h3>Cancellation Conditions</h3>
-          <p>For cancellations within 48 hours of the shooting date, I reserve the right to charge a cancellation fee of 50% of the agreed fee. This does not apply in cases of force majeure or unforeseeable circumstances.</p>
+          <h3>Mutual Understanding</h3>
+          <p>Since I am a hobby model, the collaboration is based on mutual understanding and flexibility. Please understand if I have to cancel an appointment and promise maximum reliability in return.</p>
           
-          <h3>Rescheduling</h3>
+          <h3>Alternative Date</h3>
           <p>In case of a cancellation on my part, I will make every effort to offer an alternative date as soon as possible. The scheduling of an alternative date will be arranged by mutual agreement.</p>
         </div>
       </div>

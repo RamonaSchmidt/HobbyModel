@@ -370,6 +370,35 @@ nav {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
   }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 2000;
+    gap: 10px;
+    width: auto;
+    background: none;
+  }
+  .mobile-topbar .burger-menu-container {
+    position: static !important;
+    top: unset !important;
+    left: unset !important;
+    margin: 0;
+    display: block !important;
+  }
+  .mobile-topbar .top-bar {
+    position: static !important;
+    background: rgba(0,0,0,0.5);
+    border-radius: 16px;
+    padding: 4px 10px;
+    margin: 0;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Kleine Mobilgeräte (≤480px) */

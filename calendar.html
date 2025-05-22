@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kalender - Ramona Schmidt</title>
+  
+  <!-- SEO Meta-Tags -->
+  <meta name="description" content="Terminkalender von Ramona Schmidt - Hobbymodel aus Bad Kreuznach. Hier finden Sie alle aktuellen Termine und Shootings.">
+  <meta name="keywords" content="Ramona Schmidt, Kalender, Termine, Shootings, Model Bad Kreuznach">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Kalender - Ramona Schmidt">
+  <meta property="og:description" content="Terminkalender von Ramona Schmidt - Hobbymodel aus Bad Kreuznach. Hier finden Sie alle aktuellen Termine und Shootings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramonaschmidt.github.io/HobbyModel/calendar.html">
+  <meta property="og:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild8.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kalender - Ramona Schmidt">
+  <meta name="twitter:description" content="Terminkalender von Ramona Schmidt - Hobbymodel aus Bad Kreuznach. Hier finden Sie alle aktuellen Termine und Shootings.">
+  <meta name="twitter:image" content="https://ramonaschmidt.github.io/HobbyModel/images/bild8.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- AOS CSS für Animationen -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <!-- Eigene CSS-Dateien -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/sections.css">
+  
+  <!-- Defer nicht-kritische Skripte -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="js/main.js" defer></script>
+  
+  <style>
+    .calendar-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+    }
+    
+    .calendar-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    .calendar-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #d4af37;
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- Farbige Top-Leiste -->
+  <div class="colored-top-bar"></div>
+  
+  <!-- Sprachumschalter (Top-Bar) -->
+  <div class="top-bar">
+    <button onclick="toggleLanguage()">DE | EN</button>
+  </div>
+  
+  <!-- Hauptnavigation -->
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="index.html" class="lang-de">Home</a><a href="index.html" class="lang-en">Home</a></li>
+      <li><a href="index.html#about" class="lang-de">Über Mich</a><a href="index.html#about" class="lang-en">About Me</a></li>
+      <li><a href="index.html#gallery" class="lang-de">Galerie</a><a href="index.html#gallery" class="lang-en">Gallery</a></li>
+      <li><a href="calendar.html" class="lang-de">Kalender</a><a href="calendar.html" class="lang-en">Calendar</a></li>
+      <li><a href="faq.html" class="lang-de">FAQ</a><a href="faq.html" class="lang-en">FAQ</a></li>
+      <li><a href="index.html#contact" class="lang-de">Kontakt</a><a href="index.html#contact" class="lang-en">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Burger-Menü für mobile Geräte -->
+  <div class="burger-menu-container">
+    <button onclick="toggleBurgerMenu()" class="burger-button">
+      <span class="burger-icon">☰</span>
+      <span class="lang-de">Menü</span>
+      <span class="lang-en">Menu</span>
+    </button>
+    <div id="burger-menu" class="burger-menu">
+      <ul>
+        <li><a href="index.html" class="lang-de burger-link">Home</a><a href="index.html" class="lang-en burger-link">Home</a></li>
+        <li><a href="index.html#about" class="lang-de burger-link">Über Mich</a><a href="index.html#about" class="lang-en burger-link">About Me</a></li>
+        <li><a href="index.html#gallery" class="lang-de burger-link">Galerie</a><a href="index.html#gallery" class="lang-en burger-link">Gallery</a></li>
+        <li><a href="calendar.html" class="lang-de burger-link">Kalender</a><a href="calendar.html" class="lang-en burger-link">Calendar</a></li>
+        <li><a href="faq.html" class="lang-de burger-link">FAQ</a><a href="faq.html" class="lang-en burger-link">FAQ</a></li>
+        <li><a href="index.html#contact" class="lang-de burger-link">Kontakt</a><a href="index.html#contact" class="lang-en burger-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Logo -->
+  <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png" width="150" height="150" fetchpriority="high"/>
+  
+  <main>
+    <section data-aos="fade-up" data-aos-duration="1200">
+      <div class="calendar-container">
+        <h2 class="calendar-title lang-de">Mein Terminkalender</h2>
+        <h2 class="calendar-title lang-en">My Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=19392bab262c8bda069ed3140fbde23112b325546511624c3a068c174a824561%40group.calendar.google.com&ctz=UTC" style="border: 0" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year">2024</span> Ramona Schmidt. <span class="lang-de">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></p>
+      <p>
+        <a href="#" onclick="openModal('impressum-modal'); return false;" class="lang-de">Impressum</a>
+        <a href="#" onclick="openModal('impressum-modal'); return false;" class="lang-en">Imprint</a>
+        |
+        <a href="#" onclick="openModal('privacy-modal'); return false;" class="lang-de">Datenschutz</a>
+        <a href="#" onclick="openModal('privacy-modal'); return false;" class="lang-en">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Back-to-Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+  
+  <script>
+    // Aktuelles Jahr einfügen
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // AOS Animationen initialisieren
+    AOS.init();
+  </script>
+</body>
+</html> 

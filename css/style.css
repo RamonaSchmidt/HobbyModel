@@ -338,4 +338,32 @@ a:hover {
     .modal-header h2 {
         font-size: 1.3rem;
     }
+}
+
+.btn-terminkalender {
+  display: inline-block;
+  padding: 1.5rem 3.5rem;
+  background: linear-gradient(45deg, #d4af37, #c0c0c0);
+  color: #222;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.22);
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  border: none;
+  letter-spacing: 1px;
+}
+
+.btn-terminkalender:hover {
+  background: linear-gradient(45deg, #c0c0c0, #d4af37);
+  color: #000;
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.28);
+}
+
+.btn-terminkalender:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
 } 
