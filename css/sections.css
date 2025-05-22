@@ -462,17 +462,19 @@ header {
     height: 100%;
     z-index: 1;
     background: linear-gradient(135deg, 
-      rgba(255,0,150,0.2), 
-      rgba(0,204,255,0.2)
+      rgba(255,0,150,0.15), 
+      rgba(0,204,255,0.15)
     );
     pointer-events: none;
-    opacity: 0.6 !important;
-    mix-blend-mode: overlay;
+    opacity: 0.4 !important;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
   }
 
   .hero-text {
     position: relative;
     z-index: 2;
+    background: rgba(0,0,0,0.15);
   }
 }
 
