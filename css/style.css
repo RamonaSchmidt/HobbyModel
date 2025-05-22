@@ -343,24 +343,26 @@ a:hover {
 .btn-terminkalender {
   display: inline-block;
   padding: 1.5rem 3.5rem;
-  background: linear-gradient(45deg, #d4af37, #c0c0c0);
-  color: #222;
+  background: #d4af37;
+  background: linear-gradient(45deg, #d4af37 80%, #c0c0c0 100%);
+  color: #111 !important;
   text-decoration: none;
   border-radius: 40px;
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: bold;
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.22);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.35);
   transition: all 0.3s cubic-bezier(.4,0,.2,1);
   border: none;
   letter-spacing: 1px;
+  z-index: 1002;
+  position: relative;
 }
 
-.btn-terminkalender:hover {
-  background: linear-gradient(45deg, #c0c0c0, #d4af37);
-  color: #000;
-  transform: translateY(-4px) scale(1.07);
-  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.28);
+.btn-terminkalender:hover, .btn-terminkalender:focus {
+  background: linear-gradient(45deg, #c0c0c0 80%, #d4af37 100%);
+  color: #000 !important;
+  outline: 2px solid #d4af37;
 }
 
 .btn-terminkalender:active {
