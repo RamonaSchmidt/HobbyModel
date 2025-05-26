@@ -1,13 +1,35 @@
+# Globale Regeln für alle Crawler
 User-agent: *
 Allow: /
+
+# Sitemap-Location
 Sitemap: https://ramonaschmidt.github.io/HobbyModel/sitemap.xml
 
-# Verhindere Crawling von temporären Dateien
+# Verhindere Crawling von temporären und privaten Dateien
 Disallow: /temp/
 Disallow: /tmp/
 Disallow: /private/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /*.log$
+Disallow: /*.bak$
+Disallow: /*.swp$
 
 # Erlaube Crawling von wichtigen Ressourcen
 Allow: /images/
 Allow: /css/
-Allow: /js/ 
+Allow: /js/
+Allow: /assets/
+
+# Spezifische Regeln für Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+
+# Crawl-Verzögerung für alle Crawler
+Crawl-delay: 1 
