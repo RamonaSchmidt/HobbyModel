@@ -145,9 +145,38 @@
       line-height: 1.6;
       margin-bottom: 1rem;
     }
+
+    .background-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background-image: url('images/bild5.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 40%;
+      background-attachment: fixed;
+      pointer-events: none;
+    }
+    .gradient-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,0,150,0.3), rgba(0,204,255,0.3));
+      z-index: 1;
+      opacity: 0.8 !important;
+    }
   </style>
 </head>
 <body>
+  <div class="background-header"></div>
+  <div class="gradient-overlay"></div>
+  
   <!-- Farbige Top-Leiste -->
   <div class="colored-top-bar"></div>
   
@@ -187,10 +216,8 @@
     </ul>
   </nav>
   
-  <!-- Logo -->
-  <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png" width="150" height="150" fetchpriority="high"/>
-  
   <main>
+    <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png" width="150" height="150" fetchpriority="high"/>
     <section data-aos="fade-up" data-aos-duration="1200">
       <div class="calendar-container">
         <h2 class="calendar-title lang-de">Mein Terminkalender</h2>
@@ -255,6 +282,8 @@
         }
       }
     });
+
+  
   </script>
 
   <!-- Impressum Modal -->

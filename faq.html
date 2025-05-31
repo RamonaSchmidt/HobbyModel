@@ -80,17 +80,39 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 10;
         }
         .faq-container h1 {
             margin-bottom: 40px; /* Zusätzlicher Abstand nach der Überschrift */
             text-align: center;
+            border-radius: 18px;
+            padding: 18px 0 18px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            color: #ffe08a !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            background-clip: unset !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 18px #d4af37;
+        }
+        .faq-container h1::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            border-radius: 18px;
+            z-index: -1;
         }
         .faq-item {
             margin-bottom: 30px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.7);
+            border-radius: 18px;
+            padding: 24px 24px 18px 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
         }
         .faq-item:hover {
             background: rgba(255,255,255,0.05);
@@ -126,17 +148,6 @@
         .back-to-home:hover {
             background: rgba(212, 175, 55, 0.2);
             transform: translateY(-2px);
-        }
-
-        /* Navigation Anpassungen */
-        .desktop-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 0; /* Erhöhtes Padding */
         }
 
         /* Logo Anpassungen */
@@ -205,9 +216,38 @@
                 font-size: 0.9em;
             }
         }
+
+        .background-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            background-image: url('images/bild5.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 40%;
+            background-attachment: fixed;
+            pointer-events: none;
+        }
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255,0,150,0.3), rgba(0,204,255,0.3));
+            z-index: 1;
+            opacity: 0.8 !important;
+        }
     </style>
 </head>
 <body>
+    <div class="background-header"></div>
+    <div class="gradient-overlay"></div>
+    
     <!-- Farbige Top-Leiste -->
     <div class="colored-top-bar"></div>
     
@@ -248,7 +288,9 @@
     </nav>
     
     <!-- Logo -->
-    <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png"/>
+    <a href="https://instagram.com/mona_292_" target="_blank" title="Instagram">
+      <img alt="Ramona Schmidt Model Logo" class="logo" src="images/logo.png"/>
+    </a>
     
     <!-- FAQ Container -->
     <div class="faq-container">
