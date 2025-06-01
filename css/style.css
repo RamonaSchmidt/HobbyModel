@@ -413,3 +413,19 @@ a:hover {
   transform: scale(1.12) rotate(-8deg);
 }
 
+@media (max-width: 600px) {
+  #video-gallery button {
+    display: none;
+  }
+  #video-gallery {
+    justify-content: center;
+    gap: 0;
+  }
+  .video-gallery-main {
+    max-width: 98vw;
+    max-height: 45vh;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
