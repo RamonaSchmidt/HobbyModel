@@ -370,17 +370,39 @@
         const videoElement = document.getElementById('main-video');
         const prevBtn = document.getElementById('video-prev');
         const nextBtn = document.getElementById('video-next');
-        prevBtn.addEventListener('click', () => {
-          currentVideo = (currentVideo - 1 + videoSources.length) % videoSources.length;
+        function switchVideo(index) {
+          currentVideo = (index + videoSources.length) % videoSources.length;
           videoElement.querySelector('source').src = videoSources[currentVideo];
           videoElement.load();
           videoElement.play();
+        }
+        prevBtn.addEventListener('click', () => {
+          switchVideo(currentVideo - 1);
         });
         nextBtn.addEventListener('click', () => {
-          currentVideo = (currentVideo + 1) % videoSources.length;
-          videoElement.querySelector('source').src = videoSources[currentVideo];
-          videoElement.load();
-          videoElement.play();
+          switchVideo(currentVideo + 1);
+        });
+        // Swipe-Unterstützung für Mobilgeräte
+        let touchStartX = null;
+        videoElement.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+          }
+        });
+        videoElement.addEventListener('touchend', function(e) {
+          if (touchStartX === null) return;
+          const touchEndX = e.changedTouches[0].clientX;
+          const diffX = touchEndX - touchStartX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX < 0) {
+              // Nach links gewischt: nächstes Video
+              switchVideo(currentVideo + 1);
+            } else {
+              // Nach rechts gewischt: vorheriges Video
+              switchVideo(currentVideo - 1);
+            }
+          }
+          touchStartX = null;
         });
       </script>
       <!-- Visuelle Trennung -->
