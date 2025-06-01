@@ -336,9 +336,8 @@
     <section data-aos="fade-up" data-aos-duration="1200" class="container">
       <h2 class="lang-de">Hier ein kleiner Ausschnitt ❤️</h2>
       <h2 class="lang-en">A little preview ❤️</h2>
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <div id="video-gallery" style="display: flex; align-items: center; gap: 2rem;">
-          <button id="video-prev" style="background: none; border: none; font-size: 2.5rem; color: #d4af37; cursor: pointer;">&#8592;</button>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%;">
+        <div class="video-gallery-wrapper">
           <video 
             id="main-video"
             class="video-gallery-main"
@@ -348,7 +347,6 @@
             loop 
             playsinline
             preload="metadata"
-            style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);"
             data-aos="zoom-in" 
             data-aos-duration="1000" 
             data-aos-delay="200"
@@ -357,54 +355,12 @@
             <span class="lang-de">Ihr Browser unterstützt das Video-Element nicht.</span>
             <span class="lang-en">Your browser does not support the video element.</span>
           </video>
-          <button id="video-next" style="background: none; border: none; font-size: 2.5rem; color: #d4af37; cursor: pointer;">&#8594;</button>
+        </div>
+        <div class="video-arrows-under">
+          <button id="video-prev" aria-label="Vorheriges Video">&#8592;</button>
+          <button id="video-next" aria-label="Nächstes Video">&#8594;</button>
         </div>
       </div>
-      <script>
-        const videoSources = [
-          'assets/WhatsApp Video 2025-04-15 at 13.02.48.mp4',
-          'assets/video2.mp4',
-          'assets/video3.mp4'
-        ];
-        let currentVideo = 0;
-        const videoElement = document.getElementById('main-video');
-        const prevBtn = document.getElementById('video-prev');
-        const nextBtn = document.getElementById('video-next');
-        function switchVideo(index) {
-          currentVideo = (index + videoSources.length) % videoSources.length;
-          videoElement.querySelector('source').src = videoSources[currentVideo];
-          videoElement.load();
-          videoElement.play();
-        }
-        prevBtn.addEventListener('click', () => {
-          switchVideo(currentVideo - 1);
-        });
-        nextBtn.addEventListener('click', () => {
-          switchVideo(currentVideo + 1);
-        });
-        // Swipe-Unterstützung für Mobilgeräte
-        let touchStartX = null;
-        videoElement.addEventListener('touchstart', function(e) {
-          if (e.touches.length === 1) {
-            touchStartX = e.touches[0].clientX;
-          }
-        });
-        videoElement.addEventListener('touchend', function(e) {
-          if (touchStartX === null) return;
-          const touchEndX = e.changedTouches[0].clientX;
-          const diffX = touchEndX - touchStartX;
-          if (Math.abs(diffX) > 50) {
-            if (diffX < 0) {
-              // Nach links gewischt: nächstes Video
-              switchVideo(currentVideo + 1);
-            } else {
-              // Nach rechts gewischt: vorheriges Video
-              switchVideo(currentVideo - 1);
-            }
-          }
-          touchStartX = null;
-        });
-      </script>
       <!-- Visuelle Trennung -->
       <div class="section-divider"></div>
     </section>
@@ -1128,6 +1084,75 @@
 
     // Initialisierung der AOS Animationen
     AOS.init();
+  </script>
+
+  <script>
+    const videoSources = [
+      'assets/WhatsApp Video 2025-04-15 at 13.02.48.mp4',
+      'assets/video2.mp4',
+      'assets/video3.mp4',
+      'assets/video4.mp4',
+      'assets/video5.mp4'
+    ];
+    let currentVideo = 0;
+    const videoElement = document.getElementById('main-video');
+    const prevBtn = document.getElementById('video-prev');
+    const nextBtn = document.getElementById('video-next');
+    function switchVideo(index) {
+      currentVideo = (index + videoSources.length) % videoSources.length;
+      videoElement.querySelector('source').src = videoSources[currentVideo];
+      videoElement.load();
+      // Entferne die video-small-Logik, alle Videos sollen object-fit: cover nutzen
+      const wrapper = document.querySelector('.video-gallery-wrapper');
+      const smallVideos = [
+        'assets/video2.mp4',
+        'assets/video3.mp4'
+      ];
+      if (smallVideos.includes(videoSources[currentVideo])) {
+        wrapper.classList.remove('aspect-16-9');
+        wrapper.classList.add('aspect-9-16');
+      } else {
+        wrapper.classList.remove('aspect-9-16');
+        wrapper.classList.add('aspect-16-9');
+      }
+      videoElement.classList.remove('video-small');
+      videoElement.play();
+    }
+    prevBtn.addEventListener('click', () => {
+      switchVideo(currentVideo - 1);
+    });
+    nextBtn.addEventListener('click', () => {
+      switchVideo(currentVideo + 1);
+    });
+    // Swipe-Unterstützung für Mobilgeräte
+    let touchStartX = null;
+    videoElement.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+      }
+    });
+    videoElement.addEventListener('touchend', function(e) {
+      if (touchStartX === null) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0) {
+          // Nach links gewischt: nächstes Video
+          switchVideo(currentVideo + 1);
+        } else {
+          // Nach rechts gewischt: vorheriges Video
+          switchVideo(currentVideo - 1);
+        }
+      }
+      touchStartX = null;
+    });
+  </script>
+  // Nach dem Laden der Seite: Standard-Format setzen
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const wrapper = document.querySelector('.video-gallery-wrapper');
+      wrapper.classList.add('aspect-16-9');
+    });
   </script>
 </body>
 </html> 
