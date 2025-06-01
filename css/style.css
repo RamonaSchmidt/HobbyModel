@@ -475,7 +475,7 @@ a:hover {
     width: 100%;
     max-width: 400px;
     min-width: 180px;
-    max-height: 60vh;
+    max-height: 80vh;
     min-height: 220px;
     aspect-ratio: 9/16;
     margin: 0 auto;
