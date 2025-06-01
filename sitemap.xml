@@ -5,26 +5,30 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://ramonaschmidt.github.io/HobbyModel/</loc>
-    <lastmod>2025-05-26</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ramonaschmidt.github.io/HobbyModel/index.html</loc>
-    <lastmod>2025-05-26</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ramonaschmidt.github.io/HobbyModel/calendar.html</loc>
-    <lastmod>2025-05-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/faq.html</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ramonaschmidt.github.io/HobbyModel/faq.html</loc>
-    <lastmod>2025-05-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/calendar.html</loc>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/assets/WhatsApp%20Video%202025-04-15%20at%2013.02.48.mp4</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/assets/video2.mp4</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/assets/video3.mp4</loc>
+    <priority>0.6</priority>
   </url>
 </urlset> 
