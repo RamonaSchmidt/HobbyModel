@@ -337,23 +337,52 @@
       <h2 class="lang-de">Hier ein kleiner Ausschnitt ❤️</h2>
       <h2 class="lang-en">A little preview ❤️</h2>
       <div style="display: flex; justify-content: center; align-items: center;">
-        <video 
-          controls 
-          autoplay 
-          muted 
-          loop 
-          playsinline
-          preload="metadata"
-          style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);"
-          data-aos="zoom-in" 
-          data-aos-duration="1000" 
-          data-aos-delay="200"
-        >
-          <source src="https://ramonaschmidt.github.io/HobbyModel/assets/WhatsApp%20Video%202025-04-15%20at%2013.02.48.mp4" type="video/mp4">
-          <span class="lang-de">Ihr Browser unterstützt das Video-Element nicht.</span>
-          <span class="lang-en">Your browser does not support the video element.</span>
-        </video>
+        <div id="video-gallery" style="display: flex; align-items: center; gap: 2rem;">
+          <button id="video-prev" style="background: none; border: none; font-size: 2.5rem; color: #d4af37; cursor: pointer;">&#8592;</button>
+          <video 
+            id="main-video"
+            class="video-gallery-main"
+            controls 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="metadata"
+            style="max-width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);"
+            data-aos="zoom-in" 
+            data-aos-duration="1000" 
+            data-aos-delay="200"
+          >
+            <source src="assets/WhatsApp Video 2025-04-15 at 13.02.48.mp4" type="video/mp4">
+            <span class="lang-de">Ihr Browser unterstützt das Video-Element nicht.</span>
+            <span class="lang-en">Your browser does not support the video element.</span>
+          </video>
+          <button id="video-next" style="background: none; border: none; font-size: 2.5rem; color: #d4af37; cursor: pointer;">&#8594;</button>
+        </div>
       </div>
+      <script>
+        const videoSources = [
+          'assets/WhatsApp Video 2025-04-15 at 13.02.48.mp4',
+          'assets/video2.mp4',
+          'assets/video3.mp4'
+        ];
+        let currentVideo = 0;
+        const videoElement = document.getElementById('main-video');
+        const prevBtn = document.getElementById('video-prev');
+        const nextBtn = document.getElementById('video-next');
+        prevBtn.addEventListener('click', () => {
+          currentVideo = (currentVideo - 1 + videoSources.length) % videoSources.length;
+          videoElement.querySelector('source').src = videoSources[currentVideo];
+          videoElement.load();
+          videoElement.play();
+        });
+        nextBtn.addEventListener('click', () => {
+          currentVideo = (currentVideo + 1) % videoSources.length;
+          videoElement.querySelector('source').src = videoSources[currentVideo];
+          videoElement.load();
+          videoElement.play();
+        });
+      </script>
       <!-- Visuelle Trennung -->
       <div class="section-divider"></div>
     </section>
