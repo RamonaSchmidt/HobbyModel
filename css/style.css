@@ -369,35 +369,35 @@ a:hover {
 /* Media Query für Tablets */
 @media screen and (max-width: 768px) {
   .btn-terminkalender {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
-    letter-spacing: 0.5px;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.8rem;
+    border-radius: 30px;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.3);
+    letter-spacing: 0.8px;
   }
 }
 
 /* Media Query für Smartphones */
 @media screen and (max-width: 480px) {
   .btn-terminkalender {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
-    letter-spacing: 0.3px;
-    max-width: 200px;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+    letter-spacing: 0.6px;
+    max-width: 300px;
   }
 }
 
 /* Media Query für sehr kleine Smartphones */
 @media screen and (max-width: 360px) {
   .btn-terminkalender {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.15);
-    letter-spacing: 0.2px;
-    max-width: 160px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.2);
+    letter-spacing: 0.4px;
+    max-width: 280px;
   }
 }
 
