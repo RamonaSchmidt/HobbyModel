@@ -374,54 +374,39 @@ a:hover {
 /* Media Query für Tablets */
 @media screen and (max-width: 768px) {
   .btn-terminkalender {
-    padding: 2.4rem 4.8rem;
-    font-size: 1.6rem;
-    border-radius: 40px;
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.35);
-    letter-spacing: 0.8px;
-    max-width: 400px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-    padding-left: 1.5rem;
-    padding-right: 2rem;
+    width: 100%;
+    max-width: 95vw;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.3rem;
+    box-sizing: border-box;
   }
 }
 
 /* Media Query für Smartphones */
 @media screen and (max-width: 480px) {
   .btn-terminkalender {
-    padding: 1.6rem 3.2rem;
-    font-size: 1.4rem;
-    border-radius: 35px;
-    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.3);
-    letter-spacing: 0.6px;
-    max-width: 350px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-    padding-left: 1rem;
-    padding-right: 1.5rem;
+    width: 100%;
+    max-width: 98vw;
+    margin: 0;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    font-size: 1.1rem;
+    box-sizing: border-box;
   }
 }
 
 /* Media Query für sehr kleine Smartphones */
 @media screen and (max-width: 360px) {
   .btn-terminkalender {
-    padding: 1.2rem 2.4rem;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
-    letter-spacing: 0.4px;
-    max-width: 320px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-    padding-left: 0.8rem;
-    padding-right: 1.2rem;
+    width: 100%;
+    max-width: 99vw;
+    margin: 0;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    font-size: 1rem;
+    box-sizing: border-box;
   }
 }
 
