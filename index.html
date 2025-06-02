@@ -575,6 +575,8 @@
         |
         <a href="#" onclick="openModal('guestbook-terms-modal'); return false;" class="lang-de">Gästebuch</a>
         <a href="#" onclick="openModal('guestbook-terms-modal'); return false;" class="lang-en">Guestbook</a>
+        |
+        <a href="#" onclick="openCookieModal(); return false;">Cookie-Einstellungen</a>
       </p>
     </div>
   </footer>
@@ -1137,6 +1139,51 @@
       }
       touchStartX = null;
     });
+  </script>
+
+  <!-- Cookie-/Drittanbieter-Modal -->
+  <div id="cookie-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Cookie- und Drittanbieter-Hinweis</h2>
+        <span class="close" onclick="closeCookieModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Diese Website verwendet Cookies und Dienste von Drittanbietern (z.B. Google Fonts, AOS Animationen), um das Nutzererlebnis zu verbessern. Sie können der Nutzung zustimmen oder sie ablehnen. Ihre Auswahl können Sie jederzeit über den Link im Footer ändern.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+          <button onclick="acceptCookies()" style="background: linear-gradient(45deg, #d4af37, #c0c0c0); color: black; padding: 12px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Akzeptieren</button>
+          <button onclick="declineCookies()" style="background: #444; color: #fff; padding: 12px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Ablehnen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ... existing code ...
+  // Cookie-/Drittanbieter-Modal Logik
+  function openCookieModal() {
+    document.getElementById('cookie-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCookieModal() {
+    document.getElementById('cookie-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    closeCookieModal();
+  }
+  function declineCookies() {
+    localStorage.setItem('cookieConsent', 'declined');
+    closeCookieModal();
+  }
+  // Beim ersten Laden anzeigen, wenn noch keine Auswahl getroffen wurde
+  window.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('cookieConsent')) {
+      openCookieModal();
+    }
+  });
+  // ... existing code ...
   </script>
 </body>
 </html> 
