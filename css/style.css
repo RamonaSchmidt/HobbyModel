@@ -341,7 +341,9 @@ a:hover {
 }
 
 .btn-terminkalender {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.5rem 3.5rem;
   background: linear-gradient(45deg, #d4af37 80%, #c0c0c0 100%);
   color: #111 !important;
@@ -360,6 +362,7 @@ a:hover {
   white-space: nowrap;
   text-align: center;
   line-height: 1.2;
+  margin: 0 auto;
 }
 
 .btn-terminkalender:hover, .btn-terminkalender:focus {
@@ -377,6 +380,9 @@ a:hover {
     box-shadow: 0 8px 32px rgba(212, 175, 55, 0.35);
     letter-spacing: 0.8px;
     max-width: 400px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -389,6 +395,9 @@ a:hover {
     box-shadow: 0 6px 24px rgba(212, 175, 55, 0.3);
     letter-spacing: 0.6px;
     max-width: 350px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -401,6 +410,9 @@ a:hover {
     box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
     letter-spacing: 0.4px;
     max-width: 320px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
