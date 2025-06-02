@@ -377,7 +377,7 @@ a:hover {
     width: 100%;
     max-width: 95vw;
     margin: 0;
-    padding-left: 1rem;
+    padding-left: 0.2rem;
     padding-right: 1rem;
     font-size: 1.3rem;
     box-sizing: border-box;
@@ -390,7 +390,7 @@ a:hover {
     width: 100%;
     max-width: 98vw;
     margin: 0;
-    padding-left: 0.7rem;
+    padding-left: 0.1rem;
     padding-right: 0.7rem;
     font-size: 1.1rem;
     box-sizing: border-box;
@@ -403,7 +403,7 @@ a:hover {
     width: 100%;
     max-width: 99vw;
     margin: 0;
-    padding-left: 0.4rem;
+    padding-left: 0rem;
     padding-right: 0.4rem;
     font-size: 1rem;
     box-sizing: border-box;
