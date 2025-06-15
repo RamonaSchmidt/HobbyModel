@@ -49,6 +49,24 @@
             .no-print {
                 display: none;
             }
+            body {
+                background: #232323 !important;
+            }
+            main {
+                background: url('images/portfolio/bild24.jpeg') center center/cover no-repeat !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                box-shadow: none !important;
+            }
+            .bg-white\/10, .bg-white\/70, .bg-white\/90 {
+                background: rgba(0,0,0,0.7) !important;
+            }
+            .shadow-lg {
+                box-shadow: none !important;
+            }
+            .lightbox-overlay {
+                display: none !important;
+            }
         }
         .setcard-white-text *:not(.contact-social-link):not(.contact-social-link *):not(.text-text) {
             color: #fff !important;
@@ -223,15 +241,14 @@
 
     <script>
         function generatePDF() {
-            const element = document.body;
+            const element = document.querySelector('main');
             const opt = {
-                margin: 1,
-                filename: 'ramona-schmidt-setcard.pdf',
+                margin: 0,
+                filename: 'ramona-schmidt-sedcard.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
+                html2canvas: { scale: 2, backgroundColor: null },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
-
             html2pdf().set(opt).from(element).save();
         }
 
