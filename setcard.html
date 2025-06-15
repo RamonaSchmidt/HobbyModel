@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramona Schmidt - Model Setcard | Fashion & Portrait Model</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Ramona Schmidt - Professionelles Model aus Idar-Oberstein. Spezialisiert auf Fashion, Portrait, Lifestyle, Beauty & Fine Art Fotografie.">
+    <meta name="keywords" content="Ramona Schmidt, Mona Schmidt, Model Idar-Oberstein, Fashion Model, Portrait Model, Lifestyle Model, Beauty Model, Fine Art Model">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffa500',
+                        text: '#232323',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <style>
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+        .setcard-white-text *:not(.contact-social-link):not(.contact-social-link *):not(.text-text) {
+            color: #fff !important;
+        }
+        .contact-social-link, .contact-social-link * {
+            color: #232323 !important;
+            fill: #232323 !important;
+            stroke: #232323 !important;
+        }
+    </style>
+    <style>
+        .lightbox-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+        }
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 51;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body class="bg-white text-text min-h-screen" style="position:relative;">
+    <div style="position:fixed; inset:0; z-index:-1;">
+        <img src="images/portfolio/bild24.jpeg" alt="Setcard Hintergrund" style="width:100vw; height:100vh; object-fit:cover; filter:brightness(0.35) blur(2px);" />
+    </div>
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-4xl font-bold" style="color:#fff;">Ramona Schmidt</h1>
+            <button onclick="generatePDF()" class="no-print bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-colors">
+                PDF Export
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 setcard-white-text">
+        <!-- Personal Info Card -->
+        <div class="bg-white/10 rounded-3xl shadow-lg p-8 mb-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Personal Details -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-semibold mb-4">Persönliche Daten</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-600">Alter</p>
+                            <p class="font-medium">32 Jahre</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Größe</p>
+                            <p class="font-medium">1,57 m</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Gewicht</p>
+                            <p class="font-medium">61 kg</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Augenfarbe</p>
+                            <p class="font-medium">Grün</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Haarfarbe</p>
+                            <p class="font-medium">Schwarz</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Wohnort</p>
+                            <p class="font-medium">Rheinland-Pfalz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model Info -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-semibold mb-4">Model-Fakten</h2>
+                    <div>
+                        <p class="text-gray-600">Model seit</p>
+                        <p class="font-medium">2021</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-600">Shootingbereiche</p>
+                        <p class="font-medium">Studio, Outdoor, Dessous, Teilakt, Fashion, Streetart</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-600">Besonderheiten</p>
+                        <ul class="list-disc list-inside font-medium">
+                            <li>Kleinere Tattoos</li>
+                            <li>Bauchnabelpiercing</li>
+                            <li>Nasenpiercing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="bg-white/10 rounded-3xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Portfolio</h2>
+            <div class="gallery-grid">
+                <div class="hover-scale">
+                    <img src="images/portfolio/bild20.jpg" alt="Ramona Schmidt - Fashion Model" class="w-full h-auto rounded-2xl object-cover aspect-[3/4] cursor-pointer" onclick="openLightbox('images/portfolio/bild20.jpg')">
+                </div>
+                <div class="hover-scale">
+                    <img src="images/portfolio/bild21.jpg" alt="Ramona Schmidt - Portrait Model" class="w-full h-auto rounded-2xl object-cover aspect-[3/4] cursor-pointer" onclick="openLightbox('images/portfolio/bild21.jpg')">
+                </div>
+                <div class="hover-scale">
+                    <img src="images/portfolio/bild22.jpg" alt="Ramona Schmidt - Lifestyle Model" class="w-full h-auto rounded-2xl object-cover aspect-[3/4] cursor-pointer" onclick="openLightbox('images/portfolio/bild22.jpg')">
+                </div>
+                <div class="hover-scale">
+                    <img src="images/portfolio/bild23.jpg" alt="Ramona Schmidt - Beauty Model" class="w-full h-auto rounded-2xl object-cover aspect-[3/4] cursor-pointer" onclick="openLightbox('images/portfolio/bild23.jpg')">
+                </div>
+            </div>
+            <!-- Lightbox Popup -->
+            <div id="lightbox" style="display:none;" class="lightbox-overlay" onclick="closeLightbox(event)">
+                <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+                <img id="lightbox-img" src="" alt="Großansicht" class="lightbox-img" />
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="bg-white/90 rounded-3xl shadow-lg p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-text">Kontakt & Socials</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="mailto:hobbymodel292@gmail.com" class="flex items-center space-x-2 text-text hover:opacity-80 transition-opacity contact-social-link">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>hobbymodel292@gmail.com</span>
+                </a>
+                <a href="https://ramonaschmidt.github.io/HobbyModel/" target="_blank" class="flex items-center space-x-2 text-text hover:opacity-80 transition-opacity contact-social-link">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                    </svg>
+                    <span>ramonaschmidt.github.io/HobbyModel</span>
+                </a>
+                <a href="https://instagram.com/mona_292_" target="_blank" class="flex items-center space-x-2 text-text hover:opacity-80 transition-opacity contact-social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>@mona_292_</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function generatePDF() {
+            const element = document.body;
+            const opt = {
+                margin: 1,
+                filename: 'ramona-schmidt-setcard.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Lightbox Funktionen
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(e) {
+            if (!e || e.target === e.currentTarget || e.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').style.display = 'none';
+                document.getElementById('lightbox-img').src = '';
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html> 
