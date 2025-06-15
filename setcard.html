@@ -115,6 +115,15 @@
             background: rgba(0,0,0,0.6);
         }
     </style>
+    <style>
+        @media (max-width: 640px) {
+            header .no-print {
+                width: 100% !important;
+                margin-top: 1rem !important;
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body class="bg-white text-text min-h-screen" style="position:relative;">
     <div style="position:fixed; inset:0; z-index:-1;">
@@ -122,14 +131,16 @@
     </div>
     <!-- Header -->
     <header class="container mx-auto px-4 py-8">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center gap-4">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
                 <h1 class="text-4xl font-bold" style="color:#fff;">Ramona Schmidt</h1>
                 <img src="images/logo2.jpeg" alt="Logo" style="height:120px; width:auto; display:inline-block; background:#fff; border-radius:1.5rem; padding:0.4rem;" class="shadow" />
             </div>
-            <button onclick="generatePDF()" class="no-print bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-colors">
-                PDF Export
-            </button>
+            <div class="flex justify-center sm:justify-end">
+                <button onclick="generatePDF()" class="no-print bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-colors w-full sm:w-auto mt-2 sm:mt-0">
+                    PDF Export
+                </button>
+            </div>
         </div>
     </header>
 
