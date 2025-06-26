@@ -634,6 +634,66 @@ a:hover {
   min-height: 400px;
 }
 
+/* Social Buttons Schickes Design */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 4px 24px rgba(212,175,55,0.10), 0 1.5px 8px rgba(0,0,0,0.10);
+  border: 2px solid rgba(255,255,255,0.25);
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s, border-color 0.18s, background 0.18s;
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+}
+.social-btn svg, .social-btn span {
+  pointer-events: none;
+  text-shadow: 0 1px 6px #000, 0 0 6px #ffd700cc;
+  filter: drop-shadow(0 1px 2px #00000055);
+  font-size: 2rem !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+.social-btn:hover, .social-btn:focus {
+  transform: scale(1.13) translateY(-2px);
+  box-shadow: 0 6px 32px 0 #ffd70099, 0 2px 12px rgba(0,0,0,0.13);
+  border-color: #fffbe6;
+  background: transparent;
+  outline: none;
+}
+.social-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px 0 #d4af37cc;
+}
+.social-btn[title]:hover::after, .social-btn[title]:focus::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -2.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(34,34,34,0.97);
+  color: #ffd700;
+  font-size: 0.95rem;
+  padding: 4px 14px;
+  border-radius: 1em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: opacity 0.18s;
+}
+.social-btn[title]::after {
+  content: '';
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s;
+}
+
 
 
 
