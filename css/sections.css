@@ -53,7 +53,7 @@ section {
 /* Überschriften mit besserem Abstand nach unten */
 section h2 {
   margin-bottom: 3rem;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-family: 'Playfair Display', serif;
   color: #fff;
   text-align: center;
@@ -190,10 +190,7 @@ main {
     padding: 0 10px;
   }
 
-  /* Galerie */
-  .gallery img {
-    height: 250px;
-  }
+  /* Galerie - Entfernt, da jetzt in .gallery definiert */
 
   /* Footer */
   footer {
@@ -357,10 +354,7 @@ main {
     margin-bottom: 15px !important;
   }
 
-  /* Galerie */
-  .gallery img {
-    height: 200px;
-  }
+  /* Galerie - Entfernt, da jetzt in .gallery definiert */
 
   /* Modals und Lightbox */
   .lightbox span.close {
@@ -640,13 +634,46 @@ header {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   padding: 0 20px;
+}
+
+/* Desktop: 4 Spalten */
+@media (min-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Laptop: 3 Spalten */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Tablet: 2 Spalten */
+@media (min-width: 600px) and (max-width: 899px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Mobile: 1 Spalte */
+@media (max-width: 599px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 15px;
+  }
 }
 
 .gallery img {
@@ -660,10 +687,67 @@ header {
   cursor: pointer;
 }
 
+/* Desktop: Größere Bilder */
+@media (min-width: 1200px) {
+  .gallery img {
+    height: 380px;
+  }
+}
+
+/* Laptop: Mittlere Bilder */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gallery img {
+    height: 320px;
+  }
+}
+
+/* Tablet: Kleinere Bilder */
+@media (min-width: 600px) and (max-width: 899px) {
+  .gallery img {
+    height: 280px;
+  }
+}
+
+/* Mobile: Kompakte Bilder */
+@media (max-width: 599px) {
+  .gallery img {
+    height: 250px;
+    border-radius: 12px;
+  }
+}
+
 .gallery img:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
   filter: brightness(1.1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Verhindere Hover-Effekte während AOS-Animationen */
+.gallery img[data-aos] {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery img[data-aos].aos-animate:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Optimiere AOS-Animationen */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Verhindere Layout-Shifts während Animationen */
+.image-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 /* Extra Bilder-Kästen (7 Kästen), integriert in die Galerie */

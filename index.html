@@ -348,28 +348,28 @@
       <h2 class="lang-de">Galerie</h2>
       <h2 class="lang-en">Gallery</h2>
       <div class="gallery">
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="0">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="0">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 2" loading="lazy" src="images/Galerie (2).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="100">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="100">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 5" loading="lazy" src="images/Galerie (5).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="200">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="200">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 1" loading="lazy" src="images/Galerie (1).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="300">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="300">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 7" loading="lazy" src="images/Galerie (7).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="400">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="400">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 3" loading="lazy" src="images/Galerie (3).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="500">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="500">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 8" loading="lazy" src="images/Galerie (8).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="600">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="600">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 4" loading="lazy" src="images/Galerie (4).webp" width="300" height="400"/>
         </div>
-        <div class="image-wrapper" data-aos="zoom-in" data-aos-delay="700">
+        <div class="image-wrapper" data-aos="fade-up" data-aos-delay="700">
           <img alt="Mona Schmidt - Fashion Model Portfolio Bild 6" loading="lazy" src="images/Galerie (6).webp" width="300" height="400"/>
         </div>
       </div>
@@ -1062,8 +1062,18 @@
       }
     }
 
-    // Initialisierung der AOS Animationen
-    AOS.init();
+    // Initialisierung der AOS Animationen mit optimierten Einstellungen
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100,
+      delay: 0,
+      anchorPlacement: 'top-bottom',
+      disable: function() {
+        return window.innerWidth < 768;
+      }
+    });
   </script>
 
   <script>
