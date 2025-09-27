@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Hauptseite mit Galerie-Bildern -->
+  <url>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/</loc>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (1).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 1</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (2).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 2</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (3).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 3</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (4).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 4</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (5).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 5</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (6).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 6</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (7).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 7</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/Galerie (8).webp</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio Bild 8</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt aus Idar-Oberstein</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/hintergrundbild.webp</image:loc>
+      <image:title>Mona Schmidt - Model Hintergrundbild</image:title>
+      <image:caption>Professionelles Model Hintergrundbild von Mona Schmidt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/logo2.jpeg</image:loc>
+      <image:title>Mona Schmidt Model Logo</image:title>
+      <image:caption>Logo von Mona Schmidt - Fashion & Portrait Model</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Setcard-Seite mit Portfolio-Bildern -->
+  <url>
+    <loc>https://ramonaschmidt.github.io/HobbyModel/setcard.html</loc>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/portfolio/bild20.jpg</image:loc>
+      <image:title>Mona Schmidt - Fashion Model Portfolio</image:title>
+      <image:caption>Professionelles Fashion Model Portfolio von Mona Schmidt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/portfolio/bild21.jpg</image:loc>
+      <image:title>Mona Schmidt - Portrait Model Portfolio</image:title>
+      <image:caption>Professionelles Portrait Model Portfolio von Mona Schmidt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/portfolio/bild22.jpg</image:loc>
+      <image:title>Mona Schmidt - Lifestyle Model Portfolio</image:title>
+      <image:caption>Professionelles Lifestyle Model Portfolio von Mona Schmidt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/portfolio/bild23.jpg</image:loc>
+      <image:title>Mona Schmidt - Beauty Model Portfolio</image:title>
+      <image:caption>Professionelles Beauty Model Portfolio von Mona Schmidt</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ramonaschmidt.github.io/HobbyModel/images/portfolio/bild24.jpeg</image:loc>
+      <image:title>Mona Schmidt - Setcard Hintergrund</image:title>
+      <image:caption>Professionelles Setcard Hintergrundbild von Mona Schmidt</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>
