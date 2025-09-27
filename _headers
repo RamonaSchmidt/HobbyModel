@@ -1,0 +1,20 @@
+# Sicherheits-Header für GitHub Pages
+# Diese Datei wird automatisch von GitHub Pages verarbeitet
+
+# HTTPS erzwingen
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Content Security Policy
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://open.spotify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https://submit-form.com; frame-src https://open.spotify.com;"
+
+# Schutz vor Clickjacking
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# Cache-Control für sensible Inhalte
+Header always set Cache-Control "no-cache, no-store, must-revalidate"
+Header always set Pragma "no-cache"
+Header always set Expires "0"
